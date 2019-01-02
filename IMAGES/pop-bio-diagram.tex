@@ -1,0 +1,80 @@
+\documentclass[12pt,aspectratio=169]{beamer} %wide format
+%\documentclass[12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+
+%remove navigation symbols
+\beamertemplatenavigationsymbolsempty
+%\setbeamertemplate{footline}[frame number]
+%\setbeamertemplate{footline}[text line]{%
+%  \parbox{\linewidth}{\vspace*{-8pt}\hfill\insertauthor\hspace{0.5cm}\insertframenumber}}
+%  \parbox{\linewidth}{\vspace*{-8pt}\hfill\insertauthor}}
+
+%beamer theme
+\usetheme{default}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
+\setbeamercolor{frametitle}{fg=DarkBlue,bg=white}
+
+%font and math support
+\usepackage{mathptmx} %Times new roman with math support
+\usepackage{amsmath,amssymb}
+\usepackage{bigints}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\usepackage[normalem]{ulem} %strikethrough text
+
+%tikz
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+%images
+\usepackage{graphicx} 
+
+%colors
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{DarkGreen}{rgb}{0.1,0.5,0.1}
+\definecolor{DarkBlue}{rgb}{0.1,0.1,0.5}
+
+\begin{document}
+
+\begin{frame}[fragile]
+\begin{center}
+
+\begin{tikzpicture}[overlay, remember picture]
+
+	\coordinate (A) at (0,2);
+	\coordinate (B) at (-4,-3);
+	\coordinate (C) at (4,-3);
+
+	\draw[very thick] (A) -- (B);
+	\draw[very thick] (B) -- (C);
+	\draw[very thick] (C) -- (A);
+
+	\node[draw, rectangle, thick, rounded corners, fill=blue!20, rotate = 0] at (A) {
+		\textcolor{black}{\large \textbf{adaptation}}
+	};
+	
+	\node[draw, rectangle, thick, rounded corners, fill=red!20, rotate = -30] at (B) {
+		\textcolor{black}{\large \textbf{demography}}
+	};
+	
+	\node[draw, rectangle, thick, rounded corners, fill=DarkGreen!20, rotate = 30] at (C) {
+		\textcolor{black}{\large \textbf{genetics}}
+	};
+	
+	\draw[fill=orange, opacity=0.1] (A.center) -- (B.center) -- (C.center) -- (A.center);
+
+	\node[xshift = 0cm, yshift = -1.25cm] {
+		\large \textbf{population biology}
+	};		
+
+\end{tikzpicture}
+
+\end{center}
+\end{frame}
+
+\end{document}

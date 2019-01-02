@@ -1,0 +1,33 @@
+\begin{center}
+
+\begin{tikzpicture}[overlay, remember picture]
+
+	\coordinate (A) at (0,2);
+	\coordinate (B) at (-4,-3);
+	\coordinate (C) at (4,-3);
+
+	\draw[very thick] (A) -- (B);
+	\draw[very thick] (B) -- (C);
+	\draw[very thick] (C) -- (A);
+
+	\node[draw, rectangle, thick, rounded corners, fill=blue!20, rotate = 0] at (A) {
+		\textcolor{black}{\large \textbf{adaptation}}
+	};
+
+	\node[draw, rectangle, thick, rounded corners, fill=red!20, rotate = -30] at (B) {
+		\textcolor{black}{\large \textbf{demography}}
+	};
+
+	\node[draw, rectangle, thick, rounded corners, fill=DarkGreen!20, rotate = 30] at (C) {
+		\textcolor{black}{\large \textbf{genetics}}
+	};
+
+	\draw[fill=orange, opacity=0.1] (A.center) -- (B.center) -- (C.center) -- (A.center);
+
+	\node[xshift = 0cm, yshift = -1.25cm] {
+		\large \textbf{population biology}
+	};
+
+\end{tikzpicture}
+
+\end{center}
