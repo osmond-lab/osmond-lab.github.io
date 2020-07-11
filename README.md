@@ -1,2 +1,2 @@
-# mmosmond.github.io
-My website
+# mmosmond-lab.github.io
+Lab website
