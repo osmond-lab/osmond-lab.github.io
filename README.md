@@ -1,2 +1,2 @@
-# mmosmond-lab.github.io
+# osmond-lab.github.io
 Lab website
