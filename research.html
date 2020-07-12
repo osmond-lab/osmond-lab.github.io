@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>Matthew Miles Osmond</title>
+<title>mmosmond lab</title>
 <link href="IMAGES/favicon.ico" rel="icon" type="image/x-icon" />
 <script
     src="https://code.jquery.com/jquery-3.3.1.js"
@@ -23,14 +23,51 @@ $(function(){
 
 <div style="overflow: auto; vertical-align: middle;">
 
-<img style="margin-right: 10px; float: left;" src="IMAGES/popbio.png" width="50%" alt="popbio!">
+<img style="margin-right: 10px; float: left;" src="IMAGES/popbio.png" width="33%" alt="popbio!">
 
 <p>
 <i><b>RESEARCH INTERESTS</b></i>
-I am a population biologist using mathematics to investigate how ecological and genetic factors influence the evolutionary process, and <i>vice versa</i>.
-My primary interests are <i><b>evolutionary rescue</b></i>, the effects of <b><i>genetic backgrounds and linkage</b></i>, and <b><i>metabolic scaling theory</b></i>.
-I am currently getting acquainted with the pop-gen inference game.
-For more info, please see <a href="./publications.html">publications</a>.
+We use mathematics to investigate ecological and evolutionary processes, typically at the population level.
+The main focus so far has been <b>evolutionary rescue</b>, where a declining population is "rescued" from extinction by sufficiently rapid evolution. 
+One of the great things about theory is that we get to work on many interesting topics, which have included <b>speciation</b>, <b>sex chromosomes</b>, <b>metabolic scaling theory</b>, <b>epistasis</b>, and <b>sexual selection</b>. 
+For a list of papers, please see <a href="./publications.html">publications</a>.
+</p>
+
+</div>
+
+
+<p>
+<i><b>Evolutionary rescue</b></i>
+<br>
+When populations are declining due to environmental change, it is sometimes possible for sufficiently fast evolution to revert this decline and "rescue" populations from extinction. This process is especially important in the context of human disturbance and climate change (where we want rescue to happen) and the evolution of drug resistance (where we don't want rescue to happen). Our work has so far focused on three areas:
+</p>
+
+<div style="overflow: auto; vertical-align: middle;">
+
+<img style="margin-right: 10px; float: left;" src="IMAGES/henriquesPhasePlane.png" width="33%" alt="Phase plane by Gil Henriques, showing that cooperation can help rescue!">
+
+<p>
+<b>1.</b> <i>Species interactions</i>: Interactions between species affect both demography and evolution, and therefore can have important impacts on whether rescue occurs or not. Using mathematical models we have explored how competition (Osmond & de Mazancourt 2013), predation (Osmond, Otto, Klausmeier 2018), and cooperation (Henriques & Osmond 2020) affect rescue. In all three cases there are scenarios where the species interaction can either help or hinder rescue from occurring.
+</p>
+
+</div>
+
+<div style="overflow: auto; vertical-align: middle;">
+
+<img style="margin-right: 10px; float: left;" src="IMAGES/tipping-point.png" width="25%" alt="an evolutionary tipping point!">
+
+<p>
+<b>2.</b> <i>Fitness functions</i>: An important assumption in many mathematical models of evolution is how the trait value of an individual translates to fitness (we call this translation a "fitness function"). Nearly all models of rescue (and beyond) assume fitness functions are Gaussian (i.e., like a normal distribution). In Osmond & Klausmeier 2018 (and reviewed in Klausmeier et al 2020) we have shown that even small changes to this ubiquitous assumption can lead to very different predictions for rescue: sometimes populations can become so maladapted that selection actually begins to decline, causing adaptation to slow down, which leads to a tipping point where seemingly OK populations suddenly go extinct. It might be fun to <a href="https://mmosmond.shinyapps.io/criticalsplines/">see what real fitness functions look like...</a>
+</p>
+
+</div>
+
+<div style="overflow: auto; vertical-align: middle;">
+
+<img style="margin-right: 10px; float: left;" src="IMAGES/rescue-diversity.png" width="33%" alt="pairwise diversity after sweep or rescue!">
+
+<p>
+<b>3.</b> <i>Genetics</i>: Most models of rescue focus on predicting whether rescue will occur or not. We have extended this theoretical work by asking, given rescue occurs, i) how many mutations of what size are expected to have occured? (Osmond, Otto, Martin 2020) and ii) can we infer that rescue has occured from contemporary genomic data (Osmond & Coop 2020).  
 </p>
 
 </div>
