@@ -1,2 +1,2 @@
 # osmond-lab.github.io
-Lab website
+Lab website for the Osmond lab at the University of Toronto
