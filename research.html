@@ -19,58 +19,83 @@ $(function(){
 
 <body>
 
-<div id="header"></div>
-
-<div style="overflow: auto; vertical-align: middle;">
-
-<img style="margin-right: 10px; float: left;" src="IMAGES/popbio.png" width="33%" alt="popbio!">
-
 <p>
-<i><b>RESEARCH INTERESTS</b></i>
-We use mathematics to investigate ecological and evolutionary processes, typically at the population level.
-The main focus so far has been <b>evolutionary rescue</b>, where a declining population is "rescued" from extinction by sufficiently rapid evolution. 
-One of the great things about theory is that we get to work on many interesting topics, which have included <b>speciation</b>, <b>sex chromosomes</b>, <b>metabolic scaling theory</b>, <b>epistasis</b>, and <b>sexual selection</b>. 
-For a list of papers, please see <a href="./publications.html">publications</a>.
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 75%;">
+    </colgroup>
+   <tr>
+      <td style="text-align:center;">
+         <img src="IMAGES/popbio.png" width="100%" alt="popbio!">
+      </td>
+      <td>
+         <i><b>RESEARCH INTERESTS</b></i>
+         We use mathematics to investigate ecological and evolutionary processes, typically at the population level.
+         The main focus so far has been <b>evolutionary rescue</b>, where a declining population is "rescued" from extinction by sufficiently rapid evolution. 
+         One of the great things about theory is that we get to work on many interesting topics, which have included <b>speciation</b>, <b>sex chromosomes</b>, <b>metabolic scaling theory</b>, <b>epistasis</b>, and <b>sexual selection</b>. 
+         For a list of papers, please see <a href="./publications.html">publications</a>.
+      </td>
+   </tr>
+</table>
 </p>
 
-</div>
-
+<h1 style="font-size:60px;"><center>Evolutionary Rescue</center></h1> 
 
 <p>
-<i><b>Evolutionary rescue</b></i>
-<br>
 When populations are declining due to environmental change, it is sometimes possible for sufficiently fast evolution to revert this decline and "rescue" populations from extinction. This process is especially important in the context of human disturbance and <b>climate change</b> (where we want rescue to happen) and the evolution of <b>drug resistance</b> (where we don't want rescue to happen). Our work has so far focused on three areas:
 </p>
 
-<div style="overflow: auto; vertical-align: middle;">
-
-<img style="margin-right: 10px; float: left;" src="IMAGES/henriquesPhasePlane.png" width="33%" alt="Phase plane by Gil Henriques, showing that cooperation can help rescue!">
-
 <p>
-<b>1. <i>Species interactions</i></b>: Interactions between species affect both demography and evolution, and therefore can have important impacts on whether rescue occurs or not. Using mathematical models we have explored how <b>competition</b> (Osmond & de Mazancourt 2013), <b>predation</b> (Osmond, Otto, Klausmeier 2018), and <b>cooperation</b> (Henriques & Osmond 2020) affect rescue. In all three cases there are scenarios where the species interaction can either help or hinder rescue from occurring.
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 75%;">
+    </colgroup>
+   <tr>
+      <td style="text-align:center;">
+         <img src="IMAGES/henriquesPhasePlane.png" width="100%" alt="Phase plane by Gil Henriques, showing that cooperation can help rescue!">
+      </td>
+      <td>
+         <b>1. <i>Species interactions</i></b>: Interactions between species affect both demography and evolution, and therefore can have important impacts on whether rescue occurs or not. Using mathematical models we have explored how <b>competition</b> (Osmond & de Mazancourt 2013), <b>predation</b> (Osmond, Otto, Klausmeier 2018), and <b>cooperation</b> (Henriques & Osmond 2020) affect rescue. In all three cases there are scenarios where the species interaction can either help or hinder rescue from occurring.
+      </td>
+   </tr>
+</table>
 </p>
 
-</div>
-
-<div style="overflow: auto; vertical-align: middle;">
-
-<img style="margin-right: 10px; float: left;" src="IMAGES/tipping-point.png" width="25%" alt="an evolutionary tipping point!">
-
 <p>
-<b>2. <i>Fitness functions</i></b>: An important assumption in many mathematical models of evolution is how the trait value of an individual translates to fitness (we call this translation a "fitness function"). Nearly all models of rescue (and beyond) assume fitness functions are Gaussian (i.e., like a normal distribution). In Osmond & Klausmeier 2018 (and reviewed in Klausmeier et al 2020) we have shown that even small changes to this ubiquitous assumption can lead to very different predictions for rescue: in gradually chaning environments sometimes populations can become so maladapted that the strength of selection actually begins to decline, causing adaptation to slow down, which leads to a <b>tipping point</b> where seemingly OK populations suddenly go extinct. It might next be fun to <a href="https://mmosmond.shinyapps.io/criticalsplines/">predict if real fitness functions lead to tipping points...</a>
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 75%;">
+    </colgroup>
+   <tr>
+      <td style="text-align:center;">
+         <img src="IMAGES/tipping-point.png" width="100%" alt="an evolutionary tipping point!">
+      </td>
+      <td>
+         <b>2. <i>Fitness functions</i></b>: An important assumption in many mathematical models of evolution is how the trait value of an individual translates to fitness (we call this translation a "fitness function"). Nearly all models of rescue (and beyond) assume fitness functions are Gaussian (i.e., like a normal distribution). In Osmond & Klausmeier 2018 (and reviewed in Klausmeier et al 2020) we have shown that even small changes to this ubiquitous assumption can lead to very different predictions for rescue: in gradually chaning environments sometimes populations can become so maladapted that the strength of selection actually begins to decline, causing adaptation to slow down, which leads to a <b>tipping point</b> where seemingly OK populations suddenly go extinct. It might next be fun to <a href="https://mmosmond.shinyapps.io/criticalsplines/">predict if real fitness functions lead to tipping points...</a>
+      </td>
+   </tr>
+</table>
 </p>
 
-</div>
-
-<div style="overflow: auto; vertical-align: middle;">
-
-<img style="margin-right: 10px; float: left;" src="IMAGES/rescue-diversity.png" width="33%" alt="pairwise diversity after sweep or rescue!">
-
 <p>
-<b>3. <i>Genetics</i></b>: Most models of rescue focus on predicting whether rescue will occur or not. We have extended this theoretical work by asking, given rescue occurs, i) how many <b>mutations</b> of what size are expected to have occured? (Osmond, Otto, Martin 2020) and ii) can we <b>infer</b> that rescue has occured from contemporary genomic data (Osmond & Coop 2020).  
+<table style="width: 100%">
+    <colgroup>
+       <col span="1" style="width: 25%;">
+       <col span="1" style="width: 75%;">
+    </colgroup>
+   <tr>
+      <td style="text-align:center;">
+         <img src="IMAGES/rescue-diversity.png" width="100%" alt="pairwise diversity after sweep or rescue!">
+      </td>
+      <td>
+         <b>3. <i>Genetics</i></b>: Most models of rescue focus on predicting whether rescue will occur or not. We have extended this theoretical work by asking, given rescue occurs, i) how many <b>mutations</b> of what size are expected to have occured? (Osmond, Otto, Martin 2020) and ii) can we <b>infer</b> that rescue has occured from contemporary genomic data (Osmond & Coop 2020).  
+      </td>
+   </tr>
+</table>
 </p>
-
-</div>
 
 </body>
 
