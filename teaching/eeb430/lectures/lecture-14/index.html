@@ -1,0 +1,967 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../images/favicon_non_transparent.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Lecture 14 - EEB430 Modelling in Ecology and Evolution</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-14-general-solutions-multivariate" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EEB430 Modelling in Ecology and Evolution" class="md-header__button md-logo" aria-label="EEB430 Modelling in Ecology and Evolution" data-md-component="logo">
+      
+  <img src="../../images/favicon_non_transparent.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EEB430 Modelling in Ecology and Evolution
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 14
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../syllabus/general_info/" class="md-tabs__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../schedule/" class="md-tabs__link">
+        Lectures
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../labs/schedule/" class="md-tabs__link">
+        Labs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acknowledgements/" class="md-tabs__link">
+      Acknowledgements
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EEB430 Modelling in Ecology and Evolution" class="md-nav__button md-logo" aria-label="EEB430 Modelling in Ecology and Evolution" data-md-component="logo">
+      
+  <img src="../../images/favicon_non_transparent.svg" alt="logo">
+
+    </a>
+    EEB430 Modelling in Ecology and Evolution
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Syllabus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Syllabus" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Syllabus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/general_info/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/course_structure/" class="md-nav__link">
+        Course structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/when_and_where/" class="md-nav__link">
+        When and where
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/assignments/" class="md-nav__link">
+        Weekly Assignments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/final_project/" class="md-nav__link">
+        Final Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/instructors/" class="md-nav__link">
+        Instructors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/resources/" class="md-nav__link">
+        Other resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Lectures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lectures" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lectures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-1/" class="md-nav__link">
+        Lecture 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Labs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-overview" class="md-nav__link">
+    Lecture overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-linear-multivariate-models" class="md-nav__link">
+    1. Linear multivariate models
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Linear multivariate models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrete-time" class="md-nav__link">
+    Discrete time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continuous-time" class="md-nav__link">
+    Continuous time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-summary" class="md-nav__link">
+    2. Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "tomouellette/executable-cells",
+      ref: "main",
+      binderUrl: "https://gke.mybinder.org",
+      },
+  }
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+
+<h1 id="lecture-14-general-solutions-multivariate">Lecture 14: General solutions (multivariate)</h1>
+<hr style="margin-bottom: 0em;">
+<p><center></p>
+<div class="inrow">
+    Run notes interactively?
+    <div style="float: left;" class="thebe-activate"></div>
+    <div class="thebe-status"></div>
+</div>
+<p></center></p>
+<hr style="margin-top: 0em;">
+
+<p>
+<img src='https://img.shields.io/badge/lecture-slides-blue?style=flat-square'>
+<img src='https://img.shields.io/badge/google-colab-fcad2e?style=flat-square&logo=GoogleColab'>
+</p>
+
+<hr>
+
+<h2 id="lecture-overview">Lecture overview</h2>
+<ol>
+<li><a href="#section1">Linear multivariate models</a></li>
+<li><a href="#section2">Summary</a></li>
+</ol>
+<p><span id='section1'></span></p>
+<h2 id="1-linear-multivariate-models">1. Linear multivariate models</h2>
+<hr>
+
+<h3 id="discrete-time">Discrete time</h3>
+<p>Let's investigate the dynamics of a linear system of equations in more than one variable in discrete time.</p>
+<p>If there are <span class="arithmatex">\(n\)</span> variables, then there will be <span class="arithmatex">\(n\)</span> equations:</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+  x_1(t+1) &amp;=&amp; m_{11} x_1(t) + m_{12} x_2(t) + \cdots + m_{1n} x_n(t) \\
+  x_2(t+1) &amp;=&amp; m_{21} x_1(t) + m_{22} x_2(t) + \cdots + m_{2n} x_n(t) \\
+       &amp;\vdots&amp; \\
+  x_n(t+1) &amp;=&amp; m_{n1} x_1(t) + m_{n2} x_2(t) + \cdots + m_{nn} x_n(t)
+\end{eqnarray*}
+\]</div>
+<p><em>e.g.,</em> in a predator-prey model <span class="arithmatex">\(n=2\)</span> because we track both the number of predators and the number of prey.</p>
+<p>Because the equations are linear, we can also write these equations in matrix form:</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+  x_1(t+1) &amp;=&amp; m_{11} x_1(t) + m_{12} x_2(t) + \cdots + m_{1n} x_n(t) \\
+  x_2(t+1) &amp;=&amp; m_{21} x_1(t) + m_{22} x_2(t) + \cdots + m_{2n} x_n(t) \\
+       &amp;\vdots&amp; \\
+  x_n(t+1) &amp;=&amp; m_{n1} x_1(t) + m_{n2} x_2(t) + \cdots + m_{nn} x_n(t)
+\end{eqnarray*}
+\]</div>
+<p>becomes</p>
+<div class="arithmatex">\[
+\begin{eqnarray*}
+\left( 
+\begin{array}{c} x_1(t+1) \\ x_2(t+1) \\ \vdots \\ x_n(t+1) \end{array}
+\right) = 
+\left( \begin{array}{cccc}
+         m_{11} &amp; m_{12} &amp; \cdots &amp; m_{1n} \\ 
+         m_{21} &amp; m_{22} &amp; \cdots &amp; m_{2n}\\
+         \vdots &amp; \vdots &amp; &amp; \vdots\\
+         m_{n1} &amp; m_{n2} &amp; \cdots &amp; m_{nn} 
+       \end{array} \right)
+\left( \begin{array}{c} 
+         x_1(t) \\ x_2(t) \\ \vdots \\ x_n(t) 
+       \end{array}
+\right)
+\end{eqnarray*}
+\]</div>
+<p>which becomes </p>
+<div class="arithmatex">\[
+\vec{x}(t+1) = \mathbf{M} \vec{x}(t)
+\]</div>
+<p>To find out where the population will be at some generation <span class="arithmatex">\(t\)</span>
+we can use the equation <span class="arithmatex">\(\vec{x}(t+1) = \mathbf{M} \vec{x}(t)\)</span> over and over again:</p>
+<div class="arithmatex">\[
+\begin{aligned} 
+\vec{x}(t) &amp;= \mathbf{M}\vec{x}(t-1)\\ 
+&amp;= \mathbf{M}^2\vec{x}(t-2)\\
+&amp; \vdots \\
+&amp;= \mathbf{M}^t\vec{x}(0) 
+\end{aligned}
+\]</div>
+<p>In most cases, it will be hard to find out what <span class="arithmatex">\(\mathbf{M}^t\)</span> equals directly but we can use what we know about eigenvalues and eigenvectors to help.</p>
+<blockquote>
+<p>Remember the equation for the eigenvalues and right eigenvectors</p>
+</blockquote>
+<div class="arithmatex">\[
+\mathbf{M} \vec{v} = \lambda \vec{v}
+\]</div>
+<p>For our <span class="arithmatex">\(n\)</span>-dimensional model, there will be <span class="arithmatex">\(n\)</span> eigenvalues and eigenvectors that
+satisfy this equation (provided <span class="arithmatex">\(\mathbf{M}\)</span> is not defective).</p>
+<p>We can write all <span class="arithmatex">\(n\)</span> of these equations in matrix form</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathbf{M} \begin{pmatrix} \vec{v}_1 &amp; \vec{v}_2 &amp; \cdots &amp; \vec{v}_n \end{pmatrix} 
+&amp;= \begin{pmatrix} \lambda_1 \vec{v}_1 &amp; \lambda_2 \vec{v}_2 &amp; \cdots &amp; \lambda_n \vec{v}_n \end{pmatrix}\\
+\mathbf{M} \mathbf{A} &amp;= \mathbf{A} \mathbf{D}
+\end{aligned}
+\]</div>
+<p>where the columns of <span class="arithmatex">\(\mathbf{A}\)</span> are the right eigenvectors and </p>
+<div class="arithmatex">\[
+\mathbf{D} = 
+\begin{pmatrix} 
+\lambda_1 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; \lambda_2 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots\\ 
+0 &amp; 0 &amp; \cdots &amp; \lambda_n\\  
+\end{pmatrix}
+\]</div>
+<p>is a diagonal matrix of the eigenvalues.</p>
+<p>Now multiply this equation by <span class="arithmatex">\(\mathbf{A}^{-1}\)</span> on the right</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mathbf{M} \mathbf{A} &amp;= \mathbf{A} \mathbf{D}\\
+\mathbf{M} \mathbf{A}\mathbf{A}^{-1} &amp;= \mathbf{A} \mathbf{D}\mathbf{A}^{-1}\\  
+\mathbf{M} &amp;= \mathbf{A} \mathbf{D} \mathbf{A}^{-1}
+\end{aligned}
+\]</div>
+<p>Now, we can write</p>
+<div class="arithmatex">\[
+\begin{aligned} 
+\vec{x}(t) &amp;= \mathbf{M}^t\vec{x}(0)\\
+&amp;= (\mathbf{A}\mathbf{D}\mathbf{A}^{-1})^t\vec{x}(0)\\
+&amp;= (\mathbf{A}\mathbf{D}\mathbf{A}^{-1})
+(\mathbf{A}\mathbf{D}\mathbf{A}^{-1}) \cdots
+(\mathbf{A}\mathbf{D}\mathbf{A}^{-1})
+\vec{x}(0)\\
+&amp;= \mathbf{A}\mathbf{D}(\mathbf{A}^{-1}
+\mathbf{A})\mathbf{D}(\mathbf{A}^{-1}\mathbf{A}) \cdots
+(\mathbf{A}^{-1}\mathbf{A})\mathbf{D}\mathbf{A}^{-1}
+\vec{x}(0)\\ 
+&amp;= \mathbf{A}\mathbf{D}^t\mathbf{A}^{-1}
+\vec{x}(0) 
+\end{aligned}
+\]</div>
+<p>And this is great because <span class="arithmatex">\(\mathbf{D}\)</span> is a diagonal matrix, meaning <span class="arithmatex">\(\mathbf{D}^t\)</span> is easy to calculate.</p>
+<p>Specifically</p>
+<div class="arithmatex">\[
+\mathbf{D}^t = 
+\left(
+  \begin{array}{cccc}
+    \lambda_1^t &amp; 0 &amp; \cdots &amp; 0 \\ 
+    0 &amp; \lambda_2^t &amp; \cdots &amp; 0\\
+    \vdots &amp; \vdots &amp; &amp; \vdots\\
+    0 &amp; 0 &amp; \cdots &amp; \lambda_n^t
+  \end{array}
+\right)
+\]</div>
+<p>It would not have been so easy to find <span class="arithmatex">\(\mathbf{M}^t\)</span>!</p>
+<p>This enables us to write the {\it general solution} to the recursion equations</p>
+<div class="arithmatex">\[
+\vec{x}(t) = \mathbf{M}^t\vec{x}(0) =
+\mathbf{A}\mathbf{D}^t\mathbf{A}^{-1}\vec{x}(0) 
+\]</div>
+<p>Note that <span class="arithmatex">\(\mathbf{A}^{-1}\)</span> is a matrix whose rows are the left eigenvectors of <span class="arithmatex">\(\textbf{M}\)</span>, 
+which can be seen by deriving <span class="arithmatex">\(\mathbf{M} = \mathbf{A} \mathbf{D}\mathbf{A}^{-1}\)</span> starting 
+with the equation for the left eigenvectors <span class="arithmatex">\(\vec{u}\mathbf{M}=\lambda\vec{u}\)</span>.</p>
+<p>And now we see why our stability analyses work!</p>
+<p>Only if all the eigenvalues have an absolute value less than one, <span class="arithmatex">\(|\lambda_i|&lt;1\)</span>, will all entries of <span class="arithmatex">\(\mathbf{D}^t\)</span>
+decay to zero and hence <span class="arithmatex">\(\vec{x}(t)\)</span> decay to <span class="arithmatex">\(\vec{0}\)</span> (the equilibrium) as time goes to infinity.\</p>
+<p>Further, as time goes to infinity <span class="arithmatex">\(\mathbf{D}^t\)</span> will be dominated by the eigenvalue with the largest absolute value, which we call the \textbf{leading eigenvalue}.</p>
+<p>To see this, let the leading eigenvalue be <span class="arithmatex">\(\lambda_1\)</span> and factor it out of <span class="arithmatex">\(\mathbf{D}^t\)</span></p>
+<div class="arithmatex">\[
+\mathbf{D}^t = \lambda_1^t 
+\begin{pmatrix} 
+1 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; (\lambda_2/\lambda_1)^t &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots\\ 
+0 &amp; 0 &amp; \cdots &amp; (\lambda_n/\lambda_1)^t\\  
+\end{pmatrix}
+\]</div>
+<p>Since <span class="arithmatex">\(|\lambda_i/\lambda_1|&lt;1\)</span> for all <span class="arithmatex">\(i\)</span>, for large <span class="arithmatex">\(t\)</span> these all go to zero and we have</p>
+<div class="arithmatex">\[
+\mathbf{D}^t \approx \tilde{\mathbf{D}}^t  \equiv \lambda_1^t 
+\begin{pmatrix} 
+1 &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; 0 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots\\ 
+0 &amp; 0 &amp; \cdots &amp; 0\\  
+\end{pmatrix}
+\]</div>
+<p>We can then approximate <span class="arithmatex">\(\vec{x}(t)\)</span> as <span class="arithmatex">\(\tilde{\vec{x}}(t) = \mathbf{A}\tilde{\mathbf{D}}^t\mathbf{A}^{-1}\vec{x}(0) = \lambda_1^t \vec{v}_1 \vec{u}_1 \vec{x}(0)\)</span>.</p>
+<p>This means that</p>
+<ul>
+<li><span class="arithmatex">\(\vec{n}(t)\)</span> will grow like <span class="arithmatex">\(\lambda_1^t\)</span>, where <span class="arithmatex">\(\lambda_1\)</span> is the leading eigenvalue</li>
+<li><span class="arithmatex">\(\vec{n}(t)\)</span> will approach the right eigenvector associated with the leading eigenvalue, <span class="arithmatex">\(\vec{v}_1\)</span></li>
+<li><span class="arithmatex">\(\vec{n}(t)\)</span> is weighted by a constant, <span class="arithmatex">\(\vec{u}_1 \vec{x}(0)\)</span>, describing the initial size of the system, </li>
+</ul>
+<p>where <span class="arithmatex">\(\vec{u}_1\)</span> is the left eigenvector associated with the leading eigenvalue</p>
+<p><strong>NEED TO ADD SAME PLOTS FROM LECTURE 11 HERE</strong></p>
+<p>In this way the eigenvectors form a new, more convenient, coordinate system.</p>
+<p>We transform into this new coordinate system with <span class="arithmatex">\(\vec{y}(t) = \mathbf{A}^{-1}\vec{x}(t)\)</span>.</p>
+<p>And we transform back into our original coordinate system with <span class="arithmatex">\(\vec{x}(t) = \mathbf{A}\vec{y}(t)\)</span>.</p>
+<p>We then have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\vec{y}(t+1) &amp;= \mathbf{A}^{-1}\vec{x}(t+1)\\
+\vec{y}(t+1) &amp;= \mathbf{A}^{-1}\mathbf{M}\vec{x}(t)\\
+\vec{y}(t+1) &amp;= \mathbf{A}^{-1}\mathbf{M}\mathbf{A}\vec{y}(t)\\
+\vec{y}(t+1) &amp;= \mathbf{A}^{-1}(\mathbf{A} \mathbf{D} \mathbf{A}^{-1})\mathbf{A}\vec{y}(t)\\
+\vec{y}(t+1) &amp;= \mathbf{D}\vec{y}(t)
+\end{aligned}
+\]</div>
+<p>Voila! In the new coordinate system we just move along each axis by a factor <span class="arithmatex">\(\lambda_i\)</span>, as we 
+saw in the previous graph.</p>
+<p>The final complication to discuss is complex eigenvalues.</p>
+<p>Specifically, what is <span class="arithmatex">\(\lambda^t\)</span> when <span class="arithmatex">\(\lambda = A + B i\)</span>?</p>
+<p>To do this, we can first use some simple geometry on the complex plane to show that any complex number can be written</p>
+<div class="arithmatex">\[
+A + Bi = R (\cos(\theta) + i \sin(\theta))
+\]</div>
+<p>where <span class="arithmatex">\(R = \sqrt{A^2 + B^2}\)</span> is the magnitude of <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(\theta = \arctan(B/A)\)</span> is the angle between <span class="arithmatex">\(\lambda\)</span> and the horizontal axis.</p>
+<p><center></p>
+<p><img alt="" src="../lecture-14-img/complex_plot.png" width="70%" /> </p>
+<p></center></p>
+<p>We then use Euler's equation, <span class="arithmatex">\(\cos(\theta) + i \sin(\theta) = e^{i \theta}\)</span>, to write </p>
+<div class="arithmatex">\[
+A + Bi = R e^{i \theta}
+\]</div>
+<p>And we can now take powers of <span class="arithmatex">\(\lambda\)</span> </p>
+<div class="arithmatex">\[
+\lambda^t = R^t e^{i \theta t}
+\]</div>
+<h3 id="continuous-time">Continuous time</h3>
+<p>Now let's end by considering linear multivariate models in continuous time.</p>
+<p>Given that <span class="arithmatex">\(\frac{\mathrm{d}\vec{x}}{\mathrm{d}t} = \mathbf{M} \vec{x}\)</span> the general solution is simply <span class="arithmatex">\(\vec{x}(t) = e^{\mathbf{M}t}\vec{x}(0)\)</span>.</p>
+<p>But <span class="arithmatex">\(e^{\mathbf{M}t} = \sum_{i=0}^{\infty} \mathbf{M}^i t^i / i!\)</span> is complicated!</p>
+<p>Fortunately we can use the same transform as in the discrete time case to write <span class="arithmatex">\(e^{\mathbf{M}t} = \mathbf{A} e^{\mathbf{D}t} \mathbf{A}^{-1}\)</span>.</p>
+<p>This is much simpler because</p>
+<div class="arithmatex">\[
+e^{\mathbf{D}t} = \begin{pmatrix}
+e^{\lambda_1 t} &amp; 0 &amp; \cdots &amp; 0\\
+0 &amp; e^{\lambda_2 t} &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots\\
+0 &amp; \cdots &amp; 0 &amp; e^{\lambda_n t}
+\end{pmatrix}
+\]</div>
+<p>When we have complex eigenvalues we again use Euler's equation</p>
+<div class="arithmatex">\[
+e^{\lambda t} = e^{(A + Bi) t} = e^{At}e^{Bti} = e^{At}(\cos(Bt) + i\sin(Bt))
+\]</div>
+<p>Our general solution is then <span class="arithmatex">\(\vec{x}(t) = \mathbf{A} e^{\mathbf{D}t} \mathbf{A}^{-1}\vec{x}(0)\)</span>.</p>
+<p><span id='section2'></span></p>
+<h2 id="2-summary">2. Summary</h2>
+<hr>
+
+<p>So summarizing our overview on finding general solutions to linear multivariate systems</p>
+<ul>
+<li>it may be difficult to iterate/exponentiate matrix <span class="arithmatex">\(\textbf{M}\)</span> to determine how a linear system of equations changes over time</li>
+<li>we can transform our equations into a new coordinate system (specified by the eigenvectors) in which the relevant matrix is diagonal</li>
+<li>it is then easy to iterate/exponentiate the diagonal matrix</li>
+<li>we back transform to find out where our system is at any time in the future</li>
+</ul>
+<pre data-executable="true" data-language="python">
+import sympy
+from sympy import cos, sin, exp
+import matplotlib.pyplot as plt
+
+# Initialize symbols
+t = sympy.symbols('t')
+
+# Parameter values for sex selection model
+Gz = 0.15
+Gp = 0.8
+cc = 0.45
+bb = 0.3
+aa = 0.95
+BB = 0.32
+
+# Matrix M in terms of parameters
+a = -Gz * cc
+b = Gz * aa - bb * BB
+c = - BB * cc
+d = -Gp * bb + aa * BB
+
+# General solution for 2d linear model in continuous time
+B = (-(a - d)**2 - 4*b*c)**(1/2)/2
+ADA = sympy.Matrix([[cos(B*t)+(a-d)/(2*B)*sin(B*t), b/B * sin(B*t)],[c/B * sin(B*t), cos(B*t) - (a-d)/(2*B)*sin(B*t)]])
+
+# Plot
+n0 = sympy.Matrix([1,0])
+nt = exp((a + d)*t/2) * ADA * n0
+sympy.plot_parametric(nt[0], nt[1], (t, 0, 500))
+</pre>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
