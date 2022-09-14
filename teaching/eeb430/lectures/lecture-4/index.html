@@ -1,0 +1,1083 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../images/favicon_non_transparent.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Lecture 4 - EEB430 Modelling in Ecology and Evolution</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-4-one-locus-selection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="EEB430 Modelling in Ecology and Evolution" class="md-header__button md-logo" aria-label="EEB430 Modelling in Ecology and Evolution" data-md-component="logo">
+      
+  <img src="../../images/favicon_non_transparent.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EEB430 Modelling in Ecology and Evolution
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lecture 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Overview
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../syllabus/general_info/" class="md-tabs__link">
+        Syllabus
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../schedule/" class="md-tabs__link">
+        Lectures
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../labs/schedule/" class="md-tabs__link">
+        Labs
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../acknowledgements/" class="md-tabs__link">
+      Acknowledgements
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EEB430 Modelling in Ecology and Evolution" class="md-nav__button md-logo" aria-label="EEB430 Modelling in Ecology and Evolution" data-md-component="logo">
+      
+  <img src="../../images/favicon_non_transparent.svg" alt="logo">
+
+    </a>
+    EEB430 Modelling in Ecology and Evolution
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Syllabus
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Syllabus" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Syllabus
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/general_info/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/course_structure/" class="md-nav__link">
+        Course structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/when_and_where/" class="md-nav__link">
+        When and where
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/assignments/" class="md-nav__link">
+        Weekly Assignments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/final_project/" class="md-nav__link">
+        Final Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/instructors/" class="md-nav__link">
+        Instructors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../syllabus/resources/" class="md-nav__link">
+        Other resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Lectures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lectures" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lectures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-01/" class="md-nav__link">
+        Lecture 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-02/" class="md-nav__link">
+        Lecture 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Labs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Labs" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Labs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-overview" class="md-nav__link">
+    Lecture overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-review-of-hardy-weinberg" class="md-nav__link">
+    1. Review of Hardy-Weinberg
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-one-locus-haploid-selection-in-discrete-time" class="md-nav__link">
+    2. One-locus haploid selection in discrete time
+  </a>
+  
+    <nav class="md-nav" aria-label="2. One-locus haploid selection in discrete time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#life-cycle-diagram" class="md-nav__link">
+    Life-cycle diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation" class="md-nav__link">
+    Derivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifying-our-equation-of-one-locus-haploid-selection" class="md-nav__link">
+    Simplifying our equation of one-locus haploid selection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-one-locus-diploid-selection-in-discrete-time" class="md-nav__link">
+    3. One-locus diploid selection in discrete time
+  </a>
+  
+    <nav class="md-nav" aria-label="3. One-locus diploid selection in discrete time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#life-cycle-diagram_1" class="md-nav__link">
+    Life-cycle diagram
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#derivation_1" class="md-nav__link">
+    Derivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simplifying-our-equation-of-one-locus-diploid-selection" class="md-nav__link">
+    Simplifying our equation of one-locus diploid selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-the-one-locus-haploid-and-diploid-discrete-time-models" class="md-nav__link">
+    Comparing the one-locus haploid and diploid discrete-time models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-one-locus-haploid-selection-in-continuous-time" class="md-nav__link">
+    4. One-locus haploid selection in continuous time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-comparing-the-haploid-selection-models-in-discrete-and-continuous-time" class="md-nav__link">
+    5. Comparing the haploid selection models in discrete and continuous time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-models-weve-covered" class="md-nav__link">
+    6. The models we've covered
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<script type="text/x-thebe-config">
+  {
+      requestKernel: true,
+      mountActivateWidget: true,
+      mountStatusWidget: true,
+      binderOptions: {
+      repo: "tomouellette/executable-cells",
+      ref: "main",
+      binderUrl: "https://gke.mybinder.org",
+      },
+  }
+</script>
+<script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+
+<h1 id="lecture-4-one-locus-selection">Lecture 4: One-locus selection</h1>
+<hr style="margin-bottom: 0em;">
+<p><center></p>
+<div class="inrow">
+    Run notes interactively?
+    <div style="float: left;" class="thebe-activate"></div>
+    <div class="thebe-status"></div>
+</div>
+<p></center></p>
+<hr style="margin-top: 0em;">
+
+<p>
+<img src='https://img.shields.io/badge/lecture-slides-blue?style=flat-square'>
+<img src='https://img.shields.io/badge/google-colab-fcad2e?style=flat-square&logo=GoogleColab'>
+</p>
+
+<hr>
+
+<h2 id="lecture-overview">Lecture overview</h2>
+<ol>
+<li><a href="#section1">Review of Hardy-Weinberg</a></li>
+<li><a href="#section2">One-locus haploid selection in discrete time</a></li>
+<li><a href="#section3">One-locus diploid selection in discrete time</a></li>
+<li><a href="#section4">One-locus haploid selection in continuous time</a></li>
+<li><a href="#section5">Comparing the haploid selection models in discrete and continuous time</a></li>
+<li><a href="#section6">The models we've covered</a></li>
+</ol>
+<p><span id='section1'></span></p>
+<h2 id="1-review-of-hardy-weinberg">1. Review of Hardy-Weinberg</h2>
+<hr>
+
+<p>After one generation of random mating in a single large population with no selection and no mutation, diploid genotype frequencies at a locus with two alleles become:</p>
+<p><span class="arithmatex">\(Freq(AA) = x = p^2\)</span> </p>
+<p><span class="arithmatex">\(Freq(Aa) = y = 2pq\)</span> </p>
+<p><span class="arithmatex">\(Freq(aa) = z = q^2\)</span></p>
+<p><span class="arithmatex">\(\rightarrow\)</span> <strong>Hardy-Weinberg equilibrium</strong>.</p>
+<p>Furthermore, <span class="arithmatex">\(p' = p\)</span>.</p>
+<p><span class="arithmatex">\(\rightarrow\)</span> Allele frequencies do not change over time. </p>
+<p><strong>Question</strong>: What if the genotypes vary in fitness?</p>
+<p><span id='section2'></span></p>
+<h2 id="2-one-locus-haploid-selection-in-discrete-time">2. One-locus haploid selection in discrete time</h2>
+<hr>
+
+<p>We begin by examining selection in a model with haploid selection.</p>
+<h3 id="life-cycle-diagram">Life-cycle diagram</h3>
+<p><center></p>
+<p><img alt="" src="../lecture-4-img/haploid_selection.png" /></p>
+<p></center></p>
+<p><center><sup>Figure. Life-cycle diagram of haploid selection</sup></center></p>
+<p>We will <strong>census</strong> at the beginning of the haploid phase (immediately after meiosis).</p>
+<h3 id="derivation">Derivation</h3>
+<p>Let there be two haploid genotypes (<span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span>) with </p>
+<ul>
+<li>
+<p><span class="arithmatex">\(N_A =\)</span> number of <span class="arithmatex">\(A\)</span> individuals</p>
+</li>
+<li>
+<p><span class="arithmatex">\(N_a =\)</span> number of <span class="arithmatex">\(a\)</span> individuals</p>
+</li>
+</ul>
+<p>We assume that these numbers are <em>very</em> large.</p>
+<p><center><span style='color: blue'>What is the frequency of <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(p(t)\)</span>, at this point?</span></center></p>
+<div class="arithmatex">\[
+p(t) = \frac{N_a(t)}{N_A(t) + N_a(t)}
+\]</div>
+<p>Now, let’s assume that not all haploid individuals survive to reproduce: </p>
+<ul>
+<li>
+<p><span class="arithmatex">\(v_A =\)</span> probability of survival (or viability) of an <span class="arithmatex">\(A\)</span> individual </p>
+</li>
+<li>
+<p><span class="arithmatex">\(v_a =\)</span> probability of survival (or viability) of an <span class="arithmatex">\(a\)</span> individual</p>
+</li>
+</ul>
+<p>After these deaths have occurred (but before gametes unite):</p>
+<p><center><span style='color: blue'>How many <span class="arithmatex">\(A\)</span> individuals do we expect to still be alive? </span></center> </p>
+<div class="arithmatex">\[
+v_AN_A(t)
+\]</div>
+<p><center><span style='color: blue'>How many a individuals do we expect to still be alive? </span></center></p>
+<div class="arithmatex">\[
+v_aN_a(t)
+\]</div>
+<p><center><span style='color: blue'>What is the frequency of A among these survivors?</span></center></p>
+<div class="arithmatex">\[
+\frac{v_AN_A(t)}{v_AN_A(t) + v_aN_a(t)}
+\]</div>
+<p>Because gametes unite at random and undergo meiosis to produce the next generation of haploids, and neither of these processes change allele frequencies, the frequency of A at the next census is:</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_AN_A(t)}{v_AN_A(t) + v_aN_a(t)}
+\]</div>
+<p>We initially showed that the frequency of A in the current generation is</p>
+<div class="arithmatex">\[
+p(t) = \frac{N_A(t)}{N_A(t) + N_a(t)}
+\]</div>
+<p>And we just showed that the frequency of A in the next generation is</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_AN_A(t)}{v_AN_A(t) + v_aN_a(t)}
+\]</div>
+<p><span style='color: blue'>but... this isn’t quite a recursion equation. <strong>Why?</strong></span> (Hint: what's the difference between <span class="arithmatex">\(p\)</span> and <span class="arithmatex">\(N\)</span>?)</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_AN_A(t)}{v_AN_A(t) + v_aN_a(t)} = \frac{v_A\frac{N_A(t)}{N_A(t) + N_a(t)}}{v_A\frac{N_A(t)}{N_A(t) + N_a(t)} + v_a\frac{N_a(t)}{N_A(t) + N_a(t)}} = \frac{v_Ap(t)}{v_Ap(t) + v_a(1-p(t))}
+\]</div>
+<p>This is a <strong>recursion equation</strong> giving the allele frequency over time in our model of viability selection during the haploid phase.</p>
+<p>The denominator in this equation is the mean <strong>absolute fitness</strong> of the population, <span class="arithmatex">\(\bar v(t)\)</span>, which will determine the dynamics of the total population size</p>
+<div class="arithmatex">\[
+N(t+1) \equiv N_A(t+1) + N_a(t+1) = N(t)\bar v(t)
+\]</div>
+<h3 id="simplifying-our-equation-of-one-locus-haploid-selection">Simplifying our equation of one-locus haploid selection</h3>
+<p>Our current recursion is a function of two parameters, the absolute viabilities, <span class="arithmatex">\(v_A\)</span> and <span class="arithmatex">\(v_a\)</span></p>
+<div class="arithmatex">\[
+p(t + 1) = \frac{v_Ap(t)}{v_Ap(t) + v_a(1 − p(t))}
+\]</div>
+<p>Now notice that if we divide both the numerator and denominator by one of these viabilities, say <span class="arithmatex">\(v_a\)</span></p>
+<div class="arithmatex">\[
+p(t + 1) = \frac{(v_A/v_a)p(t)}{(v_A/v_a)p(t) + (v_a/v_a)(1 − p(t))}
+\]</div>
+<p>We can reduce the recursion to a function of only one parameter, <span class="arithmatex">\(V_A = v_A/v_a\)</span>, the relative viability of <span class="arithmatex">\(A\)</span></p>
+<div class="arithmatex">\[
+p(t + 1) = \frac{V_Ap(t)}{V_Ap(t) + 1 - p(t)}
+\]</div>
+<p>The denominator in this equation is the mean <strong>relative fitness</strong> of the population.
+This simpler equation shows that the dynamics of the total number of individuals does not influence evolution in this model. All we need to predict evolution are the relative fitnesses.</p>
+<p><span id='section3'></span></p>
+<h2 id="3-one-locus-diploid-selection-in-discrete-time">3. One-locus diploid selection in discrete time</h2>
+<hr>
+
+<p>Since we are all currently in the diploid phase of our life-cycle, it is natural to ask: </p>
+<p><em>Does selection in the diploid phase work the same way?</em></p>
+<h3 id="life-cycle-diagram_1">Life-cycle diagram</h3>
+<p><center></p>
+<p><img alt="" src="../lecture-4-img/diploid_selection.png" /></p>
+<p></center></p>
+<p><center><sup>Figure. Life-cycle diagram of diploid selection</sup></center></p>
+<p>We will <strong>census</strong> at the beginning of the diploid phase (immediately after gamete union).</p>
+<h3 id="derivation_1">Derivation</h3>
+<p>Let there be three genotypes <span class="arithmatex">\(AA\)</span>, <span class="arithmatex">\(Aa\)</span>, and <span class="arithmatex">\(aa\)</span> with</p>
+<ul>
+<li><span class="arithmatex">\(N_{AA}(t) =\)</span> number of <span class="arithmatex">\(AA\)</span> individuals</li>
+<li><span class="arithmatex">\(N_{Aa}(t) =\)</span> number of <span class="arithmatex">\(Aa\)</span> individuals</li>
+<li><span class="arithmatex">\(N_{aa}(t) =\)</span> number of <span class="arithmatex">\(aa\)</span> individuals</li>
+</ul>
+<p>and we assume these to be very large.</p>
+<p><span style='color: blue'>What is the frequency of <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(p(t)\)</span>, at this point?</span></p>
+<div class="arithmatex">\[
+p(t) = \frac{2 * N_{AA}(t) + N_{Aa}(t)}{2 * N_{AA}(t) + N_{Aa}(t) + N_{aa}(t)} = \frac{N_{AA}(t) + \frac{1}{2}N_{Aa}(t)}{N_{AA}(t) + N_{Aa}(t) + N_{aa}(t)}
+\]</div>
+<p>Now let's assume that not all diploid individuals survive to reproduce:</p>
+<ul>
+<li><span class="arithmatex">\(V_{AA} =\)</span> probability of survival (or viability) of an <span class="arithmatex">\(AA\)</span> individual</li>
+<li><span class="arithmatex">\(V_{Aa} =\)</span> probability of survival (or viability) of an <span class="arithmatex">\(Aa\)</span> individual</li>
+<li><span class="arithmatex">\(V_{aa} =\)</span> probability of survival (or viability) of an <span class="arithmatex">\(aa\)</span> individual</li>
+</ul>
+<p>After these deaths (and before meiosis):</p>
+<p><center><span style='color: blue'>How many AA individuals will still be alive, on average?</span></center></p>
+<div class="arithmatex">\[
+v_{AA}N_{AA}(t)
+\]</div>
+<p><center><span style='color: blue'>How many Aa individuals will still be alive, on average?</span></center></p>
+<div class="arithmatex">\[
+v_{Aa}N_{Aa}(t)
+\]</div>
+<p><center><span style='color: blue'>How many aa individuals will still be alive, on average?</span></center></p>
+<div class="arithmatex">\[
+v_{aa}N_{aa}(t)
+\]</div>
+<p><center><span style='color: blue'>What is the frequency of the <span class="arithmatex">\(A\)</span> allele among adults?</span></center></p>
+<div class="arithmatex">\[
+\frac{v_{AA}N_{AA}(t) + \frac{1}{2}v_{Aa}N_{Aa}(t)}{v_{AA}N_{AA}(t) + \frac{1}{2}v_{Aa}N_{Aa}(t) + v_{aa}N_{aa}(t)}
+\]</div>
+<p>And since meiosis and gamete union will not change this frequency, the frequency of
+the A allele in the next generation is</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_{AA}N_{AA}(t) + \frac{1}{2}v_{Aa}N_{Aa}(t)}{v_{AA}N_{AA}(t) + \frac{1}{2}v_{Aa}N_{Aa}(t) + v_{aa}N_{aa}(t)}
+\]</div>
+<p>With random union of gametes in a gamete pool or random mating of individuals, the diploid offspring are in Hardy-Weinberg proportions: <span class="arithmatex">\(p^2(t)\)</span> ∶ <span class="arithmatex">\(2p(t)q(t)\)</span> ∶ <span class="arithmatex">\(q^2(t)\)</span>, where <span class="arithmatex">\(p(t)\)</span> is the frequency of the A allele among the mating individuals at time t. </p>
+<p>Specifically,</p>
+<ul>
+<li><span class="arithmatex">\(N_{AA}(t) = p^2(t)N(t)\)</span></li>
+<li><span class="arithmatex">\(N_{Aa}(t) = 2p(t)q(t)N(t)\)</span></li>
+<li><span class="arithmatex">\(N_{aa}(t) = q^2(t)N(t)\)</span></li>
+</ul>
+<p>where <span class="arithmatex">\(N(t) \equiv N_{AA}(t) + N_{Aa}(t) + N_{aa}(t)\)</span> is the total population size.</p>
+<p>Substituting these in we can rewrite the above equation as</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_{AA}p(t)^2 + v_{Aa}p(t)q(t)}{v_{AA}p(t)^2 + 2v_{Aa}p(t)q(t) + v_{aa}q(t)^2}
+\]</div>
+<p>This is a <strong>recursion equation</strong> giving the allele frequency over time in the model with viability selection during the diploid phase.</p>
+<h3 id="simplifying-our-equation-of-one-locus-diploid-selection">Simplifying our equation of one-locus diploid selection</h3>
+<p>As in the haploid selection case, we can rewrite our recursion with <strong>absolute</strong> viabilities in terms of <strong>relative</strong> viabilities by dividing the numerator and denominator by some constant, say <span class="arithmatex">\(v_{aa}\)</span>,</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{(v_{AA}/v_{aa})p(t)^2 + (v_{Aa}/v_{aa})p(t)q(t)}{(v_{AA}/v_{aa})p(t)^2 + 2(v_{Aa}/v_{aa})p(t)q(t) + (v_{aa}/v_{aa})q(t)^2}
+\]</div>
+<div class="arithmatex">\[
+p(t+1) = \frac{W_{AA}p(t)^2 + W_{Aa}p(t)q(t)}{W_{AA}p(t)^2 + 2W_{Aa}p(t)q(t) + q(t)^2}
+\]</div>
+<p>which is a function of only two parameters, WAA = vAA/vaa and WAa = vAa/vaa, and shows that evolution once again does not depend on the dynamics of total population size (just relative fitnesses).</p>
+<h3 id="comparing-the-one-locus-haploid-and-diploid-discrete-time-models">Comparing the one-locus haploid and diploid discrete-time models</h3>
+<p>So, returning to our original question, how does evolution under diploid selection</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{W_{AA}p(t)^2 + W_{Aa}p(t)q(t)}{W_{AA}p(t)^2 + 2W_{Aa}p(t)q(t) + q(t)^2}
+\]</div>
+<p>compare to evolution under haploid selection</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_Ap(t)}{v_ap(t) + v_aq(t)}
+\]</div>
+<p>To compare these models, let’s assume the viability of a diploid genotype is the product of the haploid viabilities, ie, <span class="arithmatex">\(v_{AA} = v_Av_A\)</span>, <span class="arithmatex">\(v_{Aa} = v_Av_a\)</span>, and <span class="arithmatex">\(v_{aa} = v_av_a\)</span>.</p>
+<p>Then our diploid recursion reduces to</p>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_{A}v_{A}p(t)^2 + v_{A}v_{a}p(t)q(t)}{v_{A}v_{A}p(t)^2 + 2v_{A}v_{a}p(t)q(t) + v_{a}v_{a}q(t)^2}
+\]</div>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_{A}p(t)(p(t) + v_{a}q(t))}{v_{A}p(t)(v_Ap(t) + v_{a}q(t)) + v_{a}q(t)(v_Ap(t) + v_aq(t))}
+\]</div>
+<div class="arithmatex">\[
+p(t+1) = \frac{v_Ap(t)}{v_Ap(t) + v_aq(t)}
+\]</div>
+<p>Thus we need twice as much selection (eg, <span class="arithmatex">\(v_{AA} = v_Av_A\)</span>) under diploid selection for evolution to proceed as quickly as under haploid selection. <em>Why is that?</em></p>
+<p><span id='section4'></span></p>
+<h2 id="4-one-locus-haploid-selection-in-continuous-time">4. One-locus haploid selection in continuous time</h2>
+<hr>
+
+<p>We have assumed, so far, that generations are discrete. For populations with overlapping generations, a similar model may be constructed in continuous time.</p>
+<p>We now define fitness according to the growth rate of each genotype:</p>
+<ul>
+<li><span class="arithmatex">\(r_A =\)</span> growth rate of each <span class="arithmatex">\(A\)</span> individual</li>
+<li><span class="arithmatex">\(r_a =\)</span> growth rate of each <span class="arithmatex">\(a\)</span> individual</li>
+</ul>
+<p>These definitions tell us that:</p>
+<ul>
+<li><span class="arithmatex">\(\frac{dN_A}{dt} = r_AN_A\)</span></li>
+<li><span class="arithmatex">\(\frac{dN_a}{dt} = r_aN_a\)</span></li>
+</ul>
+<p>At any particular point in time, <span class="arithmatex">\(p = N_A/(N_A + N_a)\)</span>. How can we derive <span class="arithmatex">\(dp/dt\)</span> given that we know how the number of each type changes over time?</p>
+<div class="admonition note">
+<p class="admonition-title">Mathematical aside: the chain rule</p>
+<p>A function of one variable, <span class="arithmatex">\(f(x(t))\)</span>, obeys the one-variable chain rule:</p>
+<div class="arithmatex">\[
+\frac{df}{dt} = \frac{df}{dx}\frac{dx}{dt}
+\]</div>
+<p>A function of two variables, <span class="arithmatex">\(f(x(t), y(t))\)</span>, obeys the two-variable chain rule:</p>
+<div class="arithmatex">\[
+\frac{df}{dt} = \frac{\delta f}{\delta x}\frac{dx}{dt} + \frac{\delta f}{\delta y}\frac{dy}{dt}
+\]</div>
+</div>
+<p>Now, because <span class="arithmatex">\(p\)</span> is a function of both <span class="arithmatex">\(N_A\)</span> and <span class="arithmatex">\(N_a\)</span>, we can use the two-variable chain rule to determine that</p>
+<div class="arithmatex">\[
+\frac{dp}{dt} = \frac{\delta p}{\delta N_A}\frac{dN_A}{dt} + \frac{\delta p}{\delta N_a}\frac{dN_a}{dt}
+\]</div>
+<div class="arithmatex">\[
+\frac{dp}{dt} = (r_A - r_a)p(1-p)
+\]</div>
+<p>where <span class="arithmatex">\((r_A - r_a)\)</span> is the selective advantage of allele <span class="arithmatex">\(A\)</span> in terms of its growth rate.</p>
+<p>A similar equation can be derived for the diploid-selection model in continuous time, but we will not study this equation in class.</p>
+<p><span id='section5'></span></p>
+<h2 id="5-comparing-the-haploid-selection-models-in-discrete-and-continuous-time">5. Comparing the haploid selection models in discrete and continuous time</h2>
+<hr>
+
+<p>Are the haploid-selection models in discrete and continuous time as different as they
+look?</p>
+<div class="arithmatex">\[
+\text{Discrete model: } p(t+1) = \frac{v_Ap(t)}{v_Ap(t) + v_aq(t)}
+\]</div>
+<div class="arithmatex">\[
+\text{Continuous model: } \frac{dp}{dt} = (r_A - r_a)p(1-p)
+\]</div>
+<p>Not really. Discrete and continuous time models generally behave in a similar fashion
+when changes occur slowly over time. For this model of selection, this implies that they will be similar when the fitnesses are nearly equal, ie, <span class="arithmatex">\(v_A − v_a\)</span> is small.</p>
+<p>This is fairly easy to prove with the definition of a derivative</p>
+<p>!!! note "Mathematical aside: definition of the derivative
+    $$
+    \frac{df}{dt} = \lim_{\Delta t \rightarrow 0}\frac{f(t + \Delta t) - f(t)}{\Delta t} = \lim_{\Delta t \rightarrow 0}\frac{\Delta f}{\Delta t}
+    $$</p>
+<p>When selection is weak, the change in allele frequency in the discrete model may be
+described approximately by the differential equation:</p>
+<div class="arithmatex">\[
+\frac{dp}{dt} = s p (1 − p)
+\]</div>
+<p>where <span class="arithmatex">\(s = vA − va\)</span>. This is the same equation governing the change in allele frequency over time in the continuous time model, if we define <span class="arithmatex">\(s = rA − ra\)</span>.</p>
+<p><span id='section6'></span></p>
+<h2 id="6-the-models-weve-covered">6. The models we've covered</h2>
+<hr>
+
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Discrete time</th>
+<th>Continous time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exponential growth</td>
+<td><span class="arithmatex">\(N(t+1) = (1+r)N(t)\)</span></td>
+<td><span class="arithmatex">\(\frac{dN(t)}{dt} = rN(t)\)</span></td>
+</tr>
+<tr>
+<td>Logistic growth</td>
+<td><span class="arithmatex">\(N(t+1) = (1 + r(1 - \frac{N(t)}{K}))N(t)\)</span></td>
+<td><span class="arithmatex">\(\frac{dN}{dt} = r(1 - \frac{N(t)}{K})N(t)\)</span></td>
+</tr>
+<tr>
+<td>Haploid selection</td>
+<td><span class="arithmatex">\(p(t+1) = \frac{p(t)W_A}{p(t)W_A + q(t)W_a}\)</span></td>
+<td><span class="arithmatex">\(\frac{dp}{dt} = (r_A - r_a)p(1-p)\)</span></td>
+</tr>
+<tr>
+<td>Diploid selection</td>
+<td><span class="arithmatex">\(p(t+1) = \frac{p(t)^2W_{AA} + p(t)q(t)W_{Aa}}{p(t)^2W_{AA} + p(t)q(t)W_{Aa} + q(t)^2W_{aa}}\)</span></td>
+<td>Not derived</td>
+</tr>
+</tbody>
+</table>
+<p>See textbook sections 3.4 and 3.5 for models of interacting species and epidemiology.</p>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
