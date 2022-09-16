@@ -346,6 +346,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../syllabus/textbook/" class="md-nav__link">
+        Textbook
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../syllabus/when_and_where/" class="md-nav__link">
         When and where
       </a>
@@ -591,8 +605,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general-concept-of-selection" class="md-nav__link">
-    General concept of selection
+  <a href="#natural-selection" class="md-nav__link">
+    Natural selection
   </a>
   
 </li>
@@ -668,6 +682,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-03/" class="md-nav__link">
+        Lecture 3
+      </a>
     </li>
   
 
@@ -846,8 +874,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#general-concept-of-selection" class="md-nav__link">
-    General concept of selection
+  <a href="#natural-selection" class="md-nav__link">
+    Natural selection
   </a>
   
 </li>
@@ -991,6 +1019,10 @@
 <p><img alt="" src="../lecture-02-img/life_cycle.png" /></p>
 <p></center></p>
 <p><center><sup>Figure. Discrete-time life-cycle diagram. </sup></center></p>
+<pre class="mermaid"><code>flowchart-curved LR;
+  A[n] -- migration --&gt; B[n'];
+  B -- birth --&gt; C[n''];
+  C -- death --&gt; A;</code></pre>
 <p>For continuous time models, draw a flow diagram to describe changes to the variables over time. For models with many possible events, construct a table listing the outcome of every event.</p>
 <p><center></p>
 <p><img alt="" src="../lecture-02-img/bird_flow.png" />    </p>
@@ -1024,7 +1056,10 @@
 <div class="arithmatex">\[n' = n_t + m\]</div>
 <div class="arithmatex">\[n'' = n' + bn'\]</div>
 <div class="arithmatex">\[n_{t+1} = n'' - dn''\]</div>
-<p>Note that now <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(d\)</span> are now the fraction of individuals that migrate and die, and <span class="arithmatex">\(b\)</span> is the number of offspring per parent. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that <span class="arithmatex">\(m\)</span> and <span class="arithmatex">\(d\)</span> are now the <em>fraction</em> of individuals that migrate and die, and <span class="arithmatex">\(b\)</span> is the <em>number</em> of offspring per parent (above these parameters were all <em>rates</em>). </p>
+</div>
 <p>Next, substitute <span class="arithmatex">\(n''\)</span> and then <span class="arithmatex">\(n'\)</span> into the equation for <span class="arithmatex">\(n_{t+1}\)</span> to write <span class="arithmatex">\(n_{t+1}\)</span> in terms of <span class="arithmatex">\(n_t\)</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1059,62 +1094,64 @@ n_{t+1} &amp;= n'' − dn'' \\
 <h2 id="2-evolution-and-the-hardy-weinberg-equilibrium">2. Evolution and the Hardy-Weinberg equilibrium</h2>
 <hr>
 
-<h3 id="general-concept-of-selection">General concept of selection</h3>
-<p>Darwin, in 1859, published the Origin of Species, arguing that organisms evolve over time by natural selection.</p>
-<blockquote>
-<p>As many more individuals of each species are born than can possibly survive, and as, consequently, there is a frequently recurring struggle for existence, it follows that any being, if it vary slightly in any manner profitable to itself, under the complex and sometimes varying conditions of life, will have a better chance of surviving, and thus be naturally selected. - Charles Darwin (1859)</p>
-</blockquote>
+<h3 id="natural-selection">Natural selection</h3>
 <p>Natural selection requires three conditions be met (<a href="https://www.annualreviews.org/doi/10.1146/annurev.es.01.110170.000245">Lewontin 1970</a>):</p>
 <ol>
 <li>Variation in traits: different individuals have different traits</li>
-<li>Variation in fitness: different traits have different rates of survival and reproduction</li>
-<li>Fitness is heritable: traits are inherited</li>
+<li>Variation in fitness: different traits have different rates of survival and/or reproduction</li>
+<li>Fitness is heritable: traits are inherited to some degree</li>
 </ol>
-<blockquote>
-<p>Variations neither useful nor injurious would not be affected by natural selection, and would be left a fluctuating element, as perhaps we see in the species called polymorphic. - Charles Darwin (1859)</p>
-</blockquote>
-<p>Although selection is an important idea, it's impossible to know what kind of observations are consistent with selection if we don't have a baseline to compare against. So let's first construct a model of evolution in the absence of selection using the general steps described in section 1 <a href='#section1'>Constructing a model</a>.</p>
+<p>Although selection is an important idea, it's impossible to know what kind of observations are consistent with selection if we don't have a baseline to compare against. So let's first construct a model of evolution in the absence of selection using the general steps described in section 1, <a href='#section1'>Constructing a model</a>.</p>
 <h3 id="evolution-in-the-absence-of-selection">Evolution in the absence of selection</h3>
 <h4 id="i-formulate-the-question_1">i. Formulate the question</h4>
 <ul>
-<li><strong>What do you want to know</strong>: How do allele frequencies change over time in the absence of natural selection?</li>
-<li><strong>Boil the question down</strong>: In a diploid population with two variant alleles of a gene (A and a), how will the frequency of the A allele, <span class="arithmatex">\(p\)</span>, change over time?</li>
-<li><strong>Simple, biologically reasonable description</strong>: We assume that each diploid genotype (AA, Aa, and aa) has equal fitness and that individuals reproduce and then die (non-overlapping generations). We also assume that individuals produce haploid gametes that form a gamete pool. Gametes within the gamete pool unite at random to produce the next generation of diploid individuals.</li>
+<li><strong>What do you want to know</strong><ul>
+<li>How do allele frequencies change over time in the absence of natural selection?</li>
+</ul>
+</li>
+<li><strong>Boil the question down</strong><ul>
+<li>In a diploid population with two variant "alleles" of a gene (A and a), how will the frequency of the A allele change over time?</li>
+</ul>
+</li>
+<li><strong>Simple, biologically reasonable description</strong> <ul>
+<li>We assume that each diploid genotype (AA, Aa, and aa) has equal fitness and that individuals reproduce and then die (non-overlapping generations). We also assume that individuals produce haploid gametes that form a gamete pool. Gametes within the gamete pool unite at random to produce the next generation of diploid individuals.</li>
+</ul>
+</li>
 </ul>
 <h4 id="ii-determine-the-basic-ingredients_1">ii. Determine the basic ingredients</h4>
 <ul>
-<li>Variables in this model:<ul>
+<li><strong>Variables</strong><ul>
 <li><span class="arithmatex">\(x\)</span> = frequency of AA individuals </li>
 <li><span class="arithmatex">\(y\)</span> = frequency of Aa individuals</li>
 <li><span class="arithmatex">\(z\)</span> = frequency of aa individuals</li>
+<li>From this we can extract the allele frequencies<ul>
+<li>the frequency of A is <span class="arithmatex">\(p = x + y/2\)</span> (ie, all of the alleles in genotype AA (<span class="arithmatex">\(x\)</span>) are A but only 1/2 of the alleles in genotype Aa (<span class="arithmatex">\(y\)</span>) are A)</li>
+<li>the frequency of a is <span class="arithmatex">\(q = 1 - p = y/2 + z\)</span></li>
 </ul>
 </li>
-<li>Constraints on these variables? <ul>
-<li><span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(z\)</span> are <span class="arithmatex">\(≥ 0\)</span> and <span class="arithmatex">\(≤ 1\)</span> </li>
+</ul>
+</li>
+<li><strong>Constraints on these variables</strong> <ul>
+<li><span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span>, <span class="arithmatex">\(z\)</span> are <span class="arithmatex">\(≥0\)</span> and <span class="arithmatex">\(≤1\)</span> </li>
 <li><span class="arithmatex">\(x+y+z=1\)</span></li>
 </ul>
 </li>
-<li>We will follow the genotype frequencies from one generation to the next, using a discrete-time model with a time scale set to one generation.</li>
-<li>From this we can extract the allele frequency dynamics.<ul>
-<li>The frequency of allele A among these individuals? <ul>
-<li><span class="arithmatex">\(p = x + y/2\)</span></li>
+<li><strong>How we'll treat time</strong> <ul>
+<li>We will follow the genotype frequencies from one generation to the next, using a discrete-time model</li>
 </ul>
 </li>
-<li>The frequency of allele a among these individuals? <ul>
-<li><span class="arithmatex">\(q = 1 - p = y/2 + z\)</span></li>
-</ul>
-</li>
-<li>Because all individuals are equally fit, the gamete allele frequencies are equal to parental allele frequencies.</li>
+<li><strong>Parameters</strong><ul>
+<li>there are no parameters in this model (which is a little bit unusual)</li>
 </ul>
 </li>
 </ul>
 <h4 id="iii-qualitatively-describe-the-biological-system_1">iii. Qualitatively describe the biological system</h4>
-<p>Gametes unite at random in the gamete pool to produce diploid offspring. Below we draw the life-cycle diagram.</p>
+<p>Gametes unite at random in the gamete pool to produce diploid offspring. These offspring grow into adults that undergo meiosis, creating gametes, and die. Below we draw the life-cycle diagram.</p>
 <p><center></p>
 <p><img alt="" src="../lecture-02-img/hw_diagram.png" /></p>
 <p></center></p>
 <h4 id="iv-quantiatively-describe-the-biological-system">iv. Quantiatively describe the biological system</h4>
-<p>To calculate offspring frequencies, we use a mating table.</p>
+<p>To calculate the frequency of each genoytpe in the next generation we use a mating table. The "Union" column indicates the pair of gametes that are meeting each other, the "Frequency" column indicates the proportion of gamete pairs in the population with this particular union, and the remaining columns indicate which diploid genotype is created by the union.</p>
 <table>
 <thead>
 <tr>
@@ -1163,36 +1200,65 @@ n_{t+1} &amp;= n'' − dn'' \\
 </tr>
 </tbody>
 </table>
-<p>The offspring frequencies denoted in <span style='color: red'>red</span> are known as the <span style='color: red'>Hardy-Weinberg frequencies</span>.</p>
-<p>We can use thse offspring <span style='color: red'>Hardy-Weinberg frequencies</span> to describe the population frequency of each type of <span class="arithmatex">\(AA\)</span>, <span class="arithmatex">\(Aa\)</span>, and <span class="arithmatex">\(aa\)</span> individual in the next generation:</p>
-<div class="arithmatex">\[x' = p^2 = (x + y/2)^2\]</div>
-<div class="arithmatex">\[y' = 2pq = 2(x + y/2)(y/2 + z)\]</div>
-<div class="arithmatex">\[z' = q^2 = (y/2 + z)^2\]</div>
+<p>The genotype frequencies denoted in <span style='color: red'>red</span> are known as the <strong>Hardy-Weinberg frequencies</strong>. Note that this table shows that populations not at "Hardy-Weinberg equilibrium" reach Hardy-Weinberg equilibrium after only one generation of random mating. </p>
+<p>We now have the frequency of genotypes in the next generation in terms of the allele frequencies in the previous generation,</p>
+<div class="arithmatex">\[x' = p^2\]</div>
+<div class="arithmatex">\[y' = 2pq\]</div>
+<div class="arithmatex">\[z' = q^2\]</div>
+<p>To understand how the genotype frequencies at Hardy-Weinberg vary with allele frequency, we can plot them.</p>
+<pre data-executable="true" data-language="python">
+from sympy import *
+var('p')
+x = p**2 #frequency of AA at Hardy-Weinberg as a function of the frequency of allele A
+y = 2*p*(1-p) #freq of Aa
+z = (1-p)**2 #freq of aa
+p = plot(x, y, z, #functions that we are plotting
+     (p,0,1), #plot as a function of allele frequency from 0 to 1
+     xlabel="allele frequency, $p$", 
+     ylabel="genotype frequency",
+     legend=True, show=False
+    )
+p[0].label='AA' #give legend genotype labels
+p[1].label='Aa'
+p[2].label='aa'
+p.show()
+</pre>
+
+<p><img alt="png" src="../lecture-02_files/lecture-02_5_0.png" /></p>
+<p>From this plot we see, for example, that the frequency of heterozygotes, Aa, is maximized at intermediate allele frequencies.</p>
+<p>Subbing in <span class="arithmatex">\(p=x+y/2\)</span> and <span class="arithmatex">\(q=y/2+z\)</span> we get the recursion equations describing the frequency of diploid genotypes in the next generation as a function of the diploid genotypes in the current generation,</p>
+<div class="arithmatex">\[x' = (x + y/2)^2\]</div>
+<div class="arithmatex">\[y' = 2(x + y/2)(y/2 + z)\]</div>
+<div class="arithmatex">\[z' = (y/2 + z)^2\]</div>
 <h4 id="v-analyze-the-equations_1">v. Analyze the equations</h4>
-<p>Populations not at Hardy-Weinberg reach Hardy-Weinberg equilibrium after only one
-generation of random mating (as in the above example). </p>
-<p>Can you show this? What is the frequency of allele A in the next generation?</p>
+<p>Now back to our question. What is the frequency of allele A in the next generation?</p>
 <div class="arithmatex">\[p' = x' + y'/2\]</div>
-<div class="arithmatex">\[p' = p^2 + pq\]</div>
+<div class="arithmatex">\[p' = p^2 + 2pq/2\]</div>
 <div class="arithmatex">\[p' = p(p + q)\]</div>
 <div class="arithmatex">\[p' = p\]</div>
-<p>In the absence of selection and mutation, allele frequencies remain constant. Meiosis and random segregation do not, by themselves, change allele frequencies.</p>
 <h4 id="vi-checks-and-balances_1">vi. Checks and balances</h4>
 <ul>
-<li>Does <span class="arithmatex">\(x' + y' + z' = 1\)</span>?</li>
+<li>Does <span class="arithmatex">\(x' + y' + z' = 1\)</span>? </li>
 </ul>
+<div class="arithmatex">\[
+\begin{aligned}
+x' + y' + z' 
+&amp;= p^2 + 2pq + q^2\\
+&amp;= (p+q)^2\\
+&amp;= (1)^2\\
+&amp;= 1
+\end{aligned}
+\]</div>
 <h4 id="vii-relate-the-results-back-to-the-question_1">vii. Relate the results back to the question</h4>
 <ul>
-<li>
-<p>How do allele frequencies change over time in the absence of natural selection? </p>
-<ul>
-<li><em>They don't</em></li>
+<li>How do allele frequencies change over time in the absence of natural selection? <ul>
+<li>They don't</li>
 </ul>
 </li>
-<li>
-<p>Data example:</p>
-</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Data example: blood types</p>
+<p>Below is a table describing the frequency of three different blood types (and their associated genotype) in a sample of humans from the USA.</p>
 <table>
 <thead>
 <tr>
@@ -1217,15 +1283,23 @@ generation of random mating (as in the above example). </p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Are these at or near Hardy-Weinberg equilibrium?</li>
-</ul>
-<p><span class="arithmatex">\(x = 0.292, y = 0.496, z = 0.212\)</span></p>
-<p><span class="arithmatex">\(p = x + y/2 = 0.540, q = y/2 + z = 0.460\)</span></p>
-<p><span class="arithmatex">\(p^2 = 0.2916, 2pq = 0.4985, q^2 = 0.2116\)</span></p>
-<ul>
-<li>The genotype frequencies appear to be very close to Hardy-Weinberg equilibrium!</li>
-</ul>
+<p>We ask, are these genotypes near Hardy-Weinberg equilibrium?</p>
+<p>First, write the frequency of each genotype as <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> , and <span class="arithmatex">\(z\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(x = 0.292\)</span>\)</span> 
+<span class="arithmatex">\(<span class="arithmatex">\(y = 0.496\)</span>\)</span> 
+<span class="arithmatex">\(<span class="arithmatex">\(z = 0.212\)</span>\)</span></p>
+<p>Next, convert the genotype frequencies into allele frequencies
+<span class="arithmatex">\(<span class="arithmatex">\(p = x + y/2 = 0.540\)</span>\)</span>
+<span class="arithmatex">\(<span class="arithmatex">\(q = y/2 + z = 0.460\)</span>\)</span></p>
+<p>Now predict what the genotype frequencies would be at Hardy-Weinberg equilibrium
+<span class="arithmatex">\(<span class="arithmatex">\(x = p^2 = 0.2916\)</span>\)</span> 
+<span class="arithmatex">\(<span class="arithmatex">\(y = 2pq = 0.4985\)</span>\)</span> 
+<span class="arithmatex">\(<span class="arithmatex">\(z = q^2 = 0.2116\)</span>\)</span></p>
+<p>These predicted genotype frequencies are exceptionally close to those actually observed, indicating Hardy-Weinberg equilibrium and suggesting an absence of selection on this phenotype. </p>
+</div>
+<pre data-executable="true" data-language="python">
+
+</pre>
 
 
 
@@ -1260,13 +1334,13 @@ generation of random mating (as in the above example). </p>
       
       
         
-        <a href="../../labs/schedule/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule" rel="next">
+        <a href="../lecture-03/" class="md-footer__link md-footer__link--next" aria-label="Next: Lecture 3" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Schedule
+              Lecture 3
             </div>
           </div>
           <div class="md-footer__button md-icon">
