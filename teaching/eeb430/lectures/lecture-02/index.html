@@ -1014,45 +1014,35 @@
 <li>Describe any constraints on the parameters.</li>
 </ul>
 <h3 id="iii-qualitatively-describe-the-biological-system">iii. Qualitatively describe the biological system</h3>
-<p>For discrete-time models, draw a life-cycle diagram with multiple events per time unit.</p>
+<p>For continuous-time models, draw a flow diagram to describe changes to the variables over time. For example, if we had a population experiencing migration, death, and birth we could draw the following.</p>
 <p><center></p>
-<p><img alt="" src="../lecture-02-img/life_cycle.png" /></p>
-<p></center></p>
-<p><center><sup>Figure. Discrete-time life-cycle diagram. </sup></center></p>
-<pre class="mermaid"><code>flowchart-curved LR;
-  A[n] -- migration --&gt; B[n'];
-  B -- birth --&gt; C[n''];
-  C -- death --&gt; A;</code></pre>
-<p>For continuous time models, draw a flow diagram to describe changes to the variables over time. For models with many possible events, construct a table listing the outcome of every event.</p>
-<p><center></p>
-<p><img alt="" src="../lecture-02-img/bird_flow.png" />    </p>
+<pre class="mermaid"><code>graph LR;
+    A((n)) --birth--&gt; A;
+    B[ ] --migration--&gt; A;
+    A --death--&gt; C[ ];
+    style B height:0px;
+    style C height:0px;</code></pre>
 <p></center></p>
 <p><center><sup>Figure. Continuous time flow diagram.</sup></center></p>
+<p>For discrete-time models, draw a life-cycle diagram with all the events that occur each time unit. For example, if we were modeling a population that experienced migration, then birth, then death each time step, we could draw the following.</p>
+<p><center></p>
+<pre class="mermaid"><code>graph LR;
+    A((n)) --migration--&gt; B((n'));
+    B --birth--&gt; C((n''));
+    C --death--&gt; A;</code></pre>
+<p></center></p>
+<p><center><sup>Figure. Discrete-time life-cycle diagram. </sup></center></p>
+<p>For discrete time models with multiple variables and events, construct a table listing the outcome of every event. We'll see an example of this below.</p>
 <h3 id="iv-quantitatively-describe-the-biological-system">iv. Quantitatively describe the biological system</h3>
 <p>Using the diagrams and tables as a guide, write down the equations. Perform checks. Are the constraints on the variables still met as time passes? Make sure that the units of the right-hand side equal those on the left-hand side.</p>
-<p>For <strong>continuous time</strong>, add rates for arrows coming in to the flow diagram and subtract rates for arrows coming out of the flow diagram. </p>
-<p>For example, in the bird model shown above the rate of change in the number of birds, <span class="arithmatex">\(\frac{\mathrm{d} n(t)}{\mathrm{d} t}\)</span>, is</p>
+<p>For continuous-time models, add rates for arrows coming in to the flow diagram and subtract rates for arrows coming out of the flow diagram. </p>
+<p>For example, in the model shown above the rate of change in the number of individuals, <span class="arithmatex">\(\frac{\mathrm{d} n(t)}{\mathrm{d} t}\)</span>, is</p>
 <div class="arithmatex">\[
 \frac{\mathrm{d} n(t)}{\mathrm{d} t} = m + b n(t) - d n(t)
 \]</div>
-<p>where <span class="arithmatex">\(m\)</span>, <span class="arithmatex">\(b\)</span>, and <span class="arithmatex">\(d\)</span> are the per capita rates of migration, birth, and death.</p>
-<p>Another example in continuous time describing the rates of infected and uninfected individuals</p>
-<p><center></p>
-<p><img alt="" src="../lecture-02-img/infected.png" /></p>
-<p></center></p>
-<p>The rates of change in the number of infected and uninfected individuals are</p>
-<div class="arithmatex">\[
-\frac{dI(t)}{dt} = \beta U(t)I(t) - \alpha I(t)
-\]</div>
-<div class="arithmatex">\[
-\frac{dU(t)}{dt} = \alpha I(t) - \beta U(t)I(t)
-\]</div>
-<p>In <strong>discrete time</strong>, you must take into account the order of events when constructing equations.</p>
-<p>Let's assume we have the following life cycle diagram where the population size, <span class="arithmatex">\(n(t)\)</span>, is censused immediately after death.</p>
-<p><center></p>
-<p><img alt="" src="../lecture-02-img/discrete_example.png" /></p>
-<p></center></p>
-<p>To build an equation for the population size in the next generation, <span class="arithmatex">\(n(t+1)\)</span>, first construct an equation for each event </p>
+<p>where <span class="arithmatex">\(m\)</span>, <span class="arithmatex">\(b\)</span>, and <span class="arithmatex">\(d\)</span> are the per capita (ie, per individual) rates of migration, birth, and death.</p>
+<p>In discrete time, you must take into account the order of events when constructing equations.</p>
+<p>To build an equation for the population size in the next generation, <span class="arithmatex">\(n(t+1)\)</span>, based on the life-cycle diagram above, first construct an equation for each event </p>
 <div class="arithmatex">\[n' = n_t + m\]</div>
 <div class="arithmatex">\[n'' = n' + bn'\]</div>
 <div class="arithmatex">\[n_{t+1} = n'' - dn''\]</div>
@@ -1069,7 +1059,7 @@ n_{t+1} &amp;= n'' − dn'' \\
 &amp;= (n_t +m)(1+b−d−db) \\
 \end{aligned}
 \]</div>
-<p>We now have a recursion equation that correctly takes into account the order of the life cycle and the point at which the census is taken.</p>
+<p>We now have a recursion equation that correctly takes into account the order of the life cycle (migration, birth, death) and the point at which the census is taken (immediately after death).</p>
 <h3 id="v-analyze-the-equations">v. Analyze the equations</h3>
 <ul>
 <li>Start by using the equations to simulate and graph the changes to the system over time. </li>
@@ -1148,10 +1138,12 @@ n_{t+1} &amp;= n'' − dn'' \\
 <h4 id="iii-qualitatively-describe-the-biological-system_1">iii. Qualitatively describe the biological system</h4>
 <p>Gametes unite at random in the gamete pool to produce diploid offspring. These offspring grow into adults that undergo meiosis, creating gametes, and die. Below we draw the life-cycle diagram.</p>
 <p><center></p>
-<p><img alt="" src="../lecture-02-img/hw_diagram.png" /></p>
+<pre class="mermaid"><code>    graph LR;
+    A((random&lt;br&gt; union)) --diploid--&gt; B((meiosis));
+    B --haploid--&gt; A;</code></pre>
 <p></center></p>
 <h4 id="iv-quantiatively-describe-the-biological-system">iv. Quantiatively describe the biological system</h4>
-<p>To calculate the frequency of each genoytpe in the next generation we use a mating table. The "Union" column indicates the pair of gametes that are meeting each other, the "Frequency" column indicates the proportion of gamete pairs in the population with this particular union, and the remaining columns indicate which diploid genotype is created by the union.</p>
+<p>To calculate the frequency of each genoytpe in the next generation we use a table of events. The "Union" column indicates the pair of gametes that are meeting each other, the "Frequency" column indicates the proportion of gamete pairs in the population with this particular union, and the remaining columns indicate which diploid genotype is created by the union.</p>
 <table>
 <thead>
 <tr>
@@ -1224,7 +1216,6 @@ p[2].label='aa'
 p.show()
 </pre>
 
-<p><img alt="png" src="../lecture-02_files/lecture-02_5_0.png" /></p>
 <p>From this plot we see, for example, that the frequency of heterozygotes, Aa, is maximized at intermediate allele frequencies.</p>
 <p>Subbing in <span class="arithmatex">\(p=x+y/2\)</span> and <span class="arithmatex">\(q=y/2+z\)</span> we get the recursion equations describing the frequency of diploid genotypes in the next generation as a function of the diploid genotypes in the current generation,</p>
 <div class="arithmatex">\[x' = (x + y/2)^2\]</div>
@@ -1284,22 +1275,19 @@ x' + y' + z'
 </tbody>
 </table>
 <p>We ask, are these genotypes near Hardy-Weinberg equilibrium?</p>
-<p>First, write the frequency of each genotype as <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> , and <span class="arithmatex">\(z\)</span>
-<span class="arithmatex">\(<span class="arithmatex">\(x = 0.292\)</span>\)</span> 
-<span class="arithmatex">\(<span class="arithmatex">\(y = 0.496\)</span>\)</span> 
-<span class="arithmatex">\(<span class="arithmatex">\(z = 0.212\)</span>\)</span></p>
-<p>Next, convert the genotype frequencies into allele frequencies
-<span class="arithmatex">\(<span class="arithmatex">\(p = x + y/2 = 0.540\)</span>\)</span>
-<span class="arithmatex">\(<span class="arithmatex">\(q = y/2 + z = 0.460\)</span>\)</span></p>
-<p>Now predict what the genotype frequencies would be at Hardy-Weinberg equilibrium
-<span class="arithmatex">\(<span class="arithmatex">\(x = p^2 = 0.2916\)</span>\)</span> 
-<span class="arithmatex">\(<span class="arithmatex">\(y = 2pq = 0.4985\)</span>\)</span> 
-<span class="arithmatex">\(<span class="arithmatex">\(z = q^2 = 0.2116\)</span>\)</span></p>
+<p>First, write the frequency of each genotype as <span class="arithmatex">\(x\)</span>, <span class="arithmatex">\(y\)</span> , and <span class="arithmatex">\(z\)</span></p>
+<div class="arithmatex">\[x = 0.292\]</div>
+<div class="arithmatex">\[y = 0.496\]</div>
+<div class="arithmatex">\[z = 0.212\]</div>
+<p>Next, convert the genotype frequencies into allele frequencies</p>
+<div class="arithmatex">\[p = x + y/2 = 0.540\]</div>
+<div class="arithmatex">\[q = y/2 + z = 0.460\]</div>
+<p>Now predict what the genotype frequencies would be at Hardy-Weinberg equilibrium</p>
+<div class="arithmatex">\[x = p^2 = 0.2916\]</div>
+<div class="arithmatex">\[y = 2pq = 0.4985\]</div>
+<div class="arithmatex">\[z = q^2 = 0.2116\]</div>
 <p>These predicted genotype frequencies are exceptionally close to those actually observed, indicating Hardy-Weinberg equilibrium and suggesting an absence of selection on this phenotype. </p>
 </div>
-<pre data-executable="true" data-language="python">
-
-</pre>
 
 
 
