@@ -876,7 +876,7 @@ n_{t+1}
 <p>where <span class="arithmatex">\(R=(1+b)(1-d)\)</span> is a constant referred to as the <strong>reproductive factor</strong>.</p>
 <p>This equation, <span class="arithmatex">\(n_{t+1}=n_t R\)</span>, is the <strong>recursion equation</strong> for exponential growth.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Exponential vs geometric growth</p>
 <p>Technically this recursion equation describes "geometric" growth, since <span class="arithmatex">\(n_t\)</span> will grow with <span class="arithmatex">\(t\)</span> as a geometric series, but here we simply call it "exponential growth in discrete time" to make a clear connection with exponential growth in continuous time.</p>
 </div>
 <p>We can also describe the <em>change</em> in the number of individuals by subtracting off the current number,</p>
@@ -927,7 +927,7 @@ plt.show()
 <p>Note that the growth rate in the discrete-time model was <span class="arithmatex">\(r_d = b - d - b d\)</span>. The difference between the two growth rates reflects the fact that birth and death cannot happen at the exact same time in the continuous-time model (so there is no <span class="arithmatex">\(b d\)</span> term), while offspring that are born can die before the next generation in the discrete-time model (causing the <span class="arithmatex">\(b d\)</span> term).</p>
 <p>Let's also plot these dynamics.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Approximating a differential equation</p>
 <p>The differential equation describes the change in the population size in an "infinitesimally" small amount of time, <span class="arithmatex">\(\mathrm{d}t\)</span>. To plot these dynamics we therefore make an approximation, taking <span class="arithmatex">\(\mathrm{d}t\)</span> to be small, but not infinitely so. Rearranging the differential equation gives <span class="arithmatex">\(\mathrm{d}n_t = n_t(b-d)\mathrm{d}t\)</span> and the population size after <span class="arithmatex">\(\mathrm{d}t\)</span> is therefore <span class="arithmatex">\(n_{t+\mathrm{d}t} = n_t + \mathrm{d}n_t\)</span>. This is a recursion equation that approximates our differential equation.</p>
 </div>
 <pre data-executable="true" data-language="python">
@@ -966,7 +966,7 @@ plt.show()
 </pre>
 
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Why the difference?</p>
 <p>The predictions are very similar at first but then noticeably diverge.  </p>
 <p>The time of this divergence depends on the values of parameters <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(d\)</span>. Try increasing or decreasing both <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(d\)</span> and think about why it has that effect.</p>
 <p>Also think about why the continuous time model predicts a larger population size than the discrete time model. </p>
@@ -1062,6 +1062,12 @@ plt.show()
 <p><center><sup>Figure. Population size of haploid and diploid yeast fit with logistic growth models.</sup></center></p>
 <p><em>Note: This may be a bit misleading, as such excellent model fits are rarely observed, especially outside the lab!</em></p>
 </div>
+<div class="admonition todo">
+<p class="admonition-title">To do: make the above plots in Python</p>
+</div>
+<pre data-executable="true" data-language="python">
+
+</pre>
 
 
 
