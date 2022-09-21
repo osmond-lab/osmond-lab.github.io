@@ -932,7 +932,7 @@
 <h2 id="1-review-of-hardy-weinberg">1. Review of Hardy-Weinberg</h2>
 <hr>
 
-<p>In the absence of selection, one round of random mating causes the frequency of diploid genotypes at a locus with two alleles, <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span>, to become</p>
+<p>In Lecture 2 we saw that in the absence of selection, one round of random union among gametes (equivalently, random mating among diploids) causes the frequency of diploid genotypes at a locus with two alleles, <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span>, to become</p>
 <ul>
 <li><span class="arithmatex">\(AA\)</span>: <span class="arithmatex">\(p^2\)</span></li>
 <li><span class="arithmatex">\(Aa\)</span>: <span class="arithmatex">\(2pq\)</span></li>
@@ -957,69 +957,66 @@
 <p><center><sup>Figure. Life-cycle diagram of haploid selection</sup></center></p>
 <p>We will census the population at the beginning of the haploid phase (immediately after meiosis).</p>
 <h3 id="deriving-the-equations">Deriving the equations</h3>
-<p>Let</p>
+<p>Let the number of haploid individuals with each allele be</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(n_A(t) =\)</span> number of <span class="arithmatex">\(A\)</span> genotypes in generation <span class="arithmatex">\(t\)</span></p>
-</li>
-<li>
-<p><span class="arithmatex">\(n_a(t) =\)</span> number of <span class="arithmatex">\(a\)</span> genotypes in generation <span class="arithmatex">\(t\)</span></p>
-</li>
+<li><span class="arithmatex">\(n_A(t) =\)</span> number of individuals with the <span class="arithmatex">\(A\)</span> allele in generation <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(n_a(t) =\)</span> number of individuals with the <span class="arithmatex">\(a\)</span> allele in generation <span class="arithmatex">\(t\)</span></li>
 </ul>
 <p>The frequency of <span class="arithmatex">\(A\)</span> is therefore <span class="arithmatex">\(p_t = \frac{n_a(t)}{n_A(t) + n_a(t)}\)</span>.</p>
-<p>Now, let’s assume that not all haploid individuals survive to reproduce, and that the viability of an individual depends on its genotype:</p>
+<p>Now, let’s assume that during selection each haploid individual has reproductive factor</p>
 <ul>
-<li>
-<p><span class="arithmatex">\(v_A =\)</span> fraction of <span class="arithmatex">\(A\)</span> genotypes that survive</p>
-</li>
-<li>
-<p><span class="arithmatex">\(v_a =\)</span> fraction of <span class="arithmatex">\(a\)</span> genotypes that survive</p>
-</li>
+<li><span class="arithmatex">\(W_A =\)</span> reproductive factor of individuals with the <span class="arithmatex">\(A\)</span> allele </li>
+<li><span class="arithmatex">\(W_a =\)</span> reproductive factor of individuals with the <span class="arithmatex">\(a\)</span> allele</li>
 </ul>
-<p>After these deaths have occurred, there are <span class="arithmatex">\(v_A n_A(t)\)</span> <span class="arithmatex">\(A\)</span> genotypes and <span class="arithmatex">\(v_a n_a(t)\)</span> <span class="arithmatex">\(a\)</span> genotypes. The frequency of <span class="arithmatex">\(A\)</span> among these survivors is therefore
-<span class="arithmatex">\(\frac{v_A n_A(t)}{v_A n_A(t) + v_a n_a(t)}\)</span>.</p>
-<p>These survivors go on to unite at random, go through the diploid phase of the life-cycle without selection, and then undergo meiosis to produce the next generation of haploids. Because none of these processes change allele frequencies (as in our model of Hardy-Weinberg), the frequency of <span class="arithmatex">\(A\)</span> in the next generation is the frequency after death,</p>
+<p>These reproductive factors are referred to as the <strong>absolute fitnesses</strong> as they determine the (absolute) numbers of individuals after selection, <span class="arithmatex">\(n_i' = W_i n_i(t)\)</span> for <span class="arithmatex">\(i=A\)</span> and <span class="arithmatex">\(i=a\)</span>. To relate back to the models of population growth in Lecture 3, this is exponential growth of each allele.</p>
+<p>After selection these alleles randomly pair, go through the dipliod phase of the life cycle, and then segregate back into haploids after meiosis. We assume this does not change the numbers of each allele (or at least the relative numbers, eg, all diploid individuals could produce X gametes). The frequency of <span class="arithmatex">\(A\)</span> in the next generation is therefore</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_A n_A(t)}{v_A n_A(t) + v_a n_a(t)}.
+\begin{aligned}
+p_{t+1} 
+&amp;= \frac{n_A(t+1)}{n_A(t+1) + v_a n_a(t)} \\
+&amp;= \frac{W_A n_A(t)}{W_A n_A(t) + W_a n_a(t)}.
+\end{aligned}
 \]</div>
 <p>To make this a recursion equation we need to write <span class="arithmatex">\(p_{t+1}\)</span> in terms of <span class="arithmatex">\(p_t\)</span>, so that if we knew <span class="arithmatex">\(p\)</span> at some point in time we can recursively calculate it in all future times. To do this we divide both the numerator and denominator by the total number of individuals, <span class="arithmatex">\(n_A(t) + n_a(t)\)</span>, and simplify</p>
 <div class="arithmatex">\[
 \begin{aligned}
 p_{t+1} 
-&amp;= \frac{v_A n_A(t)}{v_A n_A(t) + v_a n_a(t)} \\
-&amp;= \frac{v_A\frac{n_A(t)}{n_A(t) + n_a(t)}}{v_A\frac{n_A(t)}{n_A(t) + n_a(t)} + v_a\frac{n_a(t)}{n_A(t) + n_a(t)}}\\
-&amp;= \frac{v_A p_t}{v_A p_t + v_a q_t}.
+&amp;= \frac{W_A n_A(t)}{W_A n_A(t) + W_a n_a(t)} \\
+&amp;= \frac{W_A\frac{n_A(t)}{n_A(t) + n_a(t)}}{W_A\frac{n_A(t)}{n_A(t) + n_a(t)} + W_a\frac{n_a(t)}{n_A(t) + n_a(t)}}\\
+&amp;= \frac{W_A p_t}{W_A p_t + W_a q_t}.
 \end{aligned}
 \]</div>
 <p>This is now a recursion equation for the allele frequency in our model of haploid selection.</p>
 <h3 id="simplifying">Simplifying</h3>
-<p>Our current recursion is a function of two parameters, the absolute viabilities, <span class="arithmatex">\(v_A\)</span> and <span class="arithmatex">\(v_a\)</span>. Now notice that if we divide both the numerator and denominator by one of these viabilities, say <span class="arithmatex">\(v_a\)</span>, then we can reduce the recursion to a function of only one parameter, <span class="arithmatex">\(W_A = v_A/v_a\)</span>, the viability of <span class="arithmatex">\(A\)</span> <em>relative</em> to the viablity of <span class="arithmatex">\(a\)</span>,</p>
+<p>Our current recursion is a function of two parameters, the absolute fitnesses <span class="arithmatex">\(W_A\)</span> and <span class="arithmatex">\(W_a\)</span>. Now notice that if we divide both the numerator and denominator by one of these fitnesses, say <span class="arithmatex">\(W_a\)</span>, then we can reduce the recursion to a function of only one parameter, <span class="arithmatex">\(w_A = W_A/W_a\)</span>, the fitness of <span class="arithmatex">\(A\)</span> <em>relative</em> to the fitness of <span class="arithmatex">\(a\)</span>,</p>
 <div class="arithmatex">\[
 \begin{aligned}
-p_{t+1} &amp;= \frac{(v_A/v_a)p_t}{(v_A/v_a)p_t + (v_a/v_a)q_t}\\
-&amp;= \frac{W_A p_t}{W_A p_t + q_t}.
+p_{t+1} &amp;= \frac{(W_A/W_a)p_t}{(W_A/W_a)p_t + (W_a/W_a)q_t}\\
+&amp;= \frac{w_A p_t}{w_A p_t + q_t}.
 \end{aligned}
 \]</div>
-<p>Let's plot the recursion to get a sense of the dynamics</p>
+<p>Note that the allele frequency dynamics depend only on the <strong>relative fitnesses</strong>, and not on the absolute fitnesses, meaning that evolution does not depend on how the size of the population changes. It is therefore possible to study evolution while ignoring population dynamics under this simple model.</p>
+<p>Let's plot the recursion to get a sense of the dynamics.</p>
 <pre data-executable="true" data-language="python">
 import matplotlib.pyplot as plt
 
 # calculate allele frequency over time with recursion
-W_A = 1.1 #relative viability of allele A
+w_A = 1.1 #relative fitness of allele A
 p_now = 0.01 #initial allele frequency, p_0
 ps = [] #list to hold allele frequencies over time
 ts = range(100) #list of time steps
 for t in ts: #for each time
     ps.append(p_now) #add current allele frequency to list
-    p_now = W_A*p_now/(W_A*p_now+(1-p_now)) #update allele frequency with our recursion equation
+    p_now = w_A*p_now/(w_A*p_now+(1-p_now)) #update allele frequency with our recursion equation
 
 # plot
 plt.scatter(ts, ps) #plot the (t,p) pairs
 plt.xlabel("generation, $t$") #label axes
-plt.ylabel("frequency of $A$ allele, $p$")
+plt.ylabel("frequency of $A$ allele, $p_t$")
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-04_files/lecture-04_3_0.png" /></p>
 <p><span id='section3'></span></p>
 <h2 id="3-one-locus-diploid-selection-in-discrete-time">3. One-locus diploid selection in discrete time</h2>
 <hr>
@@ -1036,11 +1033,11 @@ plt.show()
 <p><center><sup>Figure. Life-cycle diagram of diploid selection</sup></center></p>
 <p>We will census at the beginning of the diploid phase (immediately after gamete union).</p>
 <h3 id="deriving-the-equations_1">Deriving the equations</h3>
-<p>Let</p>
+<p>Let the number of diploid individuals with each genotype be</p>
 <ul>
-<li><span class="arithmatex">\(n_{AA}(t) =\)</span> number of <span class="arithmatex">\(AA\)</span> genotypes in generation <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(n_{Aa}(t) =\)</span> number of <span class="arithmatex">\(Aa\)</span> genotypes in generation <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(n_{aa}(t) =\)</span> number of <span class="arithmatex">\(aa\)</span> genotypes in generation <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(n_{AA}(t) =\)</span> number of individuals with the <span class="arithmatex">\(AA\)</span> genotype in generation <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(n_{Aa}(t) =\)</span> number of individuals with the <span class="arithmatex">\(Aa\)</span> genotype in generation <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(n_{aa}(t) =\)</span> number of individuals wite the <span class="arithmatex">\(aa\)</span> genotype in generation <span class="arithmatex">\(t\)</span></li>
 </ul>
 <p>The frequency of allele <span class="arithmatex">\(A\)</span> is then</p>
 <div class="arithmatex">\[
@@ -1050,127 +1047,134 @@ p_t
 &amp;= \frac{n_{AA}(t) + \frac{1}{2}n_{Aa}(t)}{n_{AA}(t) + n_{Aa}(t) + n_{aa}(t)}
 \end{aligned}
 \]</div>
-<p>Now let's assume that not all individuals survive to reproduce, and that the viability of an individual depends on its genotype:</p>
+<p>Now, let’s assume that during selection each diploid individual has reproductive factor</p>
 <ul>
-<li><span class="arithmatex">\(V_{AA} =\)</span> fraction of <span class="arithmatex">\(AA\)</span> genotypes that survive</li>
-<li><span class="arithmatex">\(V_{Aa} =\)</span> fraction of <span class="arithmatex">\(Aa\)</span> genotypes that survive</li>
-<li><span class="arithmatex">\(V_{aa} =\)</span> fraction of <span class="arithmatex">\(aa\)</span> genotypes that survive</li>
+<li><span class="arithmatex">\(W_{AA} =\)</span> reproductive factor of individuals with the <span class="arithmatex">\(AA\)</span> genotype </li>
+<li><span class="arithmatex">\(W_{Aa} =\)</span> reproductive factor of individuals with the <span class="arithmatex">\(Aa\)</span> genotype</li>
+<li><span class="arithmatex">\(W_{aa} =\)</span> reproductive factor of individuals with the <span class="arithmatex">\(aa\)</span> genotype</li>
 </ul>
-<p>After these deaths there will be <span class="arithmatex">\(v_{AA}n_{AA}(t)\)</span> <span class="arithmatex">\(AA\)</span> genotypes, <span class="arithmatex">\(v_{Aa}n_{Aa}(t)\)</span> <span class="arithmatex">\(Aa\)</span> genotypes, and <span class="arithmatex">\(v_{aa}n_{aa}(t)\)</span> <span class="arithmatex">\(aa\)</span> genotypes. The frequency of the <span class="arithmatex">\(A\)</span> allele among these survivors is therefore</p>
+<p>These reproductive factors are again referred to as the <strong>absolute fitnesses</strong> as they determine the (absolute) numbers of individuals after selection, <span class="arithmatex">\(n_i' = W_i n_i(t)\)</span> for <span class="arithmatex">\(i=AA\)</span>, <span class="arithmatex">\(i=Aa\)</span>, and <span class="arithmatex">\(i=aa\)</span>.</p>
+<p>After selection these genotypes segregate into haploids via meiosis, go through the haploid phase of the life cycle, and then random join to create diploids again. We assume this does not change the numbers of each genotype (or at least the relative numbers, eg, all diploid individuals could produce X gametes). The frequency of <span class="arithmatex">\(A\)</span> in the next generation is therefore</p>
 <div class="arithmatex">\[
-\frac{v_{AA}n_{AA}(t) + \frac{1}{2}v_{Aa}n_{Aa}(t)}{v_{AA}n_{AA}(t) + \frac{1}{2}v_{Aa}n_{Aa}(t) + v_{aa}n_{aa}(t)}.
+\begin{aligned}
+p_{t+1} 
+&amp;= \frac{n_{AA}(t+1) + \frac{1}{2}n_{Aa}(t+1)}{n_{AA}(t+1) + n_{Aa}(t+1) + n_{aa}(t+1)}\\
+&amp;= \frac{W_{AA}n_{AA}(t) + \frac{1}{2}W_{Aa}n_{Aa}(t)}{W_{AA}n_{AA}(t) + \frac{1}{2}W_{Aa}n_{Aa}(t) + W_{aa}n_{aa}(t)}.
+\end{aligned}
 \]</div>
-<p>Since meiosis, passage through the haploid phase without selection, and random union will not change this frequency, this is the frequency of the <span class="arithmatex">\(A\)</span> allele in the next generation,</p>
+<p>As above, we want a recursion equation in terms of allele frequency, so we want to replace the <span class="arithmatex">\(n_i\)</span>'s in the right hand side of this equation with <span class="arithmatex">\(p\)</span>'s. To do this we note that with the random union of gametes the diploid offspring are in Hardy-Weinberg proportions, so that</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_{AA}n_{AA}(t) + \frac{1}{2}v_{Aa}n_{Aa}(t)}{v_{AA}n_{AA}(t) + \frac{1}{2}v_{Aa}n_{Aa}(t) + v_{aa}n_{aa}(t)}.
+\begin{aligned}
+n_{AA}(t) &amp;= p_t^2 n(t) \\
+n_{Aa}(t) &amp;= 2p_t q_t n(t) \\
+n_{aa}(t) &amp;= q_t^2 n(t)
+\end{aligned}
 \]</div>
-<p>As above, we want a recursion equation, so we want to replace the <span class="arithmatex">\(n_i\)</span>'s in the right hand side of this equation with <span class="arithmatex">\(p\)</span>'s. To do this we note that with the random union of gametes the diploid offspring are in Hardy-Weinberg proportions, so that</p>
-<ul>
-<li><span class="arithmatex">\(n_{AA}(t) = p_t^2 n(t)\)</span></li>
-<li><span class="arithmatex">\(n_{Aa}(t) = 2p_t q_t n(t)\)</span></li>
-<li><span class="arithmatex">\(n_{aa}(t) = q_t^2 n(t)\)</span></li>
-</ul>
 <p>where <span class="arithmatex">\(n(t) = n_{AA}(t) + n_{Aa}(t) + n_{aa}(t)\)</span> is the total population size.</p>
 <p>Substituting these Hardy-Weinberg proportions in and simplifying, the total population size cancels out and we can rewrite the above equation in terms of allele frequency alone,</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_{AA}p_t^2 + v_{Aa}p_t q_t}{v_{AA}p_t^2 + 2v_{Aa}p_t q_t + v_{aa}q_t^2}.
+\begin{aligned}
+p_{t+1} 
+&amp;= \frac{W_{AA}p_t^2 n(t) + W_{Aa}p_t q_t n(t)}{W_{AA}p_t^2 n(t) + 2W_{Aa}p_t q_t n(t) + W_{aa}q_t^2 n(t)}\\
+&amp;= \frac{W_{AA}p_t^2 + W_{Aa}p_t q_t}{W_{AA}p_t^2 + 2W_{Aa}p_t q_t + W_{aa}q_t^2}.
+\end{aligned}
 \]</div>
 <p>This is a recursion equation for allele frequency in our model of diploid selection.</p>
 <h3 id="simplifying_1">Simplifying</h3>
-<p>As in the haploid selection case, we can divide by one of the viabilities, say <span class="arithmatex">\(v_{aa}\)</span>, to remove one parameter from the model</p>
+<p>As in the haploid selection case, we can divide by one of the absolute fitnesses, say <span class="arithmatex">\(W_{aa}\)</span>, to remove one parameter from the model</p>
 <div class="arithmatex">\[
 \begin{aligned}
 p_{t+1}
-&amp;= \frac{(v_{AA}/v_{aa})p_t^2 + (v_{Aa}/v_{aa})p_t q_t}{(v_{AA}/v_{aa})p_t^2 + 2(v_{Aa}/v_{aa})p_t q_t + (v_{aa}/v_{aa})q_t^2} \\
-&amp;= \frac{W_{AA}p_t^2 + W_{Aa}p_t q_t}{W_{AA}p_t^2 + 2W_{Aa}p_t q_t + q_t^2}
+&amp;= \frac{(W_{AA}/W_{aa})p_t^2 + (W_{Aa}/W_{aa})p_t q_t}{(W_{AA}/W_{aa})p_t^2 + 2(W_{Aa}/W_{aa})p_t q_t + (W_{aa}/W_{aa})q_t^2} \\
+&amp;= \frac{w_{AA}p_t^2 + w_{Aa}p_t q_t}{w_{AA}p_t^2 + 2w_{Aa}p_t q_t + q_t^2}
 \end{aligned}
 \]</div>
-<p>This recursion is a function of only two relative viabilities, <span class="arithmatex">\(W_{AA} = v_{AA}/v_{aa}\)</span> and <span class="arithmatex">\(W_{Aa} = v_{Aa}/v_{aa}\)</span>.</p>
-<p>Let's plot the recursion to get a sense of the dynamics</p>
+<p>This recursion is a function of only two relative fitnesses, <span class="arithmatex">\(w_{AA} = W_{AA}/W_{aa}\)</span> and <span class="arithmatex">\(w_{Aa} = W_{Aa}/W_{aa}\)</span>.</p>
+<p>Let's plot the recursion to get a sense of the dynamics.</p>
 <pre data-executable="true" data-language="python">
 import matplotlib.pyplot as plt
 
 # calculate allele frequency over time with recursion
-W_AA = 1.2 #relative viability of genotype AA
-W_Aa = 1.1 #relative viability of genotype Aa 
+w_AA = 1.2 #relative fitness of genotype AA
+w_Aa = 1.1 #relative fitness of genotype Aa 
 p_now = 0.01 #initial allele frequency, p_0
 ps = [] #list to hold allele frequencies over time
 ts = range(100) #list of time steps
 for t in ts: #for each time
     ps.append(p_now) #add current allele frequency to list
-    p_now = (W_AA*p_now**2 + W_Aa*p_now*(1-p_now))/(W_AA*p_now**2 + 2*W_Aa*p_now*(1-p_now) + (1-p_now)**2) #update allele frequency with our recursion equation
+    p_now = (w_AA*p_now**2 + w_Aa*p_now*(1-p_now))/(w_AA*p_now**2 + 2*w_Aa*p_now*(1-p_now) + (1-p_now)**2) #update allele frequency with our recursion equation
 
 # plot
 plt.scatter(ts, ps)
 plt.xlabel("generation, $t$")
-plt.ylabel("frequency of $A$ allele, $p$")
+plt.ylabel("frequency of $A$ allele, $p_t$")
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-04_files/lecture-04_5_0.png" /></p>
 <h2 id="4-comparing-haploid-and-diploid-selection">4. Comparing haploid and diploid selection</h2>
 <hr>
 
 <p>So, returning to our original question, let's compare evolution under haploid selection</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_A p_t}{v_A p_t + v_a q_t}
+p_{t+1} = \frac{W_A p_t}{W_A p_t + W_a q_t}
 \]</div>
 <p>to evolution under diploid selection</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_{AA}p_t^2 + v_{Aa}p_t q_t}{v_{AA}p_t^2 + 2v_{Aa}p_t q_t + v_{aa}q_t^2}.
+p_{t+1} = \frac{W_{AA}p_t^2 + W_{Aa}p_t q_t}{W_{AA}p_t^2 + 2W_{Aa}p_t q_t + W_{aa}q_t^2}.
 \]</div>
-<p>To facilitate this, let’s assume the viability of a diploid genotype is the product of the haploid viabilities, i.e., <span class="arithmatex">\(v_{AA} = v_Av_A\)</span>, <span class="arithmatex">\(v_{Aa} = v_Av_a\)</span>, and <span class="arithmatex">\(v_{aa} = v_av_a\)</span>.</p>
+<p>To facilitate this, let’s assume the fitness of a diploid genotype is the product of the haploid fitnesses, i.e., <span class="arithmatex">\(W_{AA} = W_A W_A\)</span>, <span class="arithmatex">\(W_{Aa} = W_A W_a\)</span>, and <span class="arithmatex">\(W_{aa} = W_a W_a\)</span>.</p>
 <p>It then happens that our diploid recursion reduces to the haploid recursion,</p>
 <div class="arithmatex">\[
 \begin{aligned}
 p_{t+1} &amp;= 
-\frac{v_A v_A p_t^2 + v_A v_a p_t q_t}{v_A v_A p_t^2 + 2v_A v_a p_t q_t + v_a v_a q_t^2}\\
-&amp;= \frac{v_Ap_t(p_t + v_a q_t)}{v_A p_t(v_A p_t + v_a q_t) + v_a q_t(v_A p_t + v_a q_t)}\\
-&amp;= \frac{v_A p_t}{v_A p_t + v_a q_t}
+\frac{W_A W_A p_t^2 + W_A W_a p_t q_t}{W_A W_A p_t^2 + 2W_A W_a p_t q_t + W_a W_a q_t^2}\\
+&amp;= \frac{W_A p_t(p_t + W_a q_t)}{W_A p_t(W_A p_t + W_a q_t) + W_a q_t(W_A p_t + W_a q_t)}\\
+&amp;= \frac{W_A p_t}{W_A p_t + W_a q_t}
 \end{aligned}
 \]</div>
-<p>This shows that we need twice as much selection under diploid selection relative to that under haploid selection (e.g., <span class="arithmatex">\(v_{AA} = v_Av_A\)</span>) for evolution to proceed as quickly. <em>Why is evolution slower under diploid selection?</em></p>
-<p>Let's check this visually (try breaking the assumption to see what happens)</p>
+<p>This shows that we need twice as much selection under diploid selection relative to that under haploid selection (e.g., <span class="arithmatex">\(W_{AA} = W_A W_A\)</span>) for evolution to proceed as quickly. <em>Why is evolution slower under diploid selection?</em></p>
+<p>Let's check this visually (try breaking the assumption above, <span class="arithmatex">\(W_{ij}=W_i W_j\)</span>, to see what happens).</p>
 <pre data-executable="true" data-language="python">
 import matplotlib.pyplot as plt
 
 # calculate allele frequency over time with recursion
-W_A = 1.1 #relative viability of allele A in the haploid model
-W_AA = W_A*W_A #relative viability of genotype AA in the diploid model
-W_Aa = W_A #relative viability of genotype Aa in the diploid model
+w_A = 1.1 #relative fitness of allele A in the haploid model
+w_AA = w_A*w_A #relative fitness of genotype AA in the diploid model
+w_Aa = w_A #relative fitness of genotype Aa in the diploid model
 p_now_hap = 0.01 #initial allele frequency, p_0
 p_now_dip = p_now_hap
 ps_hap, ps_dip = [], [] #lists to hold allele frequencies over time
 ts = range(100) #list of time steps
 for t in ts: #for each time
     ps_hap.append(p_now_hap) #add current allele frequency to list
-    p_now_hap = W_A*p_now_hap/(W_A*p_now_hap+(1-p_now_hap)) #update allele frequency with haploid recursion equation
+    p_now_hap = w_A*p_now_hap/(w_A*p_now_hap+(1-p_now_hap)) #update allele frequency with haploid recursion equation
     ps_dip.append(p_now_dip) #add current allele frequency to list
-    p_now_dip = (W_AA*p_now_dip**2 + W_Aa*p_now_dip*(1-p_now_dip))/(W_AA*p_now_dip**2 + 2*W_Aa*p_now_dip*(1-p_now_dip) + (1-p_now_dip)**2) #update allele frequency with diploid recursion equation
+    p_now_dip = (w_AA*p_now_dip**2 + w_Aa*p_now_dip*(1-p_now_dip))/(w_AA*p_now_dip**2 + 2*w_Aa*p_now_dip*(1-p_now_dip) + (1-p_now_dip)**2) #update allele frequency with diploid recursion equation
 
 # plot
 plt.scatter(ts, ps_hap, label='haploid')
 plt.scatter(ts, ps_dip, label='diploid')
 plt.xlabel("generation, $t$")
-plt.ylabel("frequency of $A$ allele, $p$")
+plt.ylabel("frequency of $A$ allele, $p_t$")
 plt.legend() #add legend to know which points belong to which model
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-04_files/lecture-04_7_0.png" /></p>
 <p><span id='section4'></span></p>
 <h2 id="5-one-locus-haploid-selection-in-continuous-time">5. One-locus haploid selection in continuous time</h2>
 <hr>
 
-<p>To model haploid selection in continuous-time we assume each haploid genotype has growth rate</p>
+<p>To model haploid selection in continuous-time we assume that during the selective phase each haploid individual has growth rate</p>
 <ul>
-<li><span class="arithmatex">\(r_A =\)</span> growth rate of the <span class="arithmatex">\(A\)</span> genotype</li>
-<li><span class="arithmatex">\(r_a =\)</span> growth rate of the <span class="arithmatex">\(a\)</span> genotype</li>
+<li><span class="arithmatex">\(r_A =\)</span> growth rate of individuals with the <span class="arithmatex">\(A\)</span> allele</li>
+<li><span class="arithmatex">\(r_a =\)</span> growth rate of individuals with the <span class="arithmatex">\(a\)</span> allele</li>
 </ul>
-<p>which takes into account the time spent going through gamete union, diploidy, and meiosis.</p>
-<p>We therefore have exponential growth of both genotypes according to</p>
-<div class="arithmatex">\[\frac{\mathrm{d} n_A}{dt} = r_A n_A\]</div>
-<div class="arithmatex">\[\frac{\mathrm{d} n_a}{dt} = r_a n_a.\]</div>
-<p>At any particular point in time, <span class="arithmatex">\(t\)</span>, the frequency of allele <span class="arithmatex">\(A\)</span> is as above, <span class="arithmatex">\(p_t = n_A(t)/(n_A(t) + n_a(t))\)</span>. </p>
-<p>We can therefore derive the rate of change in the frequency of allele <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\mathrm{d}p/\mathrm{d}t\)</span>, using the qoutient rule</p>
+<p>and the relative numbers of each type don't change otherwise (ie, during union, diploidy, or meiosis).</p>
+<p>We therefore have exponential growth of both genotypes, <span class="arithmatex">\(\frac{\mathrm{d} n_i}{dt} = r_i n_i\)</span>.</p>
+<p>At any particular point in time, <span class="arithmatex">\(t\)</span>, the frequency of allele <span class="arithmatex">\(A\)</span> is, <span class="arithmatex">\(p_t = n_A(t)/(n_A(t) + n_a(t))\)</span>. </p>
+<p>We can therefore derive the rate of change in the frequency of allele <span class="arithmatex">\(A\)</span>, <span class="arithmatex">\(\mathrm{d}p/\mathrm{d}t\)</span>, using the qoutient rule (see Appendix 2 in the text for help with this and other math tricks)</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \frac{\mathrm{d}p}{\mathrm{d}t}
@@ -1183,39 +1187,39 @@ plt.show()
 \end{aligned}
 \]</div>
 <p>where <span class="arithmatex">\(s_c = r_A - r_a\)</span> is the continuous-time <strong>selection coefficient</strong> of allele <span class="arithmatex">\(A\)</span>.</p>
-<p>A similar equation can be derived for the model of diploid-selection in continuous time, but we will not study it (see the textbook if you are curious).</p>
+<p>A similar equation can be derived for the model of diploid-selection in continuous time, but we will not study it (see Problem 3.16 in the text if you are curious).</p>
 <p><span id='section6'></span></p>
 <h2 id="6-comparing-haploid-selection-in-discrete-and-continuous-time">6. Comparing haploid selection in discrete and continuous time</h2>
 <hr>
 
 <p>Are the discrete- and continuous-time models of haploid selection as different as they look?</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{v_A p_t}{v_A p_t + v_a q_t}
+p_{t+1} = \frac{W_A p_t}{W_A p_t + W_a q_t}
 \]</div>
 <div class="arithmatex">\[
 \frac{\mathrm{d}p}{\mathrm{d}t} = s_c p q
 \]</div>
-<p>Not really. Discrete and continuous time models generally behave in a similar fashion when changes occur slowly over time. For this model of haploid selection, this implies that the discrete and continuous models will be similar when the fitnesses of the two genotypes are nearly equal, i.e., when <span class="arithmatex">\(v_A - v_a\)</span> is small. This is called "weak selection".</p>
+<p>Not really. Discrete and continuous time models generally behave in a similar fashion when changes occur slowly over time. For this model of haploid selection, this implies that the discrete and continuous models will be similar when the fitnesses of the two alleles are nearly equal, i.e., when <span class="arithmatex">\(W_A - W_a\)</span> is small. This is called "weak selection".</p>
 <p>In the discrete model, the change in the allele frequency is</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \Delta p &amp;= p_{t+1} - p_t \\
-&amp;= \frac{v_A p_t}{v_A p_t + v_a q_t} - p_t \\
-&amp;= \frac{(v_A - v_a)p_t q_t}{v_A p_t + v_a q_t}.
+&amp;= \frac{W_A p_t}{W_A p_t + W_a q_t} - p_t \\
+&amp;= \frac{(W_A - W_a)p_t q_t}{W_A p_t + W_a q_t}.
 \end{aligned}
 \]</div>
-<p>Now define <span class="arithmatex">\(s_d = (v_A - v_a)/v_a\)</span> as the discrete time selection coefficient. Subbing this in as <span class="arithmatex">\(V_A = s_d v_a + v_a\)</span> gives</p>
+<p>Now define <span class="arithmatex">\(s_d = (W_A - W_a)/W_a\)</span> as the discrete time selection coefficient. Subbing this in as <span class="arithmatex">\(W_A = s_d W_a + W_a\)</span> gives</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \Delta p 
-&amp;= \frac{(v_A-v_a)p_t q_t}{v_A p_t + v_a q_t}\\
-&amp;= \frac{(s_d v_a + v_a - v_a) p_t q_t}{(s_d v_a + v_a) p_t + v_a q_t}\\
-&amp;= \frac{s_d v_a p_t q_t}{s_d v_a p_t + v_a (p_t + q_t)}\\
-&amp;= \frac{s_d v_a p_t q_t}{s_d v_a p_t + v_a}\\
+&amp;= \frac{(W_A-W_a)p_t q_t}{W_A p_t + W_a q_t}\\
+&amp;= \frac{(s_d W_a + W_a - W_a) p_t q_t}{(s_d W_a + W_a) p_t + W_a q_t}\\
+&amp;= \frac{s_d W_a p_t q_t}{s_d W_a p_t + W_a (p_t + q_t)}\\
+&amp;= \frac{s_d W_a p_t q_t}{s_d W_a p_t + W_a}\\
 &amp;= \frac{s_d p_t q_t}{s_d p_t + 1}\\
 \end{aligned}
 \]</div>
-<p>Now assume weak selection, ie, that <span class="arithmatex">\(s_d\)</span> is small. This implies <span class="arithmatex">\(s_d p_t + 1 \approx 1\)</span>. Making this approximation we have</p>
+<p>Now assume weak selection, i.e., that <span class="arithmatex">\(s_d\)</span> is small. This implies <span class="arithmatex">\(s_d p_t + 1 \approx 1\)</span>. Making this approximation we have</p>
 <div class="arithmatex">\[
 \Delta p \approx s_d p_t q_t
 \]</div>
@@ -1246,17 +1250,17 @@ p_{t+1} = \frac{v_A p_t}{v_A p_t + v_a q_t}
 </tr>
 <tr>
 <td>Haploid selection</td>
-<td><span class="arithmatex">\(p_{t+1} = \frac{p_t W_A}{p_t W_A + q_t}\)</span></td>
+<td><span class="arithmatex">\(p_{t+1} = \frac{p_t W_A}{p_t W_A + W_a q_t}\)</span></td>
 <td><span class="arithmatex">\(\frac{\mathrm{d}p}{\mathrm{d}t} = s p(1-p)\)</span></td>
 </tr>
 <tr>
 <td>Diploid selection</td>
-<td><span class="arithmatex">\(p_{t+1} = \frac{p_t^2 W_{AA} + p_t q_t W_{Aa}}{p_t^2 W_{AA} + 2 p_t q_t W_{Aa} + q_t^2}\)</span></td>
+<td><span class="arithmatex">\(p_{t+1} = \frac{p_t^2 W_{AA} + p_t q_t W_{Aa}}{p_t^2 W_{AA} + 2 p_t q_t W_{Aa} + q_t^2 W_{aa}}\)</span></td>
 <td>Not derived</td>
 </tr>
 </tbody>
 </table>
-<p>See textbook sections 3.4 and 3.5 for models of interacting species and epidemiology, respectively, which we won't cover in class.</p>
+<p>See textbook Sections 3.4 and 3.5 for models of interacting species and epidemiology, respectively, which we won't cover in class.</p>
 
 
 
