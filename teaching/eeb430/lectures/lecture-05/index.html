@@ -636,8 +636,29 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diploid-selection" class="md-nav__link">
+    Diploid selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-models" class="md-nav__link">
+    Other models
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-summary" class="md-nav__link">
+    4. Summary
+  </a>
   
 </li>
       
@@ -801,8 +822,29 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#diploid-selection" class="md-nav__link">
+    Diploid selection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-models" class="md-nav__link">
+    Other models
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-summary" class="md-nav__link">
+    4. Summary
+  </a>
   
 </li>
       
@@ -890,6 +932,8 @@ nts = [n for n in nt] #get all the t, n_t values
 nts
 </pre>
 
+<div class="highlight"><pre><span></span><code>[1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
+</code></pre></div>
 <p>And we then plotted <span class="arithmatex">\(n_t\)</span> as a function of <span class="arithmatex">\(t\)</span></p>
 <pre data-executable="true" data-language="python">
 import matplotlib.pyplot as plt
@@ -900,6 +944,7 @@ ax.set_ylabel('population size, $n_t$')
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_7_0.png" /></p>
 <p>This allowed us to compare what happens for different values of the reproductive factor, <span class="arithmatex">\(R\)</span>.</p>
 <pre data-executable="true" data-language="python">
 colors = ['black','blue','red']
@@ -915,6 +960,7 @@ ax.legend()
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_9_0.png" /></p>
 <p>We see that when <span class="arithmatex">\(R&gt;1\)</span> we get population growth and when <span class="arithmatex">\(R&lt;1\)</span> we get population decline. When <span class="arithmatex">\(R=1\)</span> the population size remains constant.</p>
 <h3 id="logistic-growth-model">Logistic growth model</h3>
 <p>In the discrete logistic growth model, there are two parameters, the intrinsic growth rate, <span class="arithmatex">\(r\)</span>, and the carrying capacity, <span class="arithmatex">\(K\)</span>. The behaviour doesn’t change much with different values of <span class="arithmatex">\(K\)</span> but it is <em>extremely</em> sensitive to the value of <span class="arithmatex">\(r\)</span>, as you may remember from last week’s lab.</p>
@@ -959,6 +1005,7 @@ fig.tight_layout()
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_12_0.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Bifurcation diagrams and chaos</p>
 <p>We can examine how this model behaves as we change <span class="arithmatex">\(r\)</span> by making a <strong>bifurcation diagram</strong>, which plots the values the system takes on after a long time for a given parameter value. Check out the very complex and potentially strange dynamics in the plot below. What does it mean?</p>
@@ -985,6 +1032,7 @@ plt.ylabel('population size, $n_t$')
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_14_0.png" /></p>
 <p><span id='section3'></span></p>
 <h2 id="3-plots-of-variables-as-a-function-of-the-variables-themselves">3. Plots of variables as a function of the variables themselves</h2>
 <hr>
@@ -996,54 +1044,61 @@ plt.show()
 <div class="arithmatex">\[
 p_{t+1} = \frac{W_A p_t}{W_A p_t + W_a (1-p_t)}
 \]</div>
-<p>And plot for two different sets of parameter values, first <span class="arithmatex">\(W_A&gt;W_a\)</span>, then <span class="arithmatex">\(W_A&lt;W_a\)</span>.</p>
+<p>and plot for two different sets of parameter values, where <span class="arithmatex">\(A\)</span> has a higher or lower fitness than <span class="arithmatex">\(a\)</span>. </p>
 <pre data-executable="true" data-language="python">
-<h1 id="build-cobweb-plotting-function">Build cobweb plotting function</h1>
-<p>def cobweb_haploid(p0, WA, Wa, max=np.inf):
+# Build cobweb plotting function
+def cobweb_haploid(p0, WA, Wa, max=np.inf):
     t, pnow, pnext = 0, p0, 0 #initial conditions
-    while t &lt;= max:
+    while t <= max:
         yield pnow, pnext #current value of p_t and p_(t+1)
         pnext = (WA * pnow) / (WA * pnow + Wa * (1 - pnow)) #update p_(t+1)
         yield pnow, pnext #current value of p_t and p_(t+1)
         pnow = pnext #update p_t
-        t += 1 #update t</p>
-<h1 id="build-function-for-generating-figure">Build function for generating figure</h1>
-<p>def plot_haploid_selection(WA, Wa, p0=0.5, ax=None):
-    pt = sympy.symbols('pt') #define our variable p_t</p>
-<div class="highlight"><pre><span></span><code># Write out sympy equation
-f = (WA * pt) / (WA * pt + Wa * (1 - pt)) #the recursion equation
+        t += 1 #update t
 
-# Compute function over a set of points in [0,1] by &#39;lambdifying&#39; sympy equation (turn it into a function)
-t = np.linspace(0,1,100)
-fy = sympy.lambdify(pt, f)(t)
+# Build function for generating figure
+def plot_haploid_selection(WA, Wa, p0=0.5, ax=None):
+    pt = sympy.symbols('pt') #define our variable p_t
 
-# Build plot
-if ax == None:
-    fig, ax = plt.subplots()
-ax.plot(t, fy, color=&#39;black&#39;, label=f&quot;$W_A$ = {WA}, $W_a$ = {Wa}&quot;) #plot p_(t+1) as function of p_t
-ax.plot(t, t, color=&#39;black&#39;, linestyle=&#39;--&#39;) #draw 1:1 line for reference
+    # Write out sympy equation
+    f = (WA * pt) / (WA * pt + Wa * (1 - pt)) #the recursion equation
 
-# Add cobweb
-cobweb = np.array([p for p in cobweb_haploid(p0, WA, Wa, max=100)])
-ax.plot(cobweb[:,0], cobweb[:,1])
+    # Compute function over a set of points in [0,1] by 'lambdifying' sympy equation (turn it into a function)
+    t = np.linspace(0,1,100)
+    fy = sympy.lambdify(pt, f)(t)
 
-# Annotate and label plot
-ax.set_xlim(0,1)
-ax.set_ylim(0,1)
-ax.set_xlabel(&quot;allele frequency at $t$, $p_t$&quot;)
-ax.set_ylabel(&quot;allele frequency at $t+1$, $p_{t+1}$&quot;)
-ax.legend(frameon=False)
-return ax
-</code></pre></div>
-<h1 id="plot-figure">Plot figure</h1>
-<p>fig, ax = plt.subplots(1,2)
-fig.set_size_inches(12,4)</p>
-<h1 id="first-cobweb-with-wa-wa">First cobweb with WA &gt; Wa</h1>
-<p>plot_haploid_selection(WA = 1, Wa = 0.5, ax=ax[0])</p>
-<h1 id="second-cobweb-with-wa-wa">Second cobweb with WA &lt; Wa</h1>
-<p>plot_haploid_selection(WA = 0.5, Wa = 1, ax=ax[1])</p>
-<p>plt.show()
-</pre></p>
+    # Build plot
+    if ax == None:
+        fig, ax = plt.subplots()
+    ax.plot(t, fy, color='black', label=f"$W_A$ = {WA}, $W_a$ = {Wa}") #plot p_(t+1) as function of p_t
+    ax.plot(t, t, color='black', linestyle='--') #draw 1:1 line for reference
+
+    # Add cobweb
+    cobweb = np.array([p for p in cobweb_haploid(p0, WA, Wa, max=100)])
+    ax.plot(cobweb[:,0], cobweb[:,1])
+
+    # Annotate and label plot
+    ax.set_xlim(0,1)
+    ax.set_ylim(0,1)
+    ax.set_xlabel("allele frequency at $t$, $p_t$")
+    ax.set_ylabel("allele frequency at $t+1$, $p_{t+1}$")
+    ax.legend(frameon=False)
+    return ax
+
+# Plot figure
+fig, ax = plt.subplots(1,2)
+fig.set_size_inches(12,4)
+
+# First cobweb with WA > Wa
+plot_haploid_selection(WA = 1, Wa = 0.5, ax=ax[0])
+
+# Second cobweb with WA < Wa
+plot_haploid_selection(WA = 0.5, Wa = 1, ax=ax[1])
+
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-05_files/lecture-05_16_0.png" /></p>
 <p>Note that the cobweb plots (staircase looking lines in blue) track the movement of the allele frequencies from <span class="arithmatex">\(t \rightarrow t + 1\)</span>. By following the cobweb, you can determine if and where the system will converge to an <strong>equilibrium</strong>. (Next week we'll do this mathematically.) What are the stable equilibria above?</p>
 <h3 id="diploid-selection">Diploid selection</h3>
 <p>Now let’s move on to the slightly more complex model of diploid selection</p>
@@ -1103,6 +1158,7 @@ plot_diploid_selection(WAA=1, WAa=2, Waa=1, p0=0.95, ax=ax[1])
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_19_0.png" /></p>
 <p>What is the stable equilibrium in this case?</p>
 <h3 id="other-models">Other models</h3>
 <p>We can do something very similar for difference and differential equations.</p>
@@ -1111,7 +1167,7 @@ plt.show()
 <div class="arithmatex">\[
 \frac{\mathrm{d}p}{\mathrm{d}t} = sp(1-p)
 \]</div>
-<p>and our plot looks like</p>
+<p>and our plot looks like:</p>
 <pre data-executable="true" data-language="python">
 # Initialize sympy symbols
 p0, s, t = sympy.symbols('p0, s, t')
@@ -1139,6 +1195,7 @@ ax.legend(frameon=False)
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-05_files/lecture-05_22_0.png" /></p>
 <p>What does this tell us about how allele frequency will change when <span class="arithmatex">\(s&gt;0\)</span> vs. <span class="arithmatex">\(s&lt;0\)</span>? And what allele frequencies, <span class="arithmatex">\(p\)</span>, cause more rapid evolution?</p>
 <p>In this week's lab we'll plot the continuous logistic growth model, which shows some more complex dynamics.</p>
 <p><span id='section4'></span></p>
