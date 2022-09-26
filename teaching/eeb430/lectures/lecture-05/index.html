@@ -1046,6 +1046,8 @@ p_{t+1} = \frac{W_A p_t}{W_A p_t + W_a (1-p_t)}
 \]</div>
 <p>and plot for two different sets of parameter values, where <span class="arithmatex">\(A\)</span> has a higher or lower fitness than <span class="arithmatex">\(a\)</span>. </p>
 <pre data-executable="true" data-language="python">
+import sympy
+
 # Build cobweb plotting function
 def cobweb_haploid(p0, WA, Wa, max=np.inf):
     t, pnow, pnext = 0, p0, 0 #initial conditions
