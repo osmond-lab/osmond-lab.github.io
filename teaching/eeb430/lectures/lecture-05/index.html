@@ -1012,7 +1012,7 @@ plt.show()
 </div>
 <pre data-executable="true" data-language="python">
 # Sample the periodicity of the oscillations 
-# by taking unique values after reaching carrying capacity (here we use 30<t<75)
+# by taking unique values after reaching carrying capacity (here we use t between 30 and 75)
 def log_map(r, n0=900, k=1000):    
     return np.unique([nt for t, nt in enumerate(n(n0, r, k, max=75)) if t > 30])
 
