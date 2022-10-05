@@ -13,7 +13,7 @@
     
     
       
-        <title>Lecture 6 - EEB430 Modelling in Ecology and Evolution</title>
+        <title>Lecture 8 - EEB430 Modelling in Ecology and Evolution</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-6-numerical-and-graphical-techniques-ii-multivariate" class="md-skip">
+        <a href="#lecture-8-local-stability" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 6
+              Lecture 8
             
           </span>
         </div>
@@ -573,6 +573,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../lecture-06/" class="md-nav__link">
+        Lecture 6
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-07/" class="md-nav__link">
+        Lecture 7
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -585,12 +613,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Lecture 6
+          Lecture 8
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Lecture 6
+        Lecture 8
       </a>
       
         
@@ -616,44 +644,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-numerical-and-graphical-techniques" class="md-nav__link">
-    1. Numerical and graphical techniques
+  <a href="#1-stability" class="md-nav__link">
+    1. Stability
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-phase-line-diagrams" class="md-nav__link">
-    2. Phase-line diagrams
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-phase-plane-diagrams" class="md-nav__link">
-    3. Phase-plane diagrams
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Phase-plane diagrams">
+    <nav class="md-nav" aria-label="1. Stability">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lotka-volterra-model" class="md-nav__link">
-    Lotka-Volterra model
+  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
+    What is stability and stability analysis?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#phase-planes-and-vector-fields" class="md-nav__link">
-    Phase-planes and vector fields
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#null-clines" class="md-nav__link">
-    Null clines
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
   
 </li>
@@ -663,38 +670,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
+    2. Local stability analysis in discrete-time one-variable models
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eg-logistic-growth" class="md-nav__link">
+    E.g., logistic growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
+    3. Local stability analysis in continuous-time one-variable models
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eg-logistic-growth_1" class="md-nav__link">
+    E.g., logistic growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    6. Summary
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lecture-07/" class="md-nav__link">
-        Lecture 7
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lecture-08/" class="md-nav__link">
-        Lecture 8
-      </a>
     </li>
   
 
@@ -803,50 +829,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-numerical-and-graphical-techniques" class="md-nav__link">
-    1. Numerical and graphical techniques
+  <a href="#1-stability" class="md-nav__link">
+    1. Stability
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-phase-line-diagrams" class="md-nav__link">
-    2. Phase-line diagrams
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-phase-plane-diagrams" class="md-nav__link">
-    3. Phase-plane diagrams
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Phase-plane diagrams">
+    <nav class="md-nav" aria-label="1. Stability">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#lotka-volterra-model" class="md-nav__link">
-    Lotka-Volterra model
+  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
+    What is stability and stability analysis?
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#phase-planes-and-vector-fields" class="md-nav__link">
-    Phase-planes and vector fields
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#null-clines" class="md-nav__link">
-    Null clines
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
+    2. Local stability analysis in discrete-time one-variable models
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eg-logistic-growth" class="md-nav__link">
+    E.g., logistic growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
+    3. Local stability analysis in continuous-time one-variable models
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eg-logistic-growth_1" class="md-nav__link">
+    E.g., logistic growth
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    6. Summary
+  </a>
   
 </li>
       
@@ -879,7 +931,7 @@
 </script>
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 
-<h1 id="lecture-6-numerical-and-graphical-techniques-ii-multivariate">Lecture 6: Numerical and graphical techniques II (multivariate)</h1>
+<h1 id="lecture-8-local-stability">Lecture 8: Local stability</h1>
 <hr style="margin-bottom: 0em;">
 <p><center></p>
 <div class="inrow">
@@ -892,334 +944,280 @@
 
 <h2 id="lecture-overview">Lecture overview</h2>
 <ol>
-<li><a href="#section1">Numerical and graphical techniques</a></li>
-<li><a href="#section2">Phase-line diagrams</a></li>
-<li><a href="#section3">Phase-plane diagrams</a></li>
+<li><a href="#section1">Stability</a></li>
+<li><a href="#section2">Local stability analysis in discrete-time one-variable models</a></li>
+<li><a href="#section3">Local stability analysis in continuous-time one-variable models</a></li>
+<li><a href="#section4">Summary</a></li>
 </ol>
 <p><span id='section1'></span></p>
-<h2 id="1-numerical-and-graphical-techniques">1. Numerical and graphical techniques</h2>
+<h2 id="1-stability">1. Stability</h2>
 <hr>
 
-<p>Last time we talked about two numerical/graphical approaches to get a better understanding of our models:</p>
-<ul>
-<li>Plotting a variable as a function of time (eg, <span class="arithmatex">\(p_t\)</span> as a function of <span class="arithmatex">\(t\)</span>)</li>
-<li>Plotting a variable as a function of itself (eg, <span class="arithmatex">\(p_{t+1}\)</span> as a function of <span class="arithmatex">\(p_t\)</span>). </li>
-</ul>
-<p>The latter works well for models with one variable.</p>
-<p>Today we’re going to talk about a third numerical technique, a <strong>phase-plane diagram</strong>, which is especially useful for models that have two variables.</p>
-<p><span id='section2'></span></p>
-<h2 id="2-phase-line-diagrams">2. Phase-line diagrams</h2>
-<hr>
-
-<p>Before looking at models with two variables, let’s first consider some with only one.</p>
-<p>Consider again haploid selection where</p>
-<div class="arithmatex">\[
-p_{t+1} = \frac{W_Ap_t}{W_Ap_t + W_a(1-p_t)}
-\]</div>
-<p>Last time we plotted <span class="arithmatex">\(p_{t + 1}\)</span> as a function of <span class="arithmatex">\(p_t\)</span> and used this to examine the dynamics starting from any initial value. We called this plot a <strong>cob-web</strong> plot.</p>
+<h3 id="what-is-stability-and-stability-analysis">What is stability and stability analysis?</h3>
+<p>What happens very near an equilibrium?</p>
+<p>Starting near an equilibrium, if the system moves towards the equilibrium over time the equilibrium is said to be <strong>locally stable</strong>.</p>
+<p>In contrast, if the system moves away from the equilibrium over time the equilibrium is said to be <strong>unstable</strong>.</p>
+<p>An equilibrium point is said to be <strong>globally stable</strong> if all initial conditions lead to it.</p>
+<p>Our goal: to determine whether a small perturbation away from an equilibrium point will grow or shrink in magnitude over time <span class="arithmatex">\(\Longrightarrow\)</span> <strong>local stability analysis</strong>.</p>
+<h3 id="example">Example</h3>
+<p>Consider logistic growth in discrete time, with <span class="arithmatex">\(K = 1000\)</span> and <span class="arithmatex">\(r = 0.5\)</span>.</p>
+<p>For populations started near carrying capacity (e.g., <span class="arithmatex">\(n_t = 900\)</span>), we see that they move closer to the carrying capacity over time.</p>
 <pre data-executable="true" data-language="python">
-import sympy
 import numpy as np
 import matplotlib.pyplot as plt
 
+# logistic growth recursion
+def f(nt,r,k):
+    return nt * (1 + r * (1 - nt / k))
+
 # Build cobweb plotting function
-def cobweb_haploid(p0, WA, Wa, max=np.inf):
-    t, pnow, pnext = 0, p0, 0 #initial conditions
-    while t <= max:
-        yield pnow, pnext #current value of p_t and p_(t+1)
-        pnext = (WA * pnow) / (WA * pnow + Wa * (1 - pnow)) #update p_(t+1)
-        yield pnow, pnext #current value of p_t and p_(t+1)
-        pnow = pnext #update p_t
+def cobweb_logistic(n0, r, k, max=np.inf):
+    t, nnow, nnext = 0, n0, 0 #initial conditions
+    while t < max:
+        yield nnow, nnext #current value of n(t) and n(t+1)
+        nnext = f(nnow,r,k)
+        yield nnow, nnext #current value of n(t) and n(t+1)
+        nnow = nnext #update n(t)
         t += 1 #update t
 
-# Build function for generating figure
-def plot_haploid_selection(WA, Wa, p0=0.5, ax=None):
-    pt = sympy.symbols('pt') #define our variable p_t
-
-    # Write out sympy equation
-    f = (WA * pt) / (WA * pt + Wa * (1 - pt)) #the recursion equation
-
-    # Compute function over a set of points in [0,1] by 'lambdifying' sympy equation (turn it into a function)
-    t = np.linspace(0,1,100)
-    fy = sympy.lambdify(pt, f)(t)
-
-    # Build plot
+# Plot
+def plot_logistic_with_cobweb(r, k, n0, ncobs=10, ax=None):
+    # Plot the curves (add an additional curve past equilibrium to show stability)
+    xs = np.linspace(0,k*1.5,100) #x values
     if ax == None:
-        fig, ax = plt.subplots()
-    ax.plot(t, fy, color='black', label=f"$W_A$ = {WA}, $W_a$ = {Wa}") #plot p_(t+1) as function of p_t
-    ax.plot(t, t, color='black', linestyle='--') #draw 1:1 line for reference
-
-    # Add cobweb
-    cobweb = np.array([p for p in cobweb_haploid(p0, WA, Wa, max=100)])
-    ax.plot(cobweb[:,0], cobweb[:,1])
-
-    # Annotate and label plot
-    ax.set_xlim(0,1)
-    ax.set_ylim(0,1)
-    ax.set_xlabel("allele frequency at $t$, $p_t$")
-    ax.set_ylabel("allele frequency at $t+1$, $p_{t+1}$")
-    ax.legend(frameon=False)
+        fig, ax = plt.subplots() 
+    #1:1 line
+    ax.plot(xs, xs, color='black', linestyle='dashed')
+    # recursion
+    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
+    # cobweb
+    cobweb = np.array([i for i in cobweb_logistic(n0, r, k, ncobs)])
+    plt.plot(cobweb[:,0], cobweb[:,1], color='blue')
+    #aesthetics
+    ax.set_ylim(0,None)
+    ax.set_xlim(0,None)
+    ax.set_xlabel('$n_t$')
+    ax.set_ylabel('$n_{t+1}$')
     return ax
+</pre>
 
-# Plot figure
-fig, ax = plt.subplots(1,2)
-fig.set_size_inches(12,4)
-
-# First cobweb with WA > Wa
-plot_haploid_selection(WA = 1, Wa = 0.5, ax=ax[0])
-
-# Second cobweb with WA < Wa
-plot_haploid_selection(WA = 0.5, Wa = 1, ax=ax[1])
-
+<pre data-executable="true" data-language="python">
+plot_logistic_with_cobweb(n0=900,r=0.5, k=1000, ncobs=1100)
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-06_files/lecture-06_3_0.png" /></p>
-<p>Now let's simplify the cob-web plot and just indicate the direction (and magnitude) of change in <span class="arithmatex">\(p_t\)</span> with time. This is known as a <strong>phase-line diagram</strong> with a <strong>vector field</strong> (the arrows).</p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_3_0.png" /></p>
+<p>As we discussed when introducing cobweb diagrams, in this case we move to the right when <span class="arithmatex">\(n_t&lt;K\)</span> because the recursion (solid line) is above the 1:1 line (dashed), i.e., <span class="arithmatex">\(n_{t+1}&gt;n_t\)</span>. Similarly, we move to the left when <span class="arithmatex">\(n_t&gt;K\)</span> because the recursion is below the 1:1 line. Now, we know the 1:1 line has a slope of 1. Since the recursion crosses this line going from above to below (as we move to the right) at the equilibrium <span class="arithmatex">\(n_t=K\)</span>, we know the slope of recursion is less than 1 at that point, 
+<span class="arithmatex">\(<span class="arithmatex">\(\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&lt;1\)</span>\)</span></p>
+<p>In this case we also see that the slope is positive.</p>
+<p>Now what about if we had <span class="arithmatex">\(r = -0.5\)</span>?</p>
 <pre data-executable="true" data-language="python">
-def phase_line_haploid(p0, WA, Wa, max=np.inf):
-    'generator for p_t'
-    t, pnow, pnext = 0, p0, 0 #initial conditions
-    while t < max:
-        yield pnow #current value of p_t and p_(t+1)
-        pnext = (WA * pnow) / (WA * pnow + Wa * (1 - pnow))
-        pnow = pnext #update p(t)
-        t += 1 #update t
-
-def plot_phase_line_haploid(WA, Wa, p0, max=20, ax=None):
-    'plot phase line'
-
-    # Set up figure
-    if ax==None:
-        fig, ax = plt.subplots()
-        fig.set_size_inches(8,0.25)
-    ax.axhline(0, color='black', linewidth=0.5)
-
-    # Plot phase-line
-    pts = [pt for pt in phase_line_haploid(p0, WA, Wa, max=max)] #pt values
-    ax.plot(
-        pts,
-        np.zeros(max) #dummy y values (0 for all x values) because we want to plot a 1d line
-    )
-
-    # Plot vector field
-    marker = '>' if pts[2] > pts[1] else '<' #determine which direction to point based on first 2 time points
-    ax.scatter(
-        pts,
-        np.zeros(max),#dummy y again
-        marker=marker, s=150
-    )
-
-    # Remove background axes
-    ax.set_ylabel('$p$', rotation=0)
-    ax.set_xlabel(f"$W_A$ = {WA}, $W_a$ = {Wa}, $p_0$ = {p0}")
-    ax.get_yaxis().set_ticks([])
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.spines['bottom'].set_visible(False)
-    ax.spines['left'].set_visible(False)
-    ax.set_xlim(0,1)
-    plt.show()
-
-plot_phase_line_haploid(WA=1, Wa=0.5, p0=0.01)
-
-plot_phase_line_haploid(WA=0.5, Wa=1, p0=0.99)
+plot_logistic_with_cobweb(r=-0.5, k=1000, n0=900)
+plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-06_files/lecture-06_5_0.png" /></p>
-<p><img alt="png" src="../lecture-06_files/lecture-06_5_1.png" /></p>
-<p>As in the cob-web plots, we see the allele frequency approaches <span class="arithmatex">\(p=1\)</span> when <span class="arithmatex">\(W_A&gt;W_a\)</span> and <span class="arithmatex">\(p=0\)</span> when <span class="arithmatex">\(W_a&gt;W_A\)</span>. We also notice, as above, the changes are fastest (fewer, longer arrows) at intermediate frequencies.</p>
-<p>Similarly, with the more complex model of diploid selection</p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_5_0.png" /></p>
+<p>We see that we now move <em>away</em> from the equilibrium at <span class="arithmatex">\(n_t=K\)</span>. Because the recursion is now steeper than the 1:1 line at that point, we know the slope of the recursion at <span class="arithmatex">\(n_t = K\)</span> is now greater than 1</p>
+<div class="arithmatex">\[\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&gt;1\]</div>
+<p>So how does knowing the slope of the recursion at the equilibrium help? (e.g. at <span class="arithmatex">\(n_t = K\)</span>). </p>
+<p>If we have an equilibrium point, call it <span class="arithmatex">\(a\)</span>, and we have a starting condition, <span class="arithmatex">\(x\)</span>, which is near <span class="arithmatex">\(a\)</span>, then we can use the <strong>Taylor Series</strong> to rewrite the recursion.</p>
+<div class="admonition note">
+<p class="admonition-title">Mathematical aside: Taylor series</p>
 <div class="arithmatex">\[
-p_{t+1} = \frac{W_{AA}p_t^2 + W_{Aa}p_tq_t}{W_{AA}p_t^2 + W_{Aa}p_tq_t + W_{aa}q_t^2}
+f(x) = \sum_{k = 0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k
 \]</div>
-<p>we can draw a phase-line diagram and vector field for a set of parameter values.</p>
-<pre data-executable="true" data-language="python">
-def phase_line_diploid(p0, WAA, WAa, Waa, max=np.inf):
-    'generator for p_t'
-    t, pnow, pnext = 0, p0, 0 #initial conditions
-    while t < max:
-        yield pnow #current value of p(t) and p(t+1)
-        pnext = (WAA * pnow**2 + WAa * pnow * (1 - pnow)) / (WAA * pnow**2 + WAa * 2 * pnow * (1 - pnow) + Waa * (1 - pnow)**2) #update p(t+1)
-        pnow = pnext #update p(t)
-        t += 1 #update t
-
-def plot_phase_line_diploid(WAA, WAa, Waa, p0, max=20, ax=None):
-    'plot phase line'
-
-    # set up figure
-    if ax==None:
-        fig, ax = plt.subplots()
-        fig.set_size_inches(8,0.25)
-    ax.axhline(0, color='black', linewidth=0.5)
-
-    # Plot phase-line
-    pts = [pt for pt in phase_line_diploid(p0, WAA, WAa, Waa, max=max)]
-    ax.plot(
-        pts,
-        np.zeros(max),
-        alpha=1
-    )
-
-    # Plot phase-line markers
-    marker = '>' if pts[2] > pts[1] else '<'
-    ax.scatter(
-        pts,
-        np.zeros(max),
-        marker=marker, s=150
-    )
-
-    ax.set_xlabel(f"$WAA$ = {WAA}, $WAa$ = {WAa}, $Waa$ = {Waa}, $p_0$ = {p0}")
-
-    return ax
-
-# Plot figure
-fig, ax = plt.subplots()
-fig.set_size_inches(8,0.25)
-
-plot_phase_line_diploid(WAA=1, WAa=2, Waa=1, p0=0.99, max=100, ax=ax) #higher starting allele frequency
-plot_phase_line_diploid(WAA=1, WAa=2, Waa=1, p0=0.01, max=100, ax=ax) #low starting allele frequency
-
-# Remove background axes
-ax.set_ylabel('$p$', rotation=0)
-ax.get_yaxis().set_ticks([])
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
-ax.spines['bottom'].set_visible(False)
-ax.spines['left'].set_visible(False)
-ax.set_xlim(0,1)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-06_files/lecture-06_7_0.png" /></p>
-<p>Notice that this time we chose two initial frequencies for the same plot, to show that under <strong>heterozygote advantage</strong> (<span class="arithmatex">\(W_{AA}&lt;W_{Aa}&gt;W_{aa}\)</span>) the allele frequency approaches an intermediate value from either direction. </p>
-<p><span id='section3'></span></p>
-<h2 id="3-phase-plane-diagrams">3. Phase-plane diagrams</h2>
+<p>where <span class="arithmatex">\(f^{(k)}(a)\)</span> is the <span class="arithmatex">\(k^{\mathrm{th}}\)</span> derivative of the function with respect to <span class="arithmatex">\(x\)</span>, evaluated at point <span class="arithmatex">\(a\)</span>. (See section P1.3 in the text for more information).</p>
+</div>
+<p>If we start near enough to the equilibrium, <span class="arithmatex">\((x - a)^k\)</span> will be tiny for <span class="arithmatex">\(k &gt; 1\)</span> and the function will be dominated by the first two terms in the series, with <span class="arithmatex">\(k = 0\)</span> and <span class="arithmatex">\(k = 1\)</span>:</p>
+<div class="arithmatex">\[
+f (x) \simeq f (a) + f'(a)(x - a)
+\]</div>
+<p>using <span class="arithmatex">\(f^{(0)}(a) = f(a)\)</span> and the short-hand notation <span class="arithmatex">\(f'(a) = f^{(1)}(a)\)</span> to describe the slope of <span class="arithmatex">\(f\)</span> at <span class="arithmatex">\(x=a\)</span>.</p>
+<p>This is great! No matter how complicated and non-linear an equation we have, we can get an approximate equation that describes the dynamics near an equilibrium point. This equation is linear in <span class="arithmatex">\(x\)</span> and can therefore be easily analysed. Let's see how this works in discrete- and continuous-time models.</p>
+<p><span id='section2'></span></p>
+<h2 id="2-local-stability-analysis-in-discrete-time-one-variable-models">2. Local stability analysis in discrete-time one-variable models</h2>
 <hr>
 
-<p>Now let’s extend this technique from one to two variables.</p>
-<h3 id="lotka-volterra-model">Lotka-Volterra model</h3>
-<p>And let’s introduce a new model for this purpose, the <strong>Lotka-Volterra</strong> model of
-competition (see section 3.4.1 in the text).</p>
-<p>This is an extension of the logistic growth model to include competition between
-multiple species (in our case two).</p>
-<p>Let the population size of each species be <span class="arithmatex">\(n_1(t)\)</span> and <span class="arithmatex">\(n_2(t)\)</span>. These are our two
-variables.</p>
-<p>And let them have different intrinsic growth rates, <span class="arithmatex">\(r_1\)</span> and <span class="arithmatex">\(r_2\)</span>, and carrying capacities,
-<span class="arithmatex">\(K_1\)</span> and <span class="arithmatex">\(K_2\)</span>.</p>
-<p>To model competition, we’ll assume that, for an individual of species <span class="arithmatex">\(i\)</span>, an individual
-of species <span class="arithmatex">\(j\)</span> is the competitive equivalent of <span class="arithmatex">\(\alpha_{ij}\)</span> individuals of species <span class="arithmatex">\(i\)</span>. We then have</p>
+<p>Given a recursion equation in one variable, <span class="arithmatex">\(x(t+1) = f(x(t))\)</span>, with an equilibrium <span class="arithmatex">\(\hat{x}\)</span>, when will a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from the equilibrium grow in magnitude over time?</p>
+<p>At time <span class="arithmatex">\(t\)</span>, say that the population is a small distance from the equilibrium: <span class="arithmatex">\(\hat{x} + \epsilon(t)\)</span> (Note that <span class="arithmatex">\(\epsilon(t)\)</span> might be negative).</p>
+<p>At time <span class="arithmatex">\(t+1\)</span>, the population will be at <span class="arithmatex">\(\hat{x} + \epsilon(t+1)\)</span>, which equals <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span>.</p>
+<p>Using the Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span> around <span class="arithmatex">\(\epsilon(t)=0\)</span>:</p>
 <div class="arithmatex">\[
-n_1(t+1) = n_1(t)\left( 1 + r_1 \left(1 - \frac{n_1(t) + \alpha_{12}n_2(t)}{K_1}\right)\right)
+\begin{aligned}
+\hat{x} + \epsilon(t+1) &amp;= f(\hat{x} + \epsilon(t))\\
+&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon(t) - \hat{x})\\
+&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
+\end{aligned}
 \]</div>
+<p>We know that <span class="arithmatex">\(f(\hat{x}) = \hat{x}\)</span> because <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium, which implies</p>
 <div class="arithmatex">\[
-n_2(t+1) = n_2(t) \left(1 + r_2 \left(1 - \frac{n_2(t) + \alpha_{21}n_1(t)}{K_2}\right)\right)
+\epsilon(t+1) \approx f'(\hat{x})\epsilon(t)
 \]</div>
-<p>Often individuals of the same species will use more similar resources and therefore competition will be less severe with individuals of the other species, <span class="arithmatex">\(0 &lt; \alpha_{ij} &lt; 1\)</span>, but not always. And, in fact, we could model other types of interactions (eg, mutualism) by making some of the interactions beneficial, <span class="arithmatex">\(\alpha_{ij} &lt; 0\)</span>.</p>
-<h3 id="phase-planes-and-vector-fields">Phase-planes and vector fields</h3>
-<p>So why did we introduce the Lotka-Volterra model? Well, <strong>phase-plane diagrams</strong> are plots of one variable against another (<span class="arithmatex">\(n_1\)</span> vs. <span class="arithmatex">\(n_2\)</span>), on which we can plot <strong>vector fields</strong>, vectors originating from many different starting conditions that indicate the direction and magnitude of change in the two variables. With this we can graphically investigate the dynamics of the Lotka-Volterra model by first defining the rates of change <span class="arithmatex">\(\Delta\)</span> in both <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(n_2\)</span> and then choosing some parameter values to explore.</p>
+<p>This is the recursion for exponential growth, with reproductive factor <span class="arithmatex">\(\lambda = f'(\hat{x})\)</span>. So knowing that</p>
 <div class="arithmatex">\[
-\Delta n_1 \equiv n_1(t+1) - n_1(t) = n_1(t)r_1\left(1 - \frac{n_1(t) + \alpha_{12}n_2(t)}{K_1}\right)
+\epsilon (t+1) \approx \lambda \epsilon (t)
 \]</div>
+<p>means the perturbation will:</p>
+<ul>
+<li>
+<p>move from one side of the equilibrium to the other (i.e., oscillate) if <span class="arithmatex">\(\lambda\)</span> is negative</p>
+<ul>
+<li>grow if <span class="arithmatex">\(\lambda&lt;-1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+<li>or shrink if <span class="arithmatex">\(-1&lt;\lambda&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+</ul>
+</li>
+<li>
+<p>stay on the same side of the equilibrium if <span class="arithmatex">\(\lambda\)</span> is positive</p>
+<ul>
+<li>and shrink if <span class="arithmatex">\(0&lt;\lambda&lt;1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+<li>or grow if <span class="arithmatex">\(1&lt;\lambda\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+</ul>
+</li>
+</ul>
+<p>Stability in discrete time therefore requires the slope of the recursion to be between -1 and 1 at the equilibrium, <span class="arithmatex">\(-1&lt;\left.\frac{\mathrm{d}x_{t+1}}{\mathrm{d}x_t}\right|_{x_t=\hat x}&lt;1\)</span>.</p>
+<h3 id="eg-logistic-growth">E.g., logistic growth</h3>
+<p>Let's now return to the logistic growth model in discrete time as an example. Here the recursion is</p>
 <div class="arithmatex">\[
-\Delta n_2 \equiv n_2(t+1) - n_2(t) = n_2(t)r_2\left(1 - \frac{n_2(t) + \alpha_{21}n_1(t)}{K_2}\right)
+f(n) = n \left(1 + r\left(1 - \frac{n}{K}\right)\right)
 \]</div>
-<p>Let's explore the Lotka-Volterra with the following parameter values: <span class="arithmatex">\(r_1 = 0.5, r_2 = 0.5, K_1 = 1000, K_2 = 1000, \alpha_{12} = 0.0, \alpha_{21} = 0.5\)</span>.</p>
+<p>When <span class="arithmatex">\(r = 0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was locally stable and the slope of the recusion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was between 0 and 1.</p>
+<p>Whereas, when <span class="arithmatex">\(r = -0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was unstable and the slope of the recursion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was greater than 1.</p>
+<p>Now let's perform a local stability analysis to see, more generally, when <span class="arithmatex">\(\hat{n}=K\)</span> is locally stable.</p>
+<p>We first take the derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span></p>
+<div class="arithmatex">\[
+f'(n) = 1 + r - 2 r \frac{n}{K}
+\]</div>
+<p>Then we plug in the equilirbium value, <span class="arithmatex">\(n=K\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+f'(K) &amp;= 1 + r - 2 r \\
+&amp;= 1 - r
+\end{aligned}
+\]</div>
+<p>This will be negative when <span class="arithmatex">\(r &gt; 1\)</span>, creating oscillations.</p>
+<p>The equilibrium will be stable when <span class="arithmatex">\(-1 &lt; 1 - r &lt; 1 \implies 0 &lt; r &lt; 2\)</span>.</p>
+<p>This is consistent with the cob-webs we just observed, as well as the bifurcation diagram we saw in a Lecture 5 (repeated again below), where we see cycling for values of <span class="arithmatex">\(r\)</span> greater than 2.</p>
 <pre data-executable="true" data-language="python">
-# Define a function to plot the phase plane and vector field for n1 and n2
-def plot_vector_field(dn1, dn2, xlim=(0,1200), ylim=(0,1200), n_steps=25, width=8, height=6, show=False, axes_labels=[None, None]):
-    # Set x and y ranges 
-    xrange, yrange = np.linspace(xlim[0], xlim[1], n_steps), np.linspace(ylim[0], ylim[1], n_steps)
+# Sample the periodicity of the oscillations 
+# by taking unique values after reaching carrying capacity
+def log_map(r, n0=900, k=1000):    
+    return np.unique([nt[1] for t, nt in enumerate(n(n0, r, k, max=75)) if t > 30])
 
-    # Initialize 2D grid with x,y values and additional grids to track derivatives
-    X, Y = np.meshgrid(xrange, yrange)
-    U, V = np.zeros(X.shape), np.zeros(Y.shape)
+# Compute the logistic map for different growth rates in discrete time
+r, Nr = np.array([]), np.array([])
+for i in np.linspace(1.5, 3, 1000):
+    nl = log_map(i)
+    r = np.hstack((r, [i for _ in range(len(nl))]))
+    Nr = np.hstack((Nr, nl))
 
-    # Compute the gradient at each x,y position
-    for i in range(len(xrange)):
-        for j in range(len(xrange)):
-            U[i,j] = sympy.lambdify((n1, n2), dn1)(X[i,j], Y[i,j]) #change in n1
-            V[i,j] = sympy.lambdify((n1, n2), dn2)(X[i,j], Y[i,j]) #change in n2
-
-    # Plot figure
-    fig, ax = plt.subplots()
-    fig.set_size_inches(width, height)
-    ax.set_xlabel(axes_labels[0])
-    ax.set_ylabel(axes_labels[1])
-    ax.quiver(X,Y,U,V, linewidth=1) #from point X,Y draw arrow moving U in x-axis and V in y-axis
-
-    if show == True:
-        plt.show()
-    else:
-        return ax
-</pre>
-
-<pre data-executable="true" data-language="python">
-# Initialize the sympy variables
-n1, n2 = sympy.symbols('n1, n2')
-
-# Choose the parameter values
-r1, r2 = 0.5, 0.5
-k1, k2 = 1000, 1000
-a12, a21 = 0, 0.5
-
-# Specify the difference equations
-dn1 = r1 * n1 * (1 - (n1 + a12 * n2) / k1)
-dn2 = r2 * n2 * (1 - (n2 + a21 * n1) / k2)
-
-# Plot the vector field
-plot_vector_field(dn1, dn2, axes_labels=["number of species 1, $n_1$", "number of species 2, $n_2$"])
-
+# Plot the logistic map on a black background
+fig, ax = plt.subplots()
+ax.patch.set_facecolor('black')
+ax.scatter(r, Nr, s=0.075, color='white')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-06_files/lecture-06_11_0.png" /></p>
-<p>With this approach we see that the dynamics appear to be approaching a value near <span class="arithmatex">\(n_1 = 1000, n_2 = 500\)</span> from nearly any initial condition.</p>
-<h3 id="null-clines">Null clines</h3>
-<p>To better understand the dynamics, we can ask for what values of our variables (<span class="arithmatex">\(n_1, n_2\)</span>) is the change inour variables zero (<span class="arithmatex">\(\Delta n_1 = 0\)</span>, <span class="arithmatex">\(\Delta n_2 = 0\)</span>). These values are known as <strong>null clines</strong>.</p>
-<p>Concretely, going back to our previous formula for the change in <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(n_2\)</span> in the Lotka-Volterra model</p>
-<div class="arithmatex">\[
-\Delta n_1 = n_1(t)r_1(1 - \frac{n_1(t) + \alpha_{12}n_2(t)}{K_1})
-\]</div>
-<div class="arithmatex">\[
-\Delta n_2 = n_2(t)r_2(1 - \frac{n_2(t) + \alpha_{21}n_1(t)}{K_2})
-\]</div>
-<p>We want to know when <span class="arithmatex">\(\Delta n_1\)</span> and <span class="arithmatex">\(\Delta n_2\)</span> are 0. Solving for these inequalities shows that</p>
-<div class="arithmatex">\[
-\Delta n_1 = 0 \Longrightarrow n_1(t) = 0, 1 - \frac{n_1(t) + \alpha_{12}n_2(t)}{K_1} = 0
-\]</div>
-<div class="arithmatex">\[
-\Delta n_2 = 0 \Longrightarrow n_2(t) = 0, 1 - \frac{n_2(t) + \alpha_{21}n_1(t)}{K_2} = 0
-\]</div>
-<p>Plotting these null clines on the phase-plane diagram, we get</p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_9_0.png" /></p>
 <pre data-executable="true" data-language="python">
-# Initialize plot and ranges
-ax = plot_vector_field(dn1, dn2, axes_labels=["number of species 1, $n_1$", "number of species 2, $n_2$"])
-xrange, yrange = np.linspace(0, 1200, 100), np.linspace(0, 1200, 100)
+plot_logistic_with_cobweb(r=2.5, k=1000, n0=900)
+plt.show()
+</pre>
 
-#plot the null clines for species 1 (blue)
-def plot_nullclines(ax):
-    nullcline_1 = list(sympy.solve(sympy.Eq(dn1, 0)))
-    ax.plot([nullcline_1[0] for i in range(len(xrange))], yrange, color='b')
-    ax.plot([nullcline_1[1] for i in range(len(xrange))], yrange, color='b')
+<p><img alt="png" src="../lecture-08_files/lecture-08_10_0.png" /></p>
+<p><span id='section3'></span></p>
+<h2 id="3-local-stability-analysis-in-continuous-time-one-variable-models">3. Local stability analysis in continuous-time one-variable models</h2>
+<hr>
 
-    # #plot the null clines for species 2 (red)
-    nullcline_2 = [list(i.values())[0] for i in sympy.solve(sympy.Eq(dn2, 0))]
-    ax.plot(sympy.lambdify(n2, nullcline_2[0])(yrange), yrange, color='r') # A this null cline is a function of n2 (i.e. y)
-    ax.plot(xrange, [nullcline_2[1] for i in range(len(yrange))], color='r')
+<p>As in discrete time, we focus on a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from an equilibrium (<span class="arithmatex">\(\hat{x}\)</span>) and determine whether this perturbation will grow or shrink.</p>
+<p>If, at time <span class="arithmatex">\(t\)</span>, the population is a small distance from equilibrium, <span class="arithmatex">\(\hat{x} + \epsilon (t)\)</span>, the rate of change in <span class="arithmatex">\(x\)</span> will be <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = \mathrm{d}(\hat{x} + \epsilon (t))/\mathrm{d}t\)</span>.</p>
+<p>In this case, <span class="arithmatex">\(f(x)=\mathrm{d}x/\mathrm{d}t\)</span> is the function that we wish to approximate, using a Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon (t))\)</span> around <span class="arithmatex">\(\epsilon (t)=0\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}(\hat{x} + \epsilon (t))}{\mathrm{d}t} &amp;= f(\hat{x} + \epsilon (t))\\
+&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon (t) - \hat{x})\\
+&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
+\end{aligned}
+\]</div>
+<p>Since <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium <span class="arithmatex">\(f(\hat{x})\)</span> equals zero, leaving just <span class="arithmatex">\(f'(\hat{x})\epsilon(t)\)</span> on the right-hand side.</p>
+<p>Furthermore, the left-hand side can be expanded and simplified (<span class="arithmatex">\(\hat{x}\)</span> is a constant that does not change in time)</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}(\hat{x}+\epsilon (t))}{\mathrm{d}t} &amp;= \frac{\mathrm{d}\hat{x}}{\mathrm{d}t} + \frac{\mathrm{d}\epsilon (t)}{\mathrm{d}t}\\
+&amp;= \frac{\mathrm{d}\epsilon (t)} {\mathrm{d}t}
+\end{aligned}
+\]</div>
+<p>Combining the above, the perturbation will change over time at a rate</p>
+<div class="arithmatex">\[
+\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \approx f'(\hat{x}) \epsilon(t)
+\]</div>
+<p>This is the same as exponential growth with growth rate <span class="arithmatex">\(r=f'(\hat{x})\)</span>.</p>
+<p>So what will the perturbation do then? Well, note that (as shown above) that the change in the perturbation is equal to</p>
+<div class="arithmatex">\[
+\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \simeq r \epsilon(t)
+\]</div>
+<p>The perturbation will therefore</p>
+<ul>
+<li>grow if <span class="arithmatex">\(r&gt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+<li>shrink if <span class="arithmatex">\(r&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+</ul>
+<p>Stability in continuous time therefore requires the slope of the differential equation to be negative at the equilibrium, <span class="arithmatex">\(\left.\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)\right|_{x=\hat{x}} &lt; 0\)</span>.</p>
+<p>Unlike in discrete time, there is no possibility for oscillations in continuous time.</p>
+<h3 id="eg-logistic-growth_1">E.g., logistic growth</h3>
+<p>Let's again look at the model of logistic growth</p>
+<div class="arithmatex">\[
+f(n)=\frac{\mathrm{d}n}{\mathrm{d}t} = rn \left(1 - \frac{n}{K}\right)
+\]</div>
+<p>The derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span> is</p>
+<div class="arithmatex">\[
+f'(n) = r - 2 r\frac{n}{K}
+\]</div>
+<p>Plugging in <span class="arithmatex">\(n=K\)</span> gives</p>
+<div class="arithmatex">\[
+f'(K) = r - 2 r = -r
+\]</div>
+<p>This implies that <span class="arithmatex">\(r&gt;0\)</span> causes local stability of <span class="arithmatex">\(\hat{n}=K\)</span>. We can check this is consistent with a graphical analysis, below.</p>
+<pre data-executable="true" data-language="python">
+def f(n,r,k):
+    'differential equation for logistic growth'
+    return n*r*(1-n/k)
 
-    ax.set_ylim(-10, 1210)
-    ax.set_xlim(-10, 1210)
+def plot_logistic_de(r,k,ax=None):
+    'plot differential equation for logistic growth as function of n'
+    xs = np.linspace(0,k*1.5,100) #n values
+    if ax == None:
+        fig, ax = plt.subplots() 
+    # 0 line
+    ax.plot(xs, [0 for _ in xs], color='black', linestyle='--')
+    # differential equation
+    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
+    #aesthetics
+    ax.set_xlabel('$n$')
+    ax.set_ylabel('$dn/dt$')
     return ax
+</pre>
 
-plot_nullclines(ax)
+<pre data-executable="true" data-language="python">
+plot_logistic_de(r=0.5, k=1000)
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-06_files/lecture-06_13_0.png" /></p>
-<p>The null clines help us understand the dynamics. In each area bounded by null clines the arrows point in the same general direction (eg, in the top right area they point down and to the left). This helps us see where the dynamics are heading -- in this case most initial conditions head to the intersection of the null clines for <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(n_2\)</span> (red and blue), i.e., where the change in both our variables is zero, near <span class="arithmatex">\(n_1=1000\)</span> and <span class="arithmatex">\(n_2=500\)</span>.</p>
-<p>We can also make phase diagrams for continuous-time models, just using differential equations in place of difference equations.</p>
-<p>We’ll see an example of that for another model, of predator and prey, in this week’s lab.</p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_14_0.png" /></p>
+<pre data-executable="true" data-language="python">
+plot_logistic_de(r=-0.5, k=1000)
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-08_files/lecture-08_15_0.png" /></p>
+<p><span id='section6'></span></p>
+<h2 id="6-summary">6. Summary</h2>
+<hr>
+
+<p>Local stability analysis for discrete- and continuous-time models.</p>
+<ol>
+<li>take the derivative of the recursion/differential equation with respect to the variable, <span class="arithmatex">\(f'(x)\)</span></li>
+<li>plug in the equilibrium value of the variable, <span class="arithmatex">\(f'(\hat x)\)</span></li>
+<li>determine the sign and magnitude (sign only in continuous-time)</li>
+</ol>
 
 
 
@@ -1240,7 +1238,7 @@ plt.show()
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../lecture-05/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lecture 5" rel="prev">
+        <a href="../lecture-07/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lecture 7" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1249,20 +1247,20 @@ plt.show()
               <span class="md-footer__direction">
                 Previous
               </span>
-              Lecture 5
+              Lecture 7
             </div>
           </div>
         </a>
       
       
         
-        <a href="../lecture-07/" class="md-footer__link md-footer__link--next" aria-label="Next: Lecture 7" rel="next">
+        <a href="../../labs/schedule/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lecture 7
+              Schedule
             </div>
           </div>
           <div class="md-footer__button md-icon">
