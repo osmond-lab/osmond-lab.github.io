@@ -673,6 +673,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#brute-force-iteration" class="md-nav__link">
+    Brute force iteration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#solving-affine-models" class="md-nav__link">
     Solving affine models
   </a>
@@ -899,6 +906,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#brute-force-iteration" class="md-nav__link">
+    Brute force iteration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#solving-affine-models" class="md-nav__link">
     Solving affine models
   </a>
@@ -1064,7 +1078,8 @@
 x_{t+1} = a x_t + b
 \]</div>
 <p>There are two cases that we will consider separately: 1) <span class="arithmatex">\(b = 0\)</span> and 2) <span class="arithmatex">\(b \neq 0\)</span>.</p>
-<p>1) When <span class="arithmatex">\(b = 0\)</span> we can use <strong>brute force iteration</strong></p>
+<h3 id="brute-force-iteration">Brute force iteration</h3>
+<p>When <span class="arithmatex">\(b = 0\)</span> we can use <strong>brute force iteration</strong></p>
 <div class="arithmatex">\[
 \begin{aligned}
 x_t &amp;= a x_{t-1}\\
@@ -1075,8 +1090,21 @@ x_t &amp;= a x_{t-1}\\
 &amp;= a^t x_0
 \end{aligned}
 \]</div>
-<p>2) When <span class="arithmatex">\(b \neq 0\)</span> (called an <strong>affine model</strong>) we need to use a transformation.</p>
+<p>This is the general solution for exponential growth in discrete time, with reproductive factor <span class="arithmatex">\(a\)</span>. We can see that our variable will oscillate around the equilibrium (<span class="arithmatex">\(\hat{x}=0\)</span>) if <span class="arithmatex">\(a&lt;0\)</span> and will either approach the equilibrium (<span class="arithmatex">\(|a|&lt;1\)</span>) or depart from it (<span class="arithmatex">\(|a|&gt;1\)</span>), consistent with our local stability analysis. See this for yourself by playing with the value of <span class="arithmatex">\(a\)</span> in the plot below.  </p>
+<pre data-executable="true" data-language="python">
+import matplotlib.pyplot as plt
+a, x0 = 0.99, 10 #define parameter values and initial condition
+ts = range(1000) #time values
+xs = [a**t * x0 for t in ts] #variable values from general solution
+plt.scatter(ts, xs) #plot discretely
+plt.ylabel('$x(t)$')
+plt.xlabel('$t$')
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-09_files/lecture-09_3_0.png" /></p>
 <h3 id="solving-affine-models">Solving affine models</h3>
+<p>When <span class="arithmatex">\(b \neq 0\)</span> (which gives us what is called an <strong>affine model</strong>) we need to use a <strong>transformation</strong>, much like we did when determining local stability.</p>
 <p><strong>Step 1</strong>: Solve for the equilibrium</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1099,51 +1127,29 @@ x_t &amp;= a x_{t-1}\\
 &amp;= a \delta_t
 \end{aligned}
 \]</div>
-<p><strong>Step 4</strong>: The general solution for the transformed variable is then <span class="arithmatex">\(\delta_t = a^t \delta_0\)</span>.</p>
+<p><strong>Step 4</strong>: This is the same recursion we derived above for <span class="arithmatex">\(x\)</span> when <span class="arithmatex">\(b=0\)</span>. So the general solution for the transformed variable is <span class="arithmatex">\(\delta_t = a^t \delta_0\)</span>.</p>
 <p><strong>Step 5</strong>: Reverse transform back to <span class="arithmatex">\(x_t\)</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
-x_t &amp;= \delta_t - \hat{x}\\
-&amp;= a^t \delta_0 - \hat{x}\\
-&amp;= a^t (x_0 - \hat{x}) - \hat{x}\\
+x_t &amp;= \delta_t + \hat{x}\\
+&amp;= a^t \delta_0 + \hat{x}\\
+&amp;= a^t (x_0 - \hat{x}) + \hat{x}\\
 &amp;= a^t x_0 + (1 - a^t)\hat{x}
 \end{aligned}
 \]</div>
 <p>This says that our variable moves from <span class="arithmatex">\(x_0\)</span> towards/away from <span class="arithmatex">\(\hat{x}\)</span> by a factor <span class="arithmatex">\(a\)</span> per time step. Note that if <span class="arithmatex">\(b=0\)</span> then <span class="arithmatex">\(\hat{x}=0\)</span> and this reduces to what we derived above, <span class="arithmatex">\(x_t=a^t x_0\)</span>.</p>
 <p>Below we plot the general solution for a given value of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from a number of different intitial conditions. Try playing with the values of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and observe the different dynamics.</p>
 <pre data-executable="true" data-language="python">
-import sympy
-import matplotlib.pyplot as plt
-
-def plot_linear_recursion(a,b):
-    '''Plot general solution to linear recursion'''
-
-    t, x0 = sympy.symbols('t, x0') #variables\
-    if a != 1:
-        x = a**t * x0 + (1 - a**t) * b/(1-a) #general solution
-    else:
-        x = x0 + b*t
-
-    for i, x0 in enumerate([25, 50, 75, 125, 150, 175]):
-        if i == 0:
-            plots = sympy.plot(
-                x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0 =$ {x0}",
-                xlabel = 'time, $t$', ylabel = 'variable, $x$', legend=True, title=f"a = {a}, b = {b}"
-            )
-        else:
-            plots.append(
-                sympy.plot(
-                    x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0 =$ {x0}")[0]
-            )
-
-    plots.show()
+a, b, x0 = 0.99, 1, 10 #define parameter values and initial condition
+ts = range(1000) #time values
+xs = [a**t * x0 + (1-a**t)*b/(1-a) for t in ts] #variable values from general solution
+plt.scatter(ts, xs) #plot discretely
+plt.ylabel('$x(t)$')
+plt.xlabel('$t$')
+plt.show()
 </pre>
 
-<pre data-executable="true" data-language="python">
-plot_linear_recursion(0.99,1)
-</pre>
-
-<p><img alt="png" src="../lecture-09_files/lecture-09_4_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_5_0.png" /></p>
 <p><span id='section3'></span></p>
 <h2 id="3-nonlinear-models-in-discrete-time">3. Nonlinear models in discrete time</h2>
 <hr>
@@ -1181,7 +1187,7 @@ ax.set_ylabel('population size, $n$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-09_files/lecture-09_6_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_7_0.png" /></p>
 <h3 id="solving-with-transformations">Solving with transformations</h3>
 <p>Sometimes, however, you can find a <strong>transformation</strong> that works.</p>
 <p>For example, with haploid selection we have</p>
@@ -1204,7 +1210,7 @@ f_{t+1} &amp;= \frac{p_{t+1}}{q_{t+1}}\\
 p_t = \frac{f_t}{1-f_t} = \frac{W_A^t p_0}{W_A^t p_0 + W_a^t q_0}
 \]</div>
 <h3 id="solving-with-conceptualization">Solving with conceptualization</h3>
-<p>An alternative way to derive this general solution is to think about the <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span> alleles as two competing populations that each grow exponentially according to their fitness</p>
+<p>An alternative way to derive this general solution is to think about ("conceptualize") the <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span> alleles as two competing populations that each grow exponentially according to their fitness</p>
 <div class="arithmatex">\[
 \begin{aligned}
 n_A(t) &amp;= W_A^t n_A(0)\\
@@ -1221,24 +1227,16 @@ p_t = \frac{W_A^t p_0}{W_A^t p_0 + W_a^t q_0}
 \]</div>
 <p>Below we plot this general solution for a given <span class="arithmatex">\(W_A\)</span>, <span class="arithmatex">\(W_a\)</span>, and <span class="arithmatex">\(p_0\)</span>.</p>
 <pre data-executable="true" data-language="python">
-import numpy as np
-
-# Initialize symbols and function
-WA, Wa = 1.1, 1 #parameter values
-t, p0 = sympy.symbols('t, p0') 
-pt = (WA**t * p0)/(WA**t * p0 + Wa**t * (1-p0)) #general solution
-ft = sympy.lambdify(t, pt.subs({'p0': 0.01})) #make pt a function of t
-ts = np.linspace(0, 100)# time values
-
-# Plot data
-fig, ax = plt.subplots() #set up figure
-ax.plot(ts, ft(ts)) #plot 
-ax.set_xlabel('generation, $t$')
-ax.set_ylabel('frequency of the $A$ allele, $p$')
+WA, Wa, p0 = 1.1, 1, 0.01 #define parameter values and initial condition
+ts = range(100) #time values
+ps = [(WA**t * p0)/(WA**t * p0 + Wa**t * (1-p0)) for t in ts] #variable values from general solution
+plt.scatter(ts, ps) #plot discretely
+plt.ylabel('allele frequency, $p(t)$')
+plt.xlabel('generation, $t$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-09_files/lecture-09_9_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_10_0.png" /></p>
 <p><span id='section4'></span></p>
 <h2 id="4-linear-models-in-continuous-time">4. Linear models in continuous time</h2>
 <hr>
@@ -1265,6 +1263,19 @@ x_t &amp;= e^{a t} e^{a c}
 <div class="arithmatex">\[
 x_t = x_0 e^{at}
 \]</div>
+<p>This is the general solution for exponential growth in continuous time with growth rate <span class="arithmatex">\(a\)</span>. We see that variable will either converge on (<span class="arithmatex">\(a&lt;0\)</span>) or depart from (<span class="arithmatex">\(a&gt;0\)</span>) the equilibrium (<span class="arithmatex">\(\hat x=0\)</span>), consistent with our local stability analysis. </p>
+<pre data-executable="true" data-language="python">
+import matplotlib.pyplot as plt
+a, x0 = 0.01, 10 #define parameter values and initial condition
+ts = range(1000) #time values
+xs = [exp(a*t) * x0 for t in ts] #variable values from general solution
+plt.plot(ts, xs) #plot continuously
+plt.ylabel('$x(t)$')
+plt.xlabel('$t$')
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-09_files/lecture-09_13_0.png" /></p>
 <h3 id="using-transformations">Using transformations</h3>
 <p>Now let's consider the case where <span class="arithmatex">\(b\neq0\)</span>.</p>
 <p>This can also be solved by the method of separation of variables but let's do 
@@ -1276,7 +1287,7 @@ it with a transformation, like we did in discrete time.</p>
 \hat{x} &amp;= -b/a
 \end{aligned}
 \]</div>
-<p><strong>Step 2</strong>: Define <span class="arithmatex">\(\delta = x - \hat{x}\)</span>.</p>
+<p><strong>Step 2</strong>: Define <span class="arithmatex">\(\delta = x - \hat{x}\)</span> as the deviation of the variable from equilibrium.</p>
 <p><strong>Step 3</strong>: Derive the differential equation for <span class="arithmatex">\(\delta\)</span></p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1289,43 +1300,24 @@ it with a transformation, like we did in discrete time.</p>
 &amp;= a \delta
 \end{aligned}
 \]</div>
-<p><strong>Step 4</strong>: The general solution for <span class="arithmatex">\(\delta\)</span> is <span class="arithmatex">\(\delta_t = \delta_0 e^{a t}\)</span>.</p>
+<p><strong>Step 4</strong>: This is the same differential equation we had above for <span class="arithmatex">\(x\)</span> when <span class="arithmatex">\(b=0\)</span>. The general solution is therefore <span class="arithmatex">\(\delta\)</span> is <span class="arithmatex">\(\delta_t = \delta_0 e^{a t}\)</span>.</p>
 <p><strong>Step 5</strong>: Replace <span class="arithmatex">\(\delta\)</span> with <span class="arithmatex">\(x - \hat{x}\)</span> to back transform to our original variable</p>
 <div class="arithmatex">\[
 x_t = e^{a t} x_0 + (1 - e^{a t})\hat{x}
 \]</div>
-<p>Similar to the discrete case, we see an exponential approach to/departure from <span class="arithmatex">\(\hat{x}\)</span>.</p>
+<p>Similar to the discrete case (but without the oscillations), this tells us there is an exponential approach to (<span class="arithmatex">\(a&lt;0\)</span>) or departure from (<span class="arithmatex">\(a&gt;0\)</span>) the equilibrium, <span class="arithmatex">\(\hat{x}\)</span>.</p>
 <p>Below we plot this general solution for given values of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and a range of initial conditions, <span class="arithmatex">\(x_0\)</span>.</p>
 <pre data-executable="true" data-language="python">
-import sympy
-import matplotlib.pyplot as plt
-
-def plot_linear_de(a,b):
-    '''Plot general solution to linear differential equation'''
-
-    t, x0 = sympy.symbols('t, x0')
-    x = sympy.exp(a * t) * x0 + (1 - sympy.exp(a*t)) * (-b/a) #general solution
-
-    for i, x0 in enumerate([25, 50, 75, 125, 150, 175]):
-        if i == 0:
-            plots = sympy.plot(
-                x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0$ = {x0}",
-                xlabel = 'time, $t$', ylabel = 'variable, $x$', legend=True, title=f"a = {a}, b = {b}"
-            )
-        else:
-            plots.append(
-                sympy.plot(
-                    x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0$ = {x0}")[0]
-            )
-
-    plots.show()
+a, b, x0 = -0.01, 1, 10 #define parameter values and initial condition
+ts = range(1000) #time values
+xs = [exp(a*t) * x0 + (1-exp(a*t))*(-b/a) for t in ts] #variable values from general solution
+plt.plot(ts, xs) #plot continuously
+plt.ylabel('$x(t)$')
+plt.xlabel('$t$')
+plt.show()
 </pre>
 
-<pre data-executable="true" data-language="python">
-plot_linear_de(-0.01, 1)
-</pre>
-
-<p><img alt="png" src="../lecture-09_files/lecture-09_14_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_15_0.png" /></p>
 <p><span id='section5'></span></p>
 <h2 id="5-nonlinear-models-in-continuous-time">5. Nonlinear models in continuous time</h2>
 <hr>
@@ -1350,21 +1342,16 @@ p_t = \frac{e^{st} p_0}{1 - p_0 + e^{st} p_0}
 \]</div>
 <p>This shows essentially the same dynamics as haploid selection in discrete time.</p>
 <pre data-executable="true" data-language="python">
-# Initialize symbols and function
-s = 0.01 #parameter values
-pt = (sympy.exp(s * t) * p0) / (1-p0+sympy.exp(s*t)*p0) #general solution
-ft = sympy.lambdify(t, pt.subs({'p0': 0.01})) #make pt a function of t
-ts = np.linspace(0, 1000) # time values to plot
-
-# Plot data
-fig, ax = plt.subplots()
-ax.plot(ts, ft(ts))
-ax.set_xlabel('time, $t$')
-ax.set_ylabel('frequency of the $A$ allele, $p$')
+s, p0 = 0.1, 0.01 #define parameter values and initial condition
+ts = range(100) #time values
+ps = [(exp(s*t) * p0)/(1 - p0 + exp(s*t)*p0) for t in ts] #variable values from general solution
+plt.plot(ts, ps) #plot continuously
+plt.ylabel('allele frequency, $p(t)$')
+plt.xlabel('generation, $t$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-09_files/lecture-09_17_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_18_0.png" /></p>
 <h3 id="alternative-methods">Alternative methods</h3>
 <p>Separation of variables does not always work as it may not be possible to solve the integrals.</p>
 <p>However, separation of variables is not the only method.</p>
