@@ -13,7 +13,7 @@
     
     
       
-        <title>Lecture 8 - EEB430 Modelling in Ecology and Evolution</title>
+        <title>Lecture 9 - EEB430 Modelling in Ecology and Evolution</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-8-local-stability" class="md-skip">
+        <a href="#lecture-9-general-solutions-univariate" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 8
+              Lecture 9
             
           </span>
         </div>
@@ -601,6 +601,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../lecture-08/" class="md-nav__link">
+        Lecture 8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -613,12 +627,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Lecture 8
+          Lecture 9
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Lecture 8
+        Lecture 9
       </a>
       
         
@@ -644,23 +658,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-stability" class="md-nav__link">
-    1. Stability
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Stability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
-    What is stability and stability analysis?
+  <a href="#1-general-solutions" class="md-nav__link">
+    1. General solutions
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linear-models-in-discrete-time" class="md-nav__link">
+    2. Linear models in discrete time
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Linear models in discrete time">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#solving-affine-models" class="md-nav__link">
+    Solving affine models
   </a>
   
 </li>
@@ -671,16 +685,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
-    2. Local stability analysis in discrete-time one-variable models
+  <a href="#3-nonlinear-models-in-discrete-time" class="md-nav__link">
+    3. Nonlinear models in discrete time
   </a>
   
-    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+    <nav class="md-nav" aria-label="3. Nonlinear models in discrete time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eg-logistic-growth" class="md-nav__link">
-    E.g., logistic growth
+  <a href="#solving-with-transformations" class="md-nav__link">
+    Solving with transformations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-with-conceptualization" class="md-nav__link">
+    Solving with conceptualization
   </a>
   
 </li>
@@ -691,16 +712,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
-    3. Local stability analysis in continuous-time one-variable models
+  <a href="#4-linear-models-in-continuous-time" class="md-nav__link">
+    4. Linear models in continuous time
   </a>
   
-    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+    <nav class="md-nav" aria-label="4. Linear models in continuous time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eg-logistic-growth_1" class="md-nav__link">
-    E.g., logistic growth
+  <a href="#separation-of-variables" class="md-nav__link">
+    Separation of variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-transformations" class="md-nav__link">
+    Using transformations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-nonlinear-models-in-continuous-time" class="md-nav__link">
+    5. Nonlinear models in continuous time
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Nonlinear models in continuous time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-variables_1" class="md-nav__link">
+    Separation of variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-methods" class="md-nav__link">
+    Alternative methods
   </a>
   
 </li>
@@ -721,20 +776,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lecture-09/" class="md-nav__link">
-        Lecture 9
-      </a>
     </li>
   
 
@@ -843,23 +884,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-stability" class="md-nav__link">
-    1. Stability
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Stability">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
-    What is stability and stability analysis?
+  <a href="#1-general-solutions" class="md-nav__link">
+    1. General solutions
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#2-linear-models-in-discrete-time" class="md-nav__link">
+    2. Linear models in discrete time
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Linear models in discrete time">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#solving-affine-models" class="md-nav__link">
+    Solving affine models
   </a>
   
 </li>
@@ -870,16 +911,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
-    2. Local stability analysis in discrete-time one-variable models
+  <a href="#3-nonlinear-models-in-discrete-time" class="md-nav__link">
+    3. Nonlinear models in discrete time
   </a>
   
-    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+    <nav class="md-nav" aria-label="3. Nonlinear models in discrete time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eg-logistic-growth" class="md-nav__link">
-    E.g., logistic growth
+  <a href="#solving-with-transformations" class="md-nav__link">
+    Solving with transformations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-with-conceptualization" class="md-nav__link">
+    Solving with conceptualization
   </a>
   
 </li>
@@ -890,16 +938,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
-    3. Local stability analysis in continuous-time one-variable models
+  <a href="#4-linear-models-in-continuous-time" class="md-nav__link">
+    4. Linear models in continuous time
   </a>
   
-    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+    <nav class="md-nav" aria-label="4. Linear models in continuous time">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eg-logistic-growth_1" class="md-nav__link">
-    E.g., logistic growth
+  <a href="#separation-of-variables" class="md-nav__link">
+    Separation of variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-transformations" class="md-nav__link">
+    Using transformations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-nonlinear-models-in-continuous-time" class="md-nav__link">
+    5. Nonlinear models in continuous time
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Nonlinear models in continuous time">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-variables_1" class="md-nav__link">
+    Separation of variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-methods" class="md-nav__link">
+    Alternative methods
   </a>
   
 </li>
@@ -945,7 +1027,7 @@
 </script>
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 
-<h1 id="lecture-8-local-stability">Lecture 8: Local stability</h1>
+<h1 id="lecture-9-general-solutions-univariate">Lecture 9: General solutions (univariate)</h1>
 <hr style="margin-bottom: 0em;">
 <p><center></p>
 <div class="inrow">
@@ -958,164 +1040,130 @@
 
 <h2 id="lecture-overview">Lecture overview</h2>
 <ol>
-<li><a href="#section1">Stability</a></li>
-<li><a href="#section2">Local stability analysis in discrete-time one-variable models</a></li>
-<li><a href="#section3">Local stability analysis in continuous-time one-variable models</a></li>
-<li><a href="#section4">Summary</a></li>
+<li><a href="#section1">General solutions</a></li>
+<li><a href="#section2">Linear models in discrete time</a></li>
+<li><a href="#section3">Nonlinear models in discrete time</a></li>
+<li><a href="#section4">Linear models in continuous time</a></li>
+<li><a href="#section5">Nonlinear models in continuous time</a></li>
+<li><a href="#section6">Summary</a></li>
 </ol>
 <p><span id='section1'></span></p>
-<h2 id="1-stability">1. Stability</h2>
+<h2 id="1-general-solutions">1. General solutions</h2>
 <hr>
 
-<h3 id="what-is-stability-and-stability-analysis">What is stability and stability analysis?</h3>
-<p>What happens very near an equilibrium?</p>
-<p>Starting near an equilibrium, if the system moves towards the equilibrium over time the equilibrium is said to be <strong>locally stable</strong>.</p>
-<p>In contrast, if the system moves away from the equilibrium over time the equilibrium is said to be <strong>unstable</strong>.</p>
-<p>An equilibrium point is said to be <strong>globally stable</strong> if all initial conditions lead to it.</p>
-<p>Our goal: to determine whether a small perturbation away from an equilibrium point will grow or shrink in magnitude over time <span class="arithmatex">\(\Longrightarrow\)</span> <strong>local stability analysis</strong>.</p>
-<h3 id="example">Example</h3>
-<p>Consider logistic growth in discrete time, with <span class="arithmatex">\(K = 1000\)</span> and <span class="arithmatex">\(r = 0.5\)</span>.</p>
-<p>For populations started near carrying capacity (e.g., <span class="arithmatex">\(n_t = 900\)</span>), we see that they move closer to the carrying capacity over time.</p>
+<p>Last week we learned how to find <strong>equilibria</strong> and determine their <strong>local stability</strong> in models with one variable (univariate).</p>
+<p>Those analyses describe the <em>long-term dynamics</em> of our models, i.e., what we expect after a long time has passed.</p>
+<p>This week we’ll look at some simple cases where we can describe the <em>entire</em> dynamics, including the short-term, by solving for the variable as a function of time, <span class="arithmatex">\(x_t = f(t)\)</span> </p>
+<p>This is called a <strong>general solution</strong>.</p>
+<p><span id='section2'></span></p>
+<h2 id="2-linear-models-in-discrete-time">2. Linear models in discrete time</h2>
+<hr>
+
+<p>With a single variable, <span class="arithmatex">\(x\)</span>, in discrete time all <strong>linear models</strong> can be written </p>
+<div class="arithmatex">\[
+x_{t+1} = a x_t + b
+\]</div>
+<p>There are two cases that we will consider separately: 1) <span class="arithmatex">\(b = 0\)</span> and 2) <span class="arithmatex">\(b \neq 0\)</span>.</p>
+<p>1) When <span class="arithmatex">\(b = 0\)</span> we can use <strong>brute force iteration</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+x_t &amp;= a x_{t-1}\\
+&amp;= a a x_{t-2}\\
+&amp;= a a a x_{t-3}\\ 
+&amp;\vdots\\
+&amp;= a\cdots a x_0\\
+&amp;= a^t x_0
+\end{aligned}
+\]</div>
+<p>2) When <span class="arithmatex">\(b \neq 0\)</span> (called an <strong>affine model</strong>) we need to use a transformation.</p>
+<h3 id="solving-affine-models">Solving affine models</h3>
+<p><strong>Step 1</strong>: Solve for the equilibrium</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{x} &amp;= a \hat{x} + b \\
+\hat{x} &amp;= \frac{b}{1 - a}
+\end{aligned}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that if <span class="arithmatex">\(a=1\)</span> there is no equilibrium for <span class="arithmatex">\(b\neq0\)</span>, and instead you can use brute force iteration to show that <span class="arithmatex">\(x_t = x_0 + b t\)</span>.</p>
+</div>
+<p><strong>Step 2</strong>: Define <span class="arithmatex">\(\delta_t = x_t - \hat{x}\)</span>, the deviation of our variable from the equilibrium (this is our transformation).</p>
+<p><strong>Step 3</strong>: Write the recursion equation for the transformed variable</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\delta_{t+1} &amp;= x_{t+1} - \hat{x} \\
+&amp;= a x_t + b - \hat{x} \\
+&amp;= a(\delta_t + \hat{x}) + b - \hat{x}\\
+&amp;= a \left(\delta_t + \frac{b}{1 - a}\right) + b - \frac{b}{1 - a}\\
+&amp;= a \delta_t
+\end{aligned}
+\]</div>
+<p><strong>Step 4</strong>: The general solution for the transformed variable is then <span class="arithmatex">\(\delta_t = a^t \delta_0\)</span>.</p>
+<p><strong>Step 5</strong>: Reverse transform back to <span class="arithmatex">\(x_t\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+x_t &amp;= \delta_t - \hat{x}\\
+&amp;= a^t \delta_0 - \hat{x}\\
+&amp;= a^t (x_0 - \hat{x}) - \hat{x}\\
+&amp;= a^t x_0 + (1 - a^t)\hat{x}
+\end{aligned}
+\]</div>
+<p>This says that our variable moves from <span class="arithmatex">\(x_0\)</span> towards/away from <span class="arithmatex">\(\hat{x}\)</span> by a factor <span class="arithmatex">\(a\)</span> per time step. Note that if <span class="arithmatex">\(b=0\)</span> then <span class="arithmatex">\(\hat{x}=0\)</span> and this reduces to what we derived above, <span class="arithmatex">\(x_t=a^t x_0\)</span>.</p>
+<p>Below we plot the general solution for a given value of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> from a number of different intitial conditions. Try playing with the values of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and observe the different dynamics.</p>
 <pre data-executable="true" data-language="python">
-import numpy as np
+import sympy
 import matplotlib.pyplot as plt
 
-# logistic growth recursion
-def f(nt,r,k):
-    return nt * (1 + r * (1 - nt / k))
+def plot_linear_recursion(a,b):
+    '''Plot general solution to linear recursion'''
 
-# Build cobweb plotting function
-def cobweb_logistic(n0, r, k, max=np.inf):
-    t, nnow, nnext = 0, n0, 0 #initial conditions
-    while t < max:
-        yield nnow, nnext #current value of n(t) and n(t+1)
-        nnext = f(nnow,r,k)
-        yield nnow, nnext #current value of n(t) and n(t+1)
-        nnow = nnext #update n(t)
-        t += 1 #update t
+    t, x0 = sympy.symbols('t, x0') #variables\
+    if a != 1:
+        x = a**t * x0 + (1 - a**t) * b/(1-a) #general solution
+    else:
+        x = x0 + b*t
 
-# Plot
-def plot_logistic_with_cobweb(r, k, n0, ncobs=10, ax=None):
-    # Plot the curves (add an additional curve past equilibrium to show stability)
-    xs = np.linspace(0,k*1.5,100) #x values
-    if ax == None:
-        fig, ax = plt.subplots() 
-    #1:1 line
-    ax.plot(xs, xs, color='black', linestyle='dashed')
-    # recursion
-    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
-    # cobweb
-    cobweb = np.array([i for i in cobweb_logistic(n0, r, k, ncobs)])
-    plt.plot(cobweb[:,0], cobweb[:,1], color='blue')
-    #aesthetics
-    ax.set_ylim(0,None)
-    ax.set_xlim(0,None)
-    ax.set_xlabel('$n_t$')
-    ax.set_ylabel('$n_{t+1}$')
-    return ax
+    for i, x0 in enumerate([25, 50, 75, 125, 150, 175]):
+        if i == 0:
+            plots = sympy.plot(
+                x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0 =$ {x0}",
+                xlabel = 'time, $t$', ylabel = 'variable, $x$', legend=True, title=f"a = {a}, b = {b}"
+            )
+        else:
+            plots.append(
+                sympy.plot(
+                    x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0 =$ {x0}")[0]
+            )
+
+    plots.show()
 </pre>
 
 <pre data-executable="true" data-language="python">
-plot_logistic_with_cobweb(n0=900,r=0.5, k=1000, ncobs=1100)
-plt.show()
+plot_linear_recursion(0.99,1)
 </pre>
 
-<p><img alt="png" src="../lecture-08_files/lecture-08_3_0.png" /></p>
-<p>As we discussed when introducing cobweb diagrams, in this case we move to the right when <span class="arithmatex">\(n_t&lt;K\)</span> because the recursion (solid line) is above the 1:1 line (dashed), i.e., <span class="arithmatex">\(n_{t+1}&gt;n_t\)</span>. Similarly, we move to the left when <span class="arithmatex">\(n_t&gt;K\)</span> because the recursion is below the 1:1 line. Now, we know the 1:1 line has a slope of 1. Since the recursion crosses this line going from above to below (as we move to the right) at the equilibrium <span class="arithmatex">\(n_t=K\)</span>, we know the slope of recursion is less than 1 at that point, 
-<span class="arithmatex">\(<span class="arithmatex">\(\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&lt;1\)</span>\)</span></p>
-<p>In this case we also see that the slope is positive.</p>
-<p>Now what about if we had <span class="arithmatex">\(r = -0.5\)</span>?</p>
-<pre data-executable="true" data-language="python">
-plot_logistic_with_cobweb(r=-0.5, k=1000, n0=900)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_5_0.png" /></p>
-<p>We see that we now move <em>away</em> from the equilibrium at <span class="arithmatex">\(n_t=K\)</span>. Because the recursion is now steeper than the 1:1 line at that point, we know the slope of the recursion at <span class="arithmatex">\(n_t = K\)</span> is now greater than 1</p>
-<div class="arithmatex">\[\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&gt;1\]</div>
-<p>So how does knowing the slope of the recursion at the equilibrium help? (e.g. at <span class="arithmatex">\(n_t = K\)</span>). </p>
-<p>If we have an equilibrium point, call it <span class="arithmatex">\(a\)</span>, and we have a starting condition, <span class="arithmatex">\(x\)</span>, which is near <span class="arithmatex">\(a\)</span>, then we can use the <strong>Taylor Series</strong> to rewrite the recursion.</p>
-<div class="admonition note">
-<p class="admonition-title">Mathematical aside: Taylor series</p>
-<div class="arithmatex">\[
-f(x) = \sum_{k = 0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k
-\]</div>
-<p>where <span class="arithmatex">\(f^{(k)}(a)\)</span> is the <span class="arithmatex">\(k^{\mathrm{th}}\)</span> derivative of the function with respect to <span class="arithmatex">\(x\)</span>, evaluated at point <span class="arithmatex">\(a\)</span>. (See section P1.3 in the text for more information).</p>
-</div>
-<p>If we start near enough to the equilibrium, <span class="arithmatex">\((x - a)^k\)</span> will be tiny for <span class="arithmatex">\(k &gt; 1\)</span> and the function will be dominated by the first two terms in the series, with <span class="arithmatex">\(k = 0\)</span> and <span class="arithmatex">\(k = 1\)</span>:</p>
-<div class="arithmatex">\[
-f (x) \simeq f (a) + f'(a)(x - a)
-\]</div>
-<p>using <span class="arithmatex">\(f^{(0)}(a) = f(a)\)</span> and the short-hand notation <span class="arithmatex">\(f'(a) = f^{(1)}(a)\)</span> to describe the slope of <span class="arithmatex">\(f\)</span> at <span class="arithmatex">\(x=a\)</span>.</p>
-<p>This is great! No matter how complicated and non-linear an equation we have, we can get an approximate equation that describes the dynamics near an equilibrium point. This equation is linear in <span class="arithmatex">\(x\)</span> and can therefore be easily analysed. Let's see how this works in discrete- and continuous-time models.</p>
-<p><span id='section2'></span></p>
-<h2 id="2-local-stability-analysis-in-discrete-time-one-variable-models">2. Local stability analysis in discrete-time one-variable models</h2>
+<p><img alt="png" src="../lecture-09_files/lecture-09_4_0.png" /></p>
+<p><span id='section3'></span></p>
+<h2 id="3-nonlinear-models-in-discrete-time">3. Nonlinear models in discrete time</h2>
 <hr>
 
-<p>Given a recursion equation in one variable, <span class="arithmatex">\(x(t+1) = f(x(t))\)</span>, with an equilibrium <span class="arithmatex">\(\hat{x}\)</span>, when will a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from the equilibrium grow in magnitude over time?</p>
-<p>At time <span class="arithmatex">\(t\)</span>, say that the population is a small distance from the equilibrium: <span class="arithmatex">\(\hat{x} + \epsilon(t)\)</span> (Note that <span class="arithmatex">\(\epsilon(t)\)</span> might be negative).</p>
-<p>At time <span class="arithmatex">\(t+1\)</span>, the population will be at <span class="arithmatex">\(\hat{x} + \epsilon(t+1)\)</span>, which equals <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span>.</p>
-<p>Using the Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span> around <span class="arithmatex">\(\epsilon(t)=0\)</span>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\hat{x} + \epsilon(t+1) &amp;= f(\hat{x} + \epsilon(t))\\
-&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon(t) - \hat{x})\\
-&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
-\end{aligned}
-\]</div>
-<p>We know that <span class="arithmatex">\(f(\hat{x}) = \hat{x}\)</span> because <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium, which implies</p>
-<div class="arithmatex">\[
-\epsilon(t+1) \approx f'(\hat{x})\epsilon(t)
-\]</div>
-<p>This is the recursion for exponential growth, with reproductive factor <span class="arithmatex">\(\lambda = f'(\hat{x})\)</span>. So knowing that</p>
-<div class="arithmatex">\[
-\epsilon (t+1) \approx \lambda \epsilon (t)
-\]</div>
-<p>means the perturbation will:</p>
-<ul>
-<li>
-<p>move from one side of the equilibrium to the other (i.e., oscillate) if <span class="arithmatex">\(\lambda\)</span> is negative</p>
-<ul>
-<li>grow if <span class="arithmatex">\(\lambda&lt;-1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-<li>or shrink if <span class="arithmatex">\(-1&lt;\lambda&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-</ul>
-</li>
-<li>
-<p>stay on the same side of the equilibrium if <span class="arithmatex">\(\lambda\)</span> is positive</p>
-<ul>
-<li>and shrink if <span class="arithmatex">\(0&lt;\lambda&lt;1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-<li>or grow if <span class="arithmatex">\(1&lt;\lambda\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-</ul>
-</li>
-</ul>
-<p>Stability in discrete time therefore requires the slope of the recursion to be between -1 and 1 at the equilibrium, <span class="arithmatex">\(-1&lt;\left.\frac{\mathrm{d}x_{t+1}}{\mathrm{d}x_t}\right|_{x_t=\hat x}&lt;1\)</span>.</p>
-<h3 id="eg-logistic-growth">E.g., logistic growth</h3>
-<p>Let's now return to the logistic growth model in discrete time as an example. Here the recursion is</p>
-<div class="arithmatex">\[
-f(n) = n \left(1 + r\left(1 - \frac{n}{K}\right)\right)
-\]</div>
-<p>When <span class="arithmatex">\(r = 0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was locally stable and the slope of the recusion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was between 0 and 1.</p>
-<p>Whereas, when <span class="arithmatex">\(r = -0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was unstable and the slope of the recursion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was greater than 1.</p>
-<p>Now let's perform a local stability analysis to see, more generally, when <span class="arithmatex">\(\hat{n}=K\)</span> is locally stable.</p>
-<p>We first take the derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span></p>
-<div class="arithmatex">\[
-f'(n) = 1 + r - 2 r \frac{n}{K}
-\]</div>
-<p>Then we plug in the equilirbium value, <span class="arithmatex">\(n=K\)</span></p>
-<div class="arithmatex">\[
-\begin{aligned}
-f'(K) &amp;= 1 + r - 2 r \\
-&amp;= 1 - r
-\end{aligned}
-\]</div>
-<p>This will be negative when <span class="arithmatex">\(r &gt; 1\)</span>, creating oscillations.</p>
-<p>The equilibrium will be stable when <span class="arithmatex">\(-1 &lt; 1 - r &lt; 1 \implies 0 &lt; r &lt; 2\)</span>.</p>
-<p>This is consistent with the cob-webs we just observed, as well as the bifurcation diagram we saw in a Lecture 5 (repeated again below), where we see cycling for values of <span class="arithmatex">\(r\)</span> greater than 2.</p>
+<p>Unfortunately there is no recipe to solve <strong>nonlinear models</strong> in discrete time, even with one variable.</p>
+<p>In fact, most of the time there is no general solution.</p>
+<p>To get a sense of why that might be, remember the chaos of logistic growth!</p>
 <pre data-executable="true" data-language="python">
-# Sample the periodicity of the oscillations 
-# by taking unique values after reaching carrying capacity
+import numpy as np
+
+# Generator for logistic growth
+def n(n0, r, k, max=np.inf):
+    t, nt = 0, n0
+    while t < max:
+        yield nt
+        t, nt = t + 1, nt + r * nt * (1 - nt / k)
+
+# Sample the periodicity of the oscillations by taking unique values after reaching carrying capacity
 def log_map(r, n0=900, k=1000):    
-    return np.unique([nt[1] for t, nt in enumerate(n(n0, r, k, max=75)) if t > 30])
+    return np.unique([nt for t, nt in enumerate(n(n0, r, k, max=75)) if t > 30])
 
 # Compute the logistic map for different growth rates in discrete time
 r, Nr = np.array([]), np.array([])
@@ -1128,110 +1176,210 @@ for i in np.linspace(1.5, 3, 1000):
 fig, ax = plt.subplots()
 ax.patch.set_facecolor('black')
 ax.scatter(r, Nr, s=0.075, color='white')
+ax.set_xlabel('intrinsic growth rate, $r$')
+ax.set_ylabel('population size, $n$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-08_files/lecture-08_9_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_6_0.png" /></p>
+<h3 id="solving-with-transformations">Solving with transformations</h3>
+<p>Sometimes, however, you can find a <strong>transformation</strong> that works.</p>
+<p>For example, with haploid selection we have</p>
+<div class="arithmatex">\[
+p_{t+1} = \frac{W_A p_t}{W_A p_t + W_a q_t}
+\]</div>
+<p>Brute force iteration will create a giant mess.</p>
+<p>But what about if we let <span class="arithmatex">\(f_t = p_t/q_t\)</span>?</p>
+<p>Noting that <span class="arithmatex">\(q_{t+1} = 1 - p_{t+1} = (W_a p_t)/(W_A p_t + W_a q_t)\)</span> we have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f_{t+1} &amp;= \frac{p_{t+1}}{q_{t+1}}\\
+&amp;= \frac{W_A p_t}{W_a q_t}\\
+&amp;= \frac{W_A}{W_a} f_t
+\end{aligned}
+\]</div>
+<p>This implies that <span class="arithmatex">\(f_t = (W_A/W_a)^t f_0\)</span>!</p>
+<p>Converting back to <span class="arithmatex">\(p_t\)</span> we see</p>
+<div class="arithmatex">\[
+p_t = \frac{f_t}{1-f_t} = \frac{W_A^t p_0}{W_A^t p_0 + W_a^t q_0}
+\]</div>
+<h3 id="solving-with-conceptualization">Solving with conceptualization</h3>
+<p>An alternative way to derive this general solution is to think about the <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span> alleles as two competing populations that each grow exponentially according to their fitness</p>
+<div class="arithmatex">\[
+\begin{aligned}
+n_A(t) &amp;= W_A^t n_A(0)\\
+n_a(t) &amp;= W_a^t n_a(0)   
+\end{aligned}
+\]</div>
+<p>Then the frequency of allele <span class="arithmatex">\(A\)</span> at time <span class="arithmatex">\(t\)</span> is</p>
+<div class="arithmatex">\[
+p_t = \frac{n_A(t)}{n_A(t) + n_a(t)} = \frac{W_A^t n_A(0)}{W_A^t n_A(0) + W_a^t n_a(0)}
+\]</div>
+<p>Dividing numerator and denominator by the total initial population size <span class="arithmatex">\(n_A(0) + n_a(0)\)</span></p>
+<div class="arithmatex">\[
+p_t = \frac{W_A^t p_0}{W_A^t p_0 + W_a^t q_0}
+\]</div>
+<p>Below we plot this general solution for a given <span class="arithmatex">\(W_A\)</span>, <span class="arithmatex">\(W_a\)</span>, and <span class="arithmatex">\(p_0\)</span>.</p>
 <pre data-executable="true" data-language="python">
-plot_logistic_with_cobweb(r=2.5, k=1000, n0=900)
+import numpy as np
+
+# Initialize symbols and function
+WA, Wa = 1.1, 1 #parameter values
+t, p0 = sympy.symbols('t, p0') 
+pt = (WA**t * p0)/(WA**t * p0 + Wa**t * (1-p0)) #general solution
+ft = sympy.lambdify(t, pt.subs({'p0': 0.01})) #make pt a function of t
+ts = np.linspace(0, 100)# time values
+
+# Plot data
+fig, ax = plt.subplots() #set up figure
+ax.plot(ts, ft(ts)) #plot 
+ax.set_xlabel('generation, $t$')
+ax.set_ylabel('frequency of the $A$ allele, $p$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-08_files/lecture-08_10_0.png" /></p>
-<p><span id='section3'></span></p>
-<h2 id="3-local-stability-analysis-in-continuous-time-one-variable-models">3. Local stability analysis in continuous-time one-variable models</h2>
+<p><img alt="png" src="../lecture-09_files/lecture-09_9_0.png" /></p>
+<p><span id='section4'></span></p>
+<h2 id="4-linear-models-in-continuous-time">4. Linear models in continuous time</h2>
 <hr>
 
-<p>As in discrete time, we focus on a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from an equilibrium (<span class="arithmatex">\(\hat{x}\)</span>) and determine whether this perturbation will grow or shrink.</p>
-<p>If, at time <span class="arithmatex">\(t\)</span>, the population is a small distance from equilibrium, <span class="arithmatex">\(\hat{x} + \epsilon (t)\)</span>, the rate of change in <span class="arithmatex">\(x\)</span> will be <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = \mathrm{d}(\hat{x} + \epsilon (t))/\mathrm{d}t\)</span>.</p>
-<p>In this case, <span class="arithmatex">\(f(x)=\mathrm{d}x/\mathrm{d}t\)</span> is the function that we wish to approximate, using a Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon (t))\)</span> around <span class="arithmatex">\(\epsilon (t)=0\)</span></p>
+<p>In continuous time, a linear differential equation of one variable can be written</p>
+<div class="arithmatex">\[
+\frac{\mathrm{d}x}{\mathrm{d}t} = a x + b
+\]</div>
+<p>Let's first look at the case where <span class="arithmatex">\(b=0\)</span>.</p>
+<h3 id="separation-of-variables">Separation of variables</h3>
+<p>Here we can use a method called <strong>seperation of variables</strong>.</p>
+<p>That is, our differential equation can be written <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = f(x) g(t)\)</span>, i.e., we can separate the variables <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(t\)</span>.</p>
+<p>We can then re-write the equation as  <span class="arithmatex">\(\mathrm{d}x/f(x) = g(t)\mathrm{d}t\)</span> and take the indefinite integral of both sides.</p>
+<p>In our case we have <span class="arithmatex">\(f(x)=a x\)</span> and <span class="arithmatex">\(g(t)=1\)</span> so</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\frac{\mathrm{d}(\hat{x} + \epsilon (t))}{\mathrm{d}t} &amp;= f(\hat{x} + \epsilon (t))\\
-&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon (t) - \hat{x})\\
-&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
+\int \frac{\mathrm{d}x}{a x} &amp;= \int \mathrm{d}t \\
+\frac{\ln(x)}{a} + c_1 &amp;= t + c_2\\
+\ln(x) &amp;= a t + c \; \text{(where } c = c_2 - c_1\text{)}\\
+x_t &amp;= e^{a t} e^{a c}
 \end{aligned}
 \]</div>
-<p>Since <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium <span class="arithmatex">\(f(\hat{x})\)</span> equals zero, leaving just <span class="arithmatex">\(f'(\hat{x})\epsilon(t)\)</span> on the right-hand side.</p>
-<p>Furthermore, the left-hand side can be expanded and simplified (<span class="arithmatex">\(\hat{x}\)</span> is a constant that does not change in time)</p>
+<p>Plugging in <span class="arithmatex">\(t=0\)</span> we have <span class="arithmatex">\(x_0 = e^{a c}\)</span> and so our general solution is</p>
+<div class="arithmatex">\[
+x_t = x_0 e^{at}
+\]</div>
+<h3 id="using-transformations">Using transformations</h3>
+<p>Now let's consider the case where <span class="arithmatex">\(b\neq0\)</span>.</p>
+<p>This can also be solved by the method of separation of variables but let's do 
+it with a transformation, like we did in discrete time.</p>
+<p><strong>Step 1</strong>: Solve for the equilibrium, </p>
 <div class="arithmatex">\[
 \begin{aligned}
-\frac{\mathrm{d}(\hat{x}+\epsilon (t))}{\mathrm{d}t} &amp;= \frac{\mathrm{d}\hat{x}}{\mathrm{d}t} + \frac{\mathrm{d}\epsilon (t)}{\mathrm{d}t}\\
-&amp;= \frac{\mathrm{d}\epsilon (t)} {\mathrm{d}t}
+0 &amp;= a \hat{x} + b\\
+\hat{x} &amp;= -b/a
 \end{aligned}
 \]</div>
-<p>Combining the above, the perturbation will change over time at a rate</p>
+<p><strong>Step 2</strong>: Define <span class="arithmatex">\(\delta = x - \hat{x}\)</span>.</p>
+<p><strong>Step 3</strong>: Derive the differential equation for <span class="arithmatex">\(\delta\)</span></p>
 <div class="arithmatex">\[
-\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \approx f'(\hat{x}) \epsilon(t)
+\begin{aligned}
+\frac{\mathrm{d}\delta}{\mathrm{d}t} &amp;= \frac{\mathrm{d}(x - \hat{x})}{\mathrm{d}t}\\
+&amp;= \frac{\mathrm{d}x}{\mathrm{d}t} - \frac{\mathrm{d}\hat{x}}{\mathrm{d}t}\\
+&amp;= \frac{\mathrm{d}x}{\mathrm{d}t}\\
+&amp;= a x + b\\
+&amp;= a (\delta + \hat{x}) + b\\
+&amp;= a(\delta + -b/a) + b\\
+&amp;= a \delta
+\end{aligned}
 \]</div>
-<p>This is the same as exponential growth with growth rate <span class="arithmatex">\(r=f'(\hat{x})\)</span>.</p>
-<p>So what will the perturbation do then? Well, note that (as shown above) that the change in the perturbation is equal to</p>
+<p><strong>Step 4</strong>: The general solution for <span class="arithmatex">\(\delta\)</span> is <span class="arithmatex">\(\delta_t = \delta_0 e^{a t}\)</span>.</p>
+<p><strong>Step 5</strong>: Replace <span class="arithmatex">\(\delta\)</span> with <span class="arithmatex">\(x - \hat{x}\)</span> to back transform to our original variable</p>
 <div class="arithmatex">\[
-\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \simeq r \epsilon(t)
+x_t = e^{a t} x_0 + (1 - e^{a t})\hat{x}
 \]</div>
-<p>The perturbation will therefore</p>
-<ul>
-<li>grow if <span class="arithmatex">\(r&gt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-<li>shrink if <span class="arithmatex">\(r&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-</ul>
-<p>Stability in continuous time therefore requires the slope of the differential equation to be negative at the equilibrium, <span class="arithmatex">\(\left.\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)\right|_{x=\hat{x}} &lt; 0\)</span>.</p>
-<p>Unlike in discrete time, there is no possibility for oscillations in continuous time.</p>
-<h3 id="eg-logistic-growth_1">E.g., logistic growth</h3>
-<p>Let's again look at the model of logistic growth</p>
-<div class="arithmatex">\[
-f(n)=\frac{\mathrm{d}n}{\mathrm{d}t} = rn \left(1 - \frac{n}{K}\right)
-\]</div>
-<p>The derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span> is</p>
-<div class="arithmatex">\[
-f'(n) = r - 2 r\frac{n}{K}
-\]</div>
-<p>Plugging in <span class="arithmatex">\(n=K\)</span> gives</p>
-<div class="arithmatex">\[
-f'(K) = r - 2 r = -r
-\]</div>
-<p>This implies that <span class="arithmatex">\(r&gt;0\)</span> causes local stability of <span class="arithmatex">\(\hat{n}=K\)</span>. We can check this is consistent with a graphical analysis, below.</p>
+<p>Similar to the discrete case, we see an exponential approach to/departure from <span class="arithmatex">\(\hat{x}\)</span>.</p>
+<p>Below we plot this general solution for given values of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> and a range of initial conditions, <span class="arithmatex">\(x_0\)</span>.</p>
 <pre data-executable="true" data-language="python">
-def f(n,r,k):
-    'differential equation for logistic growth'
-    return n*r*(1-n/k)
+import sympy
+import matplotlib.pyplot as plt
 
-def plot_logistic_de(r,k,ax=None):
-    'plot differential equation for logistic growth as function of n'
-    xs = np.linspace(0,k*1.5,100) #n values
-    if ax == None:
-        fig, ax = plt.subplots() 
-    # 0 line
-    ax.plot(xs, [0 for _ in xs], color='black', linestyle='--')
-    # differential equation
-    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
-    #aesthetics
-    ax.set_xlabel('$n$')
-    ax.set_ylabel('$dn/dt$')
-    return ax
+def plot_linear_de(a,b):
+    '''Plot general solution to linear differential equation'''
+
+    t, x0 = sympy.symbols('t, x0')
+    x = sympy.exp(a * t) * x0 + (1 - sympy.exp(a*t)) * (-b/a) #general solution
+
+    for i, x0 in enumerate([25, 50, 75, 125, 150, 175]):
+        if i == 0:
+            plots = sympy.plot(
+                x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0$ = {x0}",
+                xlabel = 'time, $t$', ylabel = 'variable, $x$', legend=True, title=f"a = {a}, b = {b}"
+            )
+        else:
+            plots.append(
+                sympy.plot(
+                    x.subs({'x0': x0}), (t,0,400), axis_center=(0,0), show=False, label=f"$x_0$ = {x0}")[0]
+            )
+
+    plots.show()
 </pre>
 
 <pre data-executable="true" data-language="python">
-plot_logistic_de(r=0.5, k=1000)
+plot_linear_de(-0.01, 1)
+</pre>
+
+<p><img alt="png" src="../lecture-09_files/lecture-09_14_0.png" /></p>
+<p><span id='section5'></span></p>
+<h2 id="5-nonlinear-models-in-continuous-time">5. Nonlinear models in continuous time</h2>
+<hr>
+
+<p>Some nonlinear differential equations can also be solved. But there is no general recipe.</p>
+<h3 id="separation-of-variables_1">Separation of variables</h3>
+<p>Sometimes separation of variables works, as in the case of logistic growth and haploid selection (which are equivalent in form in continuous-time!).</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}p}{\mathrm{d}t} &amp;= s p (1-p)\\
+\frac{\mathrm{d}p}{s p (1-p)} &amp;= \mathrm{d}t\\
+\left(\frac{1}{s p} + \frac{1/s}{1-p}\right) \mathrm{d}p &amp;= \mathrm{d}t \;\text{(method of partial fractions, rule A.19 in the text)}\\
+\int \frac{1}{s p} \mathrm{d}p + \int \frac{1}{s(1-p)} \mathrm{d}p &amp;= \int \mathrm{d}t\\
+\ln(p)/s - \ln(1 - p)/s + c_1 &amp;= t + c_2 \\
+\ln\left(\frac{p}{1-p}\right) &amp;= s t + s c \; \text{(where } c = c_2 - c_1\text{)}\\
+\frac{p}{1-p} &amp;= e^{st} e^{sc}
+\end{aligned}
+\]</div>
+<p>Plugging in <span class="arithmatex">\(t=0\)</span> we have <span class="arithmatex">\(p_0/(1-p_0) = e^{sc}\)</span>. Then solving this linear equation for <span class="arithmatex">\(p\)</span></p>
+<div class="arithmatex">\[
+p_t = \frac{e^{st} p_0}{1 - p_0 + e^{st} p_0}
+\]</div>
+<p>This shows essentially the same dynamics as haploid selection in discrete time.</p>
+<pre data-executable="true" data-language="python">
+# Initialize symbols and function
+s = 0.01 #parameter values
+pt = (sympy.exp(s * t) * p0) / (1-p0+sympy.exp(s*t)*p0) #general solution
+ft = sympy.lambdify(t, pt.subs({'p0': 0.01})) #make pt a function of t
+ts = np.linspace(0, 1000) # time values to plot
+
+# Plot data
+fig, ax = plt.subplots()
+ax.plot(ts, ft(ts))
+ax.set_xlabel('time, $t$')
+ax.set_ylabel('frequency of the $A$ allele, $p$')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-08_files/lecture-08_14_0.png" /></p>
-<pre data-executable="true" data-language="python">
-plot_logistic_de(r=-0.5, k=1000)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_15_0.png" /></p>
+<p><img alt="png" src="../lecture-09_files/lecture-09_17_0.png" /></p>
+<h3 id="alternative-methods">Alternative methods</h3>
+<p>Separation of variables does not always work as it may not be possible to solve the integrals.</p>
+<p>However, separation of variables is not the only method.</p>
+<p>Box 6.2 in the text describes how to solve three forms of differential equations that are not amenable to separation of variables (ie, that cannot be written like <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = f(x) g(t)\)</span>).</p>
 <p><span id='section6'></span></p>
 <h2 id="6-summary">6. Summary</h2>
 <hr>
 
-<p>Local stability analysis for discrete- and continuous-time models.</p>
-<ol>
-<li>take the derivative of the recursion/differential equation with respect to the variable, <span class="arithmatex">\(f'(x)\)</span></li>
-<li>plug in the equilibrium value of the variable, <span class="arithmatex">\(f'(\hat x)\)</span></li>
-<li>determine the sign and magnitude (sign only in continuous-time)</li>
-</ol>
+<p>Today we've covered how to find the <strong>general solution</strong> for some <strong>univariate</strong> models.</p>
+<p>We now have three methods to analyze univariate models:</p>
+<ul>
+<li><strong>numerical</strong> and <strong>graphical</strong> analyses (for particular parameter values)</li>
+<li>finding <strong>equilibria</strong> and determining their <strong>local stability</strong> (general long-term dynamics)</li>
+<li>finding the <strong>general solution</strong> (general short- and long-term dynamics)</li>
+</ul>
 
 
 
@@ -1252,7 +1400,7 @@ plt.show()
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../lecture-07/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lecture 7" rel="prev">
+        <a href="../lecture-08/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lecture 8" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1261,20 +1409,20 @@ plt.show()
               <span class="md-footer__direction">
                 Previous
               </span>
-              Lecture 7
+              Lecture 8
             </div>
           </div>
         </a>
       
       
         
-        <a href="../lecture-09/" class="md-footer__link md-footer__link--next" aria-label="Next: Lecture 9" rel="next">
+        <a href="../../labs/schedule/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Lecture 9
+              Schedule
             </div>
           </div>
           <div class="md-footer__button md-icon">
