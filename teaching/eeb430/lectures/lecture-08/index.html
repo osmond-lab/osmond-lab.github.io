@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-8-local-stability" class="md-skip">
+        <a href="#lecture-8-local-stability-univariate" class="md-skip">
           Skip to content
         </a>
       
@@ -652,15 +652,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
-    What is stability and stability analysis?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#motivating-example" class="md-nav__link">
+    Motivating example
   </a>
   
 </li>
@@ -671,11 +664,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
-    2. Local stability analysis in discrete-time one-variable models
+  <a href="#2-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
+    2. Local stability analysis in continuous-time one-variable models
   </a>
   
-    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+    <nav class="md-nav" aria-label="2. Local stability analysis in continuous-time one-variable models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -691,11 +684,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
-    3. Local stability analysis in continuous-time one-variable models
+  <a href="#3-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
+    3. Local stability analysis in discrete-time one-variable models
   </a>
   
-    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+    <nav class="md-nav" aria-label="3. Local stability analysis in discrete-time one-variable models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -711,8 +704,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-summary" class="md-nav__link">
-    6. Summary
+  <a href="#4-summary" class="md-nav__link">
+    4. Summary
   </a>
   
 </li>
@@ -851,15 +844,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-is-stability-and-stability-analysis" class="md-nav__link">
-    What is stability and stability analysis?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#motivating-example" class="md-nav__link">
+    Motivating example
   </a>
   
 </li>
@@ -870,11 +856,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
-    2. Local stability analysis in discrete-time one-variable models
+  <a href="#2-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
+    2. Local stability analysis in continuous-time one-variable models
   </a>
   
-    <nav class="md-nav" aria-label="2. Local stability analysis in discrete-time one-variable models">
+    <nav class="md-nav" aria-label="2. Local stability analysis in continuous-time one-variable models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -890,11 +876,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-local-stability-analysis-in-continuous-time-one-variable-models" class="md-nav__link">
-    3. Local stability analysis in continuous-time one-variable models
+  <a href="#3-local-stability-analysis-in-discrete-time-one-variable-models" class="md-nav__link">
+    3. Local stability analysis in discrete-time one-variable models
   </a>
   
-    <nav class="md-nav" aria-label="3. Local stability analysis in continuous-time one-variable models">
+    <nav class="md-nav" aria-label="3. Local stability analysis in discrete-time one-variable models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -910,8 +896,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-summary" class="md-nav__link">
-    6. Summary
+  <a href="#4-summary" class="md-nav__link">
+    4. Summary
   </a>
   
 </li>
@@ -945,7 +931,7 @@
 </script>
 <script src="https://unpkg.com/thebe@latest/lib/index.js"></script>
 
-<h1 id="lecture-8-local-stability">Lecture 8: Local stability</h1>
+<h1 id="lecture-8-local-stability-univariate">Lecture 8: Local stability (univariate)</h1>
 <hr style="margin-bottom: 0em;">
 <p><center></p>
 <div class="inrow">
@@ -959,27 +945,264 @@
 <h2 id="lecture-overview">Lecture overview</h2>
 <ol>
 <li><a href="#section1">Stability</a></li>
-<li><a href="#section2">Local stability analysis in discrete-time one-variable models</a></li>
-<li><a href="#section3">Local stability analysis in continuous-time one-variable models</a></li>
+<li><a href="#section2">Local stability analysis in continuous-time one-variable models</a></li>
+<li><a href="#section3">Local stability analysis in discrete-time one-variable models</a></li>
 <li><a href="#section4">Summary</a></li>
 </ol>
 <p><span id='section1'></span></p>
 <h2 id="1-stability">1. Stability</h2>
 <hr>
 
-<h3 id="what-is-stability-and-stability-analysis">What is stability and stability analysis?</h3>
-<p>What happens very near an equilibrium?</p>
+<p>When a variable is exactly at an equilibrium its value will never change. But what happens when we are not exactly at, but just near an equilibrium?</p>
 <p>Starting near an equilibrium, if the system moves towards the equilibrium over time the equilibrium is said to be <strong>locally stable</strong>.</p>
 <p>In contrast, if the system moves away from the equilibrium over time the equilibrium is said to be <strong>unstable</strong>.</p>
-<p>An equilibrium point is said to be <strong>globally stable</strong> if all initial conditions lead to it.</p>
-<p>Our goal: to determine whether a small perturbation away from an equilibrium point will grow or shrink in magnitude over time <span class="arithmatex">\(\Longrightarrow\)</span> <strong>local stability analysis</strong>.</p>
-<h3 id="example">Example</h3>
-<p>Consider logistic growth in discrete time, with <span class="arithmatex">\(K = 1000\)</span> and <span class="arithmatex">\(r = 0.5\)</span>.</p>
-<p>For populations started near carrying capacity (e.g., <span class="arithmatex">\(n_t = 900\)</span>), we see that they move closer to the carrying capacity over time.</p>
+<p>An equilibrium point is said to be <strong>globally stable</strong> if any starting point leads to it.</p>
+<p>We've seen these possibilities already graphically, eg., in phase-line plots for discrete-time diploid selection: when the heterozygote has the lowest fitness the fixation equilibria are locally (but not globally) stable and the polymorphic equilibrium is unstable.</p>
 <pre data-executable="true" data-language="python">
 import numpy as np
 import matplotlib.pyplot as plt
 
+def phase_line_diploid(p0, WAA, WAa, Waa, max=np.inf):
+    'generator for p_t'
+    t, pnow, pnext = 0, p0, 0 #initial conditions
+    while t < max:
+        yield pnow #current value of p(t) and p(t+1)
+        pnext = (WAA * pnow**2 + WAa * pnow * (1 - pnow)) / (WAA * pnow**2 + WAa * 2 * pnow * (1 - pnow) + Waa * (1 - pnow)**2) #update p(t+1)
+        pnow = pnext #update p(t)
+        t += 1 #update t
+
+def plot_phase_line_diploid(WAA, WAa, Waa, p0, max=20, ax=None):
+    'plot phase line'
+
+    # set up figure
+    if ax==None:
+        fig, ax = plt.subplots()
+        fig.set_size_inches(8,0.25)
+
+    # Plot phase-line
+    ax.axhline(0, color='black', linewidth=0.5)
+
+    # Plot vector field
+    pts = [pt for pt in phase_line_diploid(p0, WAA, WAa, Waa, max=max)]
+    marker = '>' if pts[2] > pts[1] else '<'
+    ax.scatter(
+        pts,
+        np.zeros(max),
+        marker=marker, s=50, c='black'
+    )
+
+    ax.set_xlabel(f"$WAA$ = {WAA}, $WAa$ = {WAa}, $Waa$ = {Waa}")
+
+    return ax
+
+# Plot figure
+fig, ax = plt.subplots()
+fig.set_size_inches(8,0.25)
+
+# phase line and vector field
+plot_phase_line_diploid(WAA=2, WAa=1, Waa=2, p0=0.45, max=12, ax=ax) #higher starting allele frequency
+plot_phase_line_diploid(WAA=2, WAa=1, Waa=2, p0=0.55, max=12, ax=ax) #low starting allele frequency
+
+# equilibria
+plt.scatter([0,1],[0,0],s=200,c='black')
+plt.scatter([0.5],[0],s=200,c='white',edgecolors='black')
+
+# Remove background axes
+ax.set_ylabel('$p$', rotation=0)
+ax.get_yaxis().set_ticks([])
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.set_xlim(-0.05,1.05)
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-08_files/lecture-08_2_0.png" /></p>
+<p>Our goal in this lecture is to mathematically determine whether a small perturbation away from an equilibrium point will grow or shrink in magnitude over time <span class="arithmatex">\(\Longrightarrow\)</span> <strong>local stability analysis</strong>.</p>
+<h3 id="motivating-example">Motivating example</h3>
+<p>Consider logistic growth in continuous time, with <span class="arithmatex">\(K = 1000\)</span> and <span class="arithmatex">\(r = 0.5\)</span>.</p>
+<p>For populations started near carrying capacity, a plot of <span class="arithmatex">\(\mathrm{d}n/\mathrm{d}t\)</span> vs. <span class="arithmatex">\(n\)</span> shows that they move closer to the carrying capacity over time, since the rate of change in <span class="arithmatex">\(n\)</span> is positive when <span class="arithmatex">\(n&lt;K\)</span> and negative when <span class="arithmatex">\(K&lt;n\)</span>.</p>
+<p><pre data-executable="true" data-language="python">
+r,k = 0.5,1000
+xs = np.linspace(0,1.5<em>k,100)
+ys = [r</em>n*(1-n/k) for n in xs]
+plt.plot(xs,ys)
+plt.plot(xs,[0 for _ in xs], color='black')
+plt.xlabel('population size, <span class="arithmatex">\(n\)</span>')
+plt.ylabel('rate of change in population size, <span class="arithmatex">\(dn/dt\)</span>')
+plt.show()
+</pre></p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_4_0.png" /></p>
+<p>If we drew the same plot for <span class="arithmatex">\(r=-0.5\)</span> we see that the population size then moves away from <span class="arithmatex">\(n=K\)</span>, as the rate of change in <span class="arithmatex">\(n\)</span> is negative when <span class="arithmatex">\(n&lt;K\)</span> and positive when <span class="arithmatex">\(K&lt;n\)</span>. </p>
+<p><pre data-executable="true" data-language="python">
+r,k=-0.5,1000
+xs = np.linspace(0,1.5<em>k,100)
+ys = [r</em>n*(1-n/k) for n in xs]
+plt.plot(xs,ys)
+plt.plot(xs,[0 for _ in xs], color='black')
+plt.xlabel('population size, <span class="arithmatex">\(n\)</span>')
+plt.ylabel('rate of change in population size, <span class="arithmatex">\(dn/dt\)</span>')
+plt.show()
+</pre></p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_6_0.png" /></p>
+<p>The key difference between these plots near the equilibrium of interest, <span class="arithmatex">\(\hat n=K\)</span>, is that </p>
+<div class="highlight"><pre><span></span><code>1. in the first case ($r=0.5$), where the equilibrium is stable, $\mathrm{d}n/\mathrm{d}t$ goes from positive to negative, meaning its slope is negative 
+2. in the second case ($r = -0.5$), where the equilibrium is unstable, $\mathrm{d}n/\mathrm{d}t$, goes from negative to positive, meaning its slope is positive
+</code></pre></div>
+<p>This suggests that we can determine the local stability of an equilibrium by looking at the slope of the differential equation at that equilibrium.</p>
+<p><span id='section2'></span></p>
+<h2 id="2-local-stability-analysis-in-continuous-time-one-variable-models">2. Local stability analysis in continuous-time one-variable models</h2>
+<hr>
+
+<p>To determine local stability mathematically, we focus on a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from an equilibrium (<span class="arithmatex">\(\hat{x}\)</span>) and determine whether this perturbation will grow or shrink.</p>
+<p>If, at time <span class="arithmatex">\(t\)</span>, the population is a small distance from equilibrium, <span class="arithmatex">\(x = \hat{x} + \epsilon\)</span>, the rate of change in <span class="arithmatex">\(x\)</span> will be <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = \mathrm{d}(\hat{x} + \epsilon)/\mathrm{d}t\)</span>.</p>
+<p>Let us call this derivative <span class="arithmatex">\(f(x)=\mathrm{d}x/\mathrm{d}t\)</span>, which we can write as <span class="arithmatex">\(f(\hat{x} + \epsilon) =  \mathrm{d}(\hat{x} + \epsilon)/\mathrm{d}t\)</span>.</p>
+<p>To work with this arbitrary function, <span class="arithmatex">\(f\)</span>, let's introduce a pretty remarkable mathematical fact, the Taylor Series.</p>
+<div class="admonition note">
+<p class="admonition-title">Taylor Series</p>
+<p>Any function <span class="arithmatex">\(f(x)\)</span> can be written as an infinite series of derivatives evaluated at <span class="arithmatex">\(x=a\)</span></p>
+<div class="arithmatex">\[
+f(x) = \sum_{k = 0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k
+\]</div>
+<p>where <span class="arithmatex">\(f^{(k)}(a)\)</span> is the <span class="arithmatex">\(k^{\mathrm{th}}\)</span> derivative of the function with respect to <span class="arithmatex">\(x\)</span>, evaluated at point <span class="arithmatex">\(a\)</span>. (See section P1.3 in the text for more information).</p>
+</div>
+<p>In this case we want to write <span class="arithmatex">\(f(\hat{x} + \epsilon)\)</span> as a Taylor Series evaluated at the equilibrium, <span class="arithmatex">\(\hat{x} + \epsilon = \hat{x}\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}(\hat{x} + \epsilon)}{\mathrm{d}t} &amp;= f(\hat{x} + \epsilon)\\
+&amp;= f(\hat{x}) + f^{(1)}(\hat{x})(\hat{x} + \epsilon - \hat{x}) + \frac{f^{(2)}(\hat{x})}{2}(\hat{x} + \epsilon - \hat{x})^2 + \cdots\\
+&amp;= f(\hat{x}) + f^{(1)}(\hat{x})\epsilon + \frac{f^{(2)}(\hat{x})}{2}\epsilon^2 + \cdots\\
+\end{aligned}
+\]</div>
+<p>Now, to work with this infinite series we will make an assumption, that we are very the equilibrium, meaning the deviation is small, <span class="arithmatex">\(\epsilon&lt;&lt;1\)</span>. This means that <span class="arithmatex">\(\epsilon^2\)</span> is even smaller, and <span class="arithmatex">\(\epsilon^3\)</span> even smaller than that, and so on. By considering small <span class="arithmatex">\(\epsilon\)</span> we can therefore cut-off our infinite series by ignoring any term with <span class="arithmatex">\(\epsilon\)</span> to a power greater than 1. This is called a "first order" Taylor series approximation of <span class="arithmatex">\(f\)</span> around <span class="arithmatex">\(\epsilon=0\)</span>. This assumption is what limits us to determining only <em>local</em> stability. Global stability would require us to consider large deviations from the equilibrium as well, which is not possible for even mildly complicated functions, <span class="arithmatex">\(f\)</span>.</p>
+<p>OK, so making this assumption of small <span class="arithmatex">\(\epsilon\)</span> we have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}(\hat{x} + \epsilon)}{\mathrm{d}t} &amp;= f(\hat{x}) + f^{(1)}(\hat{x})\epsilon\\
+\end{aligned}
+\]</div>
+<p>Since <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium, <span class="arithmatex">\(f(\hat{x})\)</span> equals zero, leaving just <span class="arithmatex">\(f^{(1)}(\hat{x})\epsilon\)</span> on the right-hand side.</p>
+<p>Furthermore, the left-hand side can be expanded and simplified (<span class="arithmatex">\(\hat{x}\)</span> is a constant that does not change in time)</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\frac{\mathrm{d}(\hat{x}+\epsilon)}{\mathrm{d}t} &amp;= \frac{\mathrm{d}\hat{x}}{\mathrm{d}t} + \frac{\mathrm{d}\epsilon}{\mathrm{d}t}\\
+&amp;= \frac{\mathrm{d}\epsilon} {\mathrm{d}t}
+\end{aligned}
+\]</div>
+<p>Combining the above, the deviation from the equilibrium will change over time at a rate</p>
+<div class="arithmatex">\[
+\frac{\mathrm{d} \epsilon}{\mathrm{d}t} = f^{(1)}(\hat{x}) \epsilon
+\]</div>
+<p>This is the same as exponential growth with growth rate <span class="arithmatex">\(r=f^{(1)}(\hat{x})\)</span>.</p>
+<p>The deviation will therefore</p>
+<ul>
+<li>grow if <span class="arithmatex">\(f^{(1)}(\hat{x})&gt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+<li>shrink if <span class="arithmatex">\(f^{(1)}(\hat{x})&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+</ul>
+<p>Stability in continuous time therefore requires the slope of the differential equation to be negative at the equilibrium, <span class="arithmatex">\(f^{(1)}(\hat{x}) = \left.\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)\right|_{x=\hat{x}} &lt; 0\)</span>.</p>
+<h3 id="eg-logistic-growth">E.g., logistic growth</h3>
+<p>Let's again look at the model of logistic growth in continuous time, where</p>
+<div class="arithmatex">\[
+f(n) = \frac{\mathrm{d}n}{\mathrm{d}t} = rn \left(1 - \frac{n}{K}\right)
+\]</div>
+<p>The derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span> is</p>
+<div class="arithmatex">\[
+f'(n) = r - 2 r\frac{n}{K}
+\]</div>
+<p>Plugging in <span class="arithmatex">\(n=K\)</span> gives</p>
+<div class="arithmatex">\[
+f'(K) = r - 2 r = -r
+\]</div>
+<p>This implies that <span class="arithmatex">\(r&gt;0\)</span> causes local stability of <span class="arithmatex">\(\hat{n}=K\)</span>. We can check this is consistent with a graphical analysis, below.</p>
+<pre data-executable="true" data-language="python">
+def f(n,r,k):
+    'differential equation for logistic growth'
+    return n*r*(1-n/k)
+
+def plot_logistic_de(r,k,ax=None):
+    'plot differential equation for logistic growth as function of n'
+    xs = np.linspace(0,k*1.5,100) #n values
+    if ax == None:
+        fig, ax = plt.subplots() 
+    # 0 line
+    ax.plot(xs, [0 for _ in xs], color='black', linestyle='--')
+    # differential equation
+    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
+    #aesthetics
+    ax.set_xlabel('$n$')
+    ax.set_ylabel('$dn/dt$')
+    ax.set_title('$r=$%.1f'%r)
+    return ax
+</pre>
+
+<pre data-executable="true" data-language="python">
+plot_logistic_de(r=0.5, k=1000)
+plt.show()
+plot_logistic_de(r=-0.5, k=1000)
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-08_files/lecture-08_11_0.png" /></p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_11_1.png" /></p>
+<p><span id='section3'></span></p>
+<h2 id="3-local-stability-analysis-in-discrete-time-one-variable-models">3. Local stability analysis in discrete-time one-variable models</h2>
+<hr>
+
+<p>In discrete time we instead work with a recursion equation, <span class="arithmatex">\(x(t+1) = f(x(t))\)</span>.</p>
+<p>Again, consider a system that is a small distance from the equilibrium at time <span class="arithmatex">\(t\)</span>: <span class="arithmatex">\(x(t) = \hat{x} + \epsilon(t)\)</span>.</p>
+<p>At time <span class="arithmatex">\(t+1\)</span>, the population will be at <span class="arithmatex">\(x(t+1) = \hat{x} + \epsilon(t+1) = f(\hat{x} + \epsilon(t))\)</span>.</p>
+<p>Taking the Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span> around <span class="arithmatex">\(\epsilon(t)=0\)</span> and truncating to first order (under our assumption of small <span class="arithmatex">\(\epsilon\)</span>) we have</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{x} + \epsilon(t+1) &amp;= f(\hat{x} + \epsilon(t))\\
+&amp;= f(\hat{x}) + f^{(1)}(\hat{x})(\hat{x} + \epsilon(t) - \hat{x})\\
+&amp;= f(\hat{x}) + f^{(1)}(\hat{x})\epsilon(t)
+\end{aligned}
+\]</div>
+<p>We know that <span class="arithmatex">\(f(\hat{x}) = \hat{x}\)</span> because <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium, which implies</p>
+<div class="arithmatex">\[
+\epsilon(t+1) = f^{(1)}(\hat{x})\epsilon(t)
+\]</div>
+<p>This is the recursion for exponential growth, with reproductive factor <span class="arithmatex">\(\lambda = f^{(1)}(\hat{x})\)</span>. </p>
+<p>Based on our knowledge of discrete-time exponential growth, we therefore know that the deviation from equilibrium will:</p>
+<ul>
+<li>
+<p>move from one side of the equilibrium to the other (i.e., oscillate) if <span class="arithmatex">\(\lambda\)</span> is negative</p>
+<ul>
+<li>grow if <span class="arithmatex">\(\lambda&lt;-1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+<li>shrink if <span class="arithmatex">\(-1&lt;\lambda&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+</ul>
+</li>
+<li>
+<p>stay on the same side of the equilibrium (i.e., not oscillate) if <span class="arithmatex">\(\lambda\)</span> is positive</p>
+<ul>
+<li>shrink if <span class="arithmatex">\(0&lt;\lambda&lt;1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
+<li>grow if <span class="arithmatex">\(1&lt;\lambda\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
+</ul>
+</li>
+</ul>
+<p>Local stability in discrete time therefore requires the slope of the recursion to be between -1 and 1 at the equilibrium, <span class="arithmatex">\(-1&lt;f^{(1)}(\hat{x})=\left.\frac{\mathrm{d}x_{t+1}}{\mathrm{d}x_t}\right|_{x_t=\hat x}&lt;1\)</span>.</p>
+<h3 id="eg-logistic-growth_1">E.g., logistic growth</h3>
+<p>To see how this works, let's look at the logistic growth model in discrete time. Here the recursion is</p>
+<div class="arithmatex">\[
+f(n) = n \left(1 + r\left(1 - \frac{n}{K}\right)\right)
+\]</div>
+<p>We first take the derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span></p>
+<div class="arithmatex">\[
+f'(n) = 1 + r - 2 r \frac{n}{K}
+\]</div>
+<p>Then we plug in the equilirbium value of interest, <span class="arithmatex">\(n=K\)</span></p>
+<div class="arithmatex">\[
+\begin{aligned}
+f'(K) &amp;= 1 + r - 2 r \\
+&amp;= 1 - r
+\end{aligned}
+\]</div>
+<p>This will be negative when <span class="arithmatex">\(r &gt; 1\)</span>, creating oscillations.</p>
+<p>The equilibrium will be stable when <span class="arithmatex">\(-1 &lt; 1 - r &lt; 1 \implies 0 &lt; r &lt; 2\)</span>.</p>
+<p>This is consistent with what we've seen in cob-web plots, as below.</p>
+<pre data-executable="true" data-language="python">
 # logistic growth recursion
 def f(nt,r,k):
     return nt * (1 + r * (1 - nt / k))
@@ -1012,225 +1235,29 @@ def plot_logistic_with_cobweb(r, k, n0, ncobs=10, ax=None):
     ax.set_xlim(0,None)
     ax.set_xlabel('$n_t$')
     ax.set_ylabel('$n_{t+1}$')
+    ax.set_title('$r=$%.1f'%r)
     return ax
 </pre>
 
 <pre data-executable="true" data-language="python">
-plot_logistic_with_cobweb(n0=900,r=0.5, k=1000, ncobs=1100)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_3_0.png" /></p>
-<p>As we discussed when introducing cobweb diagrams, in this case we move to the right when <span class="arithmatex">\(n_t&lt;K\)</span> because the recursion (solid line) is above the 1:1 line (dashed), i.e., <span class="arithmatex">\(n_{t+1}&gt;n_t\)</span>. Similarly, we move to the left when <span class="arithmatex">\(n_t&gt;K\)</span> because the recursion is below the 1:1 line. Now, we know the 1:1 line has a slope of 1. Since the recursion crosses this line going from above to below (as we move to the right) at the equilibrium <span class="arithmatex">\(n_t=K\)</span>, we know the slope of recursion is less than 1 at that point, 
-<span class="arithmatex">\(<span class="arithmatex">\(\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&lt;1\)</span>\)</span></p>
-<p>In this case we also see that the slope is positive.</p>
-<p>Now what about if we had <span class="arithmatex">\(r = -0.5\)</span>?</p>
-<pre data-executable="true" data-language="python">
-plot_logistic_with_cobweb(r=-0.5, k=1000, n0=900)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_5_0.png" /></p>
-<p>We see that we now move <em>away</em> from the equilibrium at <span class="arithmatex">\(n_t=K\)</span>. Because the recursion is now steeper than the 1:1 line at that point, we know the slope of the recursion at <span class="arithmatex">\(n_t = K\)</span> is now greater than 1</p>
-<div class="arithmatex">\[\left.\frac{\mathrm{d}n_{t+1}}{\mathrm{d}n_t}\right|_{n_t=K}&gt;1\]</div>
-<p>So how does knowing the slope of the recursion at the equilibrium help? (e.g. at <span class="arithmatex">\(n_t = K\)</span>). </p>
-<p>If we have an equilibrium point, call it <span class="arithmatex">\(a\)</span>, and we have a starting condition, <span class="arithmatex">\(x\)</span>, which is near <span class="arithmatex">\(a\)</span>, then we can use the <strong>Taylor Series</strong> to rewrite the recursion.</p>
-<div class="admonition note">
-<p class="admonition-title">Mathematical aside: Taylor series</p>
-<div class="arithmatex">\[
-f(x) = \sum_{k = 0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k
-\]</div>
-<p>where <span class="arithmatex">\(f^{(k)}(a)\)</span> is the <span class="arithmatex">\(k^{\mathrm{th}}\)</span> derivative of the function with respect to <span class="arithmatex">\(x\)</span>, evaluated at point <span class="arithmatex">\(a\)</span>. (See section P1.3 in the text for more information).</p>
-</div>
-<p>If we start near enough to the equilibrium, <span class="arithmatex">\((x - a)^k\)</span> will be tiny for <span class="arithmatex">\(k &gt; 1\)</span> and the function will be dominated by the first two terms in the series, with <span class="arithmatex">\(k = 0\)</span> and <span class="arithmatex">\(k = 1\)</span>:</p>
-<div class="arithmatex">\[
-f (x) \simeq f (a) + f'(a)(x - a)
-\]</div>
-<p>using <span class="arithmatex">\(f^{(0)}(a) = f(a)\)</span> and the short-hand notation <span class="arithmatex">\(f'(a) = f^{(1)}(a)\)</span> to describe the slope of <span class="arithmatex">\(f\)</span> at <span class="arithmatex">\(x=a\)</span>.</p>
-<p>This is great! No matter how complicated and non-linear an equation we have, we can get an approximate equation that describes the dynamics near an equilibrium point. This equation is linear in <span class="arithmatex">\(x\)</span> and can therefore be easily analysed. Let's see how this works in discrete- and continuous-time models.</p>
-<p><span id='section2'></span></p>
-<h2 id="2-local-stability-analysis-in-discrete-time-one-variable-models">2. Local stability analysis in discrete-time one-variable models</h2>
-<hr>
-
-<p>Given a recursion equation in one variable, <span class="arithmatex">\(x(t+1) = f(x(t))\)</span>, with an equilibrium <span class="arithmatex">\(\hat{x}\)</span>, when will a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from the equilibrium grow in magnitude over time?</p>
-<p>At time <span class="arithmatex">\(t\)</span>, say that the population is a small distance from the equilibrium: <span class="arithmatex">\(\hat{x} + \epsilon(t)\)</span> (Note that <span class="arithmatex">\(\epsilon(t)\)</span> might be negative).</p>
-<p>At time <span class="arithmatex">\(t+1\)</span>, the population will be at <span class="arithmatex">\(\hat{x} + \epsilon(t+1)\)</span>, which equals <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span>.</p>
-<p>Using the Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon(t))\)</span> around <span class="arithmatex">\(\epsilon(t)=0\)</span>:</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\hat{x} + \epsilon(t+1) &amp;= f(\hat{x} + \epsilon(t))\\
-&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon(t) - \hat{x})\\
-&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
-\end{aligned}
-\]</div>
-<p>We know that <span class="arithmatex">\(f(\hat{x}) = \hat{x}\)</span> because <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium, which implies</p>
-<div class="arithmatex">\[
-\epsilon(t+1) \approx f'(\hat{x})\epsilon(t)
-\]</div>
-<p>This is the recursion for exponential growth, with reproductive factor <span class="arithmatex">\(\lambda = f'(\hat{x})\)</span>. So knowing that</p>
-<div class="arithmatex">\[
-\epsilon (t+1) \approx \lambda \epsilon (t)
-\]</div>
-<p>means the perturbation will:</p>
-<ul>
-<li>
-<p>move from one side of the equilibrium to the other (i.e., oscillate) if <span class="arithmatex">\(\lambda\)</span> is negative</p>
-<ul>
-<li>grow if <span class="arithmatex">\(\lambda&lt;-1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-<li>or shrink if <span class="arithmatex">\(-1&lt;\lambda&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-</ul>
-</li>
-<li>
-<p>stay on the same side of the equilibrium if <span class="arithmatex">\(\lambda\)</span> is positive</p>
-<ul>
-<li>and shrink if <span class="arithmatex">\(0&lt;\lambda&lt;1\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-<li>or grow if <span class="arithmatex">\(1&lt;\lambda\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-</ul>
-</li>
-</ul>
-<p>Stability in discrete time therefore requires the slope of the recursion to be between -1 and 1 at the equilibrium, <span class="arithmatex">\(-1&lt;\left.\frac{\mathrm{d}x_{t+1}}{\mathrm{d}x_t}\right|_{x_t=\hat x}&lt;1\)</span>.</p>
-<h3 id="eg-logistic-growth">E.g., logistic growth</h3>
-<p>Let's now return to the logistic growth model in discrete time as an example. Here the recursion is</p>
-<div class="arithmatex">\[
-f(n) = n \left(1 + r\left(1 - \frac{n}{K}\right)\right)
-\]</div>
-<p>When <span class="arithmatex">\(r = 0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was locally stable and the slope of the recusion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was between 0 and 1.</p>
-<p>Whereas, when <span class="arithmatex">\(r = -0.5\)</span> we saw that <span class="arithmatex">\(\hat n = K\)</span> was unstable and the slope of the recursion at <span class="arithmatex">\(n = K\)</span>, <span class="arithmatex">\(\lambda = f'(K)\)</span>, was greater than 1.</p>
-<p>Now let's perform a local stability analysis to see, more generally, when <span class="arithmatex">\(\hat{n}=K\)</span> is locally stable.</p>
-<p>We first take the derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span></p>
-<div class="arithmatex">\[
-f'(n) = 1 + r - 2 r \frac{n}{K}
-\]</div>
-<p>Then we plug in the equilirbium value, <span class="arithmatex">\(n=K\)</span></p>
-<div class="arithmatex">\[
-\begin{aligned}
-f'(K) &amp;= 1 + r - 2 r \\
-&amp;= 1 - r
-\end{aligned}
-\]</div>
-<p>This will be negative when <span class="arithmatex">\(r &gt; 1\)</span>, creating oscillations.</p>
-<p>The equilibrium will be stable when <span class="arithmatex">\(-1 &lt; 1 - r &lt; 1 \implies 0 &lt; r &lt; 2\)</span>.</p>
-<p>This is consistent with the cob-webs we just observed, as well as the bifurcation diagram we saw in a Lecture 5 (repeated again below), where we see cycling for values of <span class="arithmatex">\(r\)</span> greater than 2.</p>
-<pre data-executable="true" data-language="python">
-# Sample the periodicity of the oscillations 
-# by taking unique values after reaching carrying capacity
-def log_map(r, n0=900, k=1000):    
-    return np.unique([nt[1] for t, nt in enumerate(n(n0, r, k, max=75)) if t > 30])
-
-# Compute the logistic map for different growth rates in discrete time
-r, Nr = np.array([]), np.array([])
-for i in np.linspace(1.5, 3, 1000):
-    nl = log_map(i)
-    r = np.hstack((r, [i for _ in range(len(nl))]))
-    Nr = np.hstack((Nr, nl))
-
-# Plot the logistic map on a black background
-fig, ax = plt.subplots()
-ax.patch.set_facecolor('black')
-ax.scatter(r, Nr, s=0.075, color='white')
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_9_0.png" /></p>
-<pre data-executable="true" data-language="python">
+plot_logistic_with_cobweb(r=0.5, k=1000, n0=900)
+plot_logistic_with_cobweb(r=1.5, k=1000, n0=900)
 plot_logistic_with_cobweb(r=2.5, k=1000, n0=900)
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-08_files/lecture-08_10_0.png" /></p>
-<p><span id='section3'></span></p>
-<h2 id="3-local-stability-analysis-in-continuous-time-one-variable-models">3. Local stability analysis in continuous-time one-variable models</h2>
-<hr>
-
-<p>As in discrete time, we focus on a small perturbation (<span class="arithmatex">\(\epsilon\)</span>) away from an equilibrium (<span class="arithmatex">\(\hat{x}\)</span>) and determine whether this perturbation will grow or shrink.</p>
-<p>If, at time <span class="arithmatex">\(t\)</span>, the population is a small distance from equilibrium, <span class="arithmatex">\(\hat{x} + \epsilon (t)\)</span>, the rate of change in <span class="arithmatex">\(x\)</span> will be <span class="arithmatex">\(\mathrm{d}x/\mathrm{d}t = \mathrm{d}(\hat{x} + \epsilon (t))/\mathrm{d}t\)</span>.</p>
-<p>In this case, <span class="arithmatex">\(f(x)=\mathrm{d}x/\mathrm{d}t\)</span> is the function that we wish to approximate, using a Taylor Series of <span class="arithmatex">\(f(\hat{x} + \epsilon (t))\)</span> around <span class="arithmatex">\(\epsilon (t)=0\)</span></p>
-<div class="arithmatex">\[
-\begin{aligned}
-\frac{\mathrm{d}(\hat{x} + \epsilon (t))}{\mathrm{d}t} &amp;= f(\hat{x} + \epsilon (t))\\
-&amp;\approx f(\hat{x}) + f'(\hat{x})(\hat{x} + \epsilon (t) - \hat{x})\\
-&amp;= f(\hat{x}) + f'(\hat{x})\epsilon(t)
-\end{aligned}
-\]</div>
-<p>Since <span class="arithmatex">\(\hat{x}\)</span> is an equilibrium <span class="arithmatex">\(f(\hat{x})\)</span> equals zero, leaving just <span class="arithmatex">\(f'(\hat{x})\epsilon(t)\)</span> on the right-hand side.</p>
-<p>Furthermore, the left-hand side can be expanded and simplified (<span class="arithmatex">\(\hat{x}\)</span> is a constant that does not change in time)</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\frac{\mathrm{d}(\hat{x}+\epsilon (t))}{\mathrm{d}t} &amp;= \frac{\mathrm{d}\hat{x}}{\mathrm{d}t} + \frac{\mathrm{d}\epsilon (t)}{\mathrm{d}t}\\
-&amp;= \frac{\mathrm{d}\epsilon (t)} {\mathrm{d}t}
-\end{aligned}
-\]</div>
-<p>Combining the above, the perturbation will change over time at a rate</p>
-<div class="arithmatex">\[
-\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \approx f'(\hat{x}) \epsilon(t)
-\]</div>
-<p>This is the same as exponential growth with growth rate <span class="arithmatex">\(r=f'(\hat{x})\)</span>.</p>
-<p>So what will the perturbation do then? Well, note that (as shown above) that the change in the perturbation is equal to</p>
-<div class="arithmatex">\[
-\frac{\mathrm{d} \epsilon(t)}{\mathrm{d}t} \simeq r \epsilon(t)
-\]</div>
-<p>The perturbation will therefore</p>
-<ul>
-<li>grow if <span class="arithmatex">\(r&gt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> unstable</li>
-<li>shrink if <span class="arithmatex">\(r&lt;0\)</span> <span class="arithmatex">\(\implies\hat{x}\)</span> locally stable</li>
-</ul>
-<p>Stability in continuous time therefore requires the slope of the differential equation to be negative at the equilibrium, <span class="arithmatex">\(\left.\frac{\mathrm{d}}{\mathrm{d}x}\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)\right|_{x=\hat{x}} &lt; 0\)</span>.</p>
-<p>Unlike in discrete time, there is no possibility for oscillations in continuous time.</p>
-<h3 id="eg-logistic-growth_1">E.g., logistic growth</h3>
-<p>Let's again look at the model of logistic growth</p>
-<div class="arithmatex">\[
-f(n)=\frac{\mathrm{d}n}{\mathrm{d}t} = rn \left(1 - \frac{n}{K}\right)
-\]</div>
-<p>The derivative of <span class="arithmatex">\(f\)</span> with respect to <span class="arithmatex">\(n\)</span> is</p>
-<div class="arithmatex">\[
-f'(n) = r - 2 r\frac{n}{K}
-\]</div>
-<p>Plugging in <span class="arithmatex">\(n=K\)</span> gives</p>
-<div class="arithmatex">\[
-f'(K) = r - 2 r = -r
-\]</div>
-<p>This implies that <span class="arithmatex">\(r&gt;0\)</span> causes local stability of <span class="arithmatex">\(\hat{n}=K\)</span>. We can check this is consistent with a graphical analysis, below.</p>
-<pre data-executable="true" data-language="python">
-def f(n,r,k):
-    'differential equation for logistic growth'
-    return n*r*(1-n/k)
-
-def plot_logistic_de(r,k,ax=None):
-    'plot differential equation for logistic growth as function of n'
-    xs = np.linspace(0,k*1.5,100) #n values
-    if ax == None:
-        fig, ax = plt.subplots() 
-    # 0 line
-    ax.plot(xs, [0 for _ in xs], color='black', linestyle='--')
-    # differential equation
-    ax.plot(xs, [f(x,r,k) for x in xs], color='black')
-    #aesthetics
-    ax.set_xlabel('$n$')
-    ax.set_ylabel('$dn/dt$')
-    return ax
-</pre>
-
-<pre data-executable="true" data-language="python">
-plot_logistic_de(r=0.5, k=1000)
-plt.show()
-</pre>
-
-<p><img alt="png" src="../lecture-08_files/lecture-08_14_0.png" /></p>
-<pre data-executable="true" data-language="python">
-plot_logistic_de(r=-0.5, k=1000)
-plt.show()
-</pre>
-
 <p><img alt="png" src="../lecture-08_files/lecture-08_15_0.png" /></p>
-<p><span id='section6'></span></p>
-<h2 id="6-summary">6. Summary</h2>
+<p><img alt="png" src="../lecture-08_files/lecture-08_15_1.png" /></p>
+<p><img alt="png" src="../lecture-08_files/lecture-08_15_2.png" /></p>
+<p><span id='section4'></span></p>
+<h2 id="4-summary">4. Summary</h2>
 <hr>
 
-<p>Local stability analysis for discrete- and continuous-time models.</p>
+<p>Local stability analysis for continuous- and discrete-time models with one variable:</p>
 <ol>
-<li>take the derivative of the recursion/differential equation with respect to the variable, <span class="arithmatex">\(f'(x)\)</span></li>
-<li>plug in the equilibrium value of the variable, <span class="arithmatex">\(f'(\hat x)\)</span></li>
-<li>determine the sign and magnitude (sign only in continuous-time)</li>
+<li>take the derivative of the differential equation or recursion with respect to the variable, <span class="arithmatex">\(f^{(1)}(x)\)</span></li>
+<li>plug in the equilibrium value of the variable, <span class="arithmatex">\(f^{(1)}(\hat x)\)</span></li>
+<li>determine the sign (and magnitude in discrete-time)</li>
 </ol>
 
 
