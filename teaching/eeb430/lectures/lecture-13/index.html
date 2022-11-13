@@ -832,6 +832,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-14/" class="md-nav__link">
+        Lecture 14
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1292,6 +1306,10 @@ with the equation for the left eigenvectors <span class="arithmatex">\(\vec{u}\m
 \end{aligned}
 \]</div>
 <p>where <span class="arithmatex">\(\vec{v}_1\)</span> and <span class="arithmatex">\(\vec{u}_1\)</span> are the right and left eigenvectors associated with the leading eigenvalue, <span class="arithmatex">\(\lambda_1\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Finding the left eigenvectors via the inverse of <span class="arithmatex">\(\mathbf{A}\)</span> guarantees that the eigenvectors have been scaled such that <span class="arithmatex">\(\vec{u}_1\vec{v}_1 = 1\)</span>. If the eigenvectors have been derived in another way, make sure you scale them so that this is true, eg, make the left eigenvalue equal to <span class="arithmatex">\(\vec{u}_1/(\vec{u}_1 \vec{v}_1)\)</span>. Otherwise the long-term approximation will be off by a constant factor.</p>
+</div>
 <p>This means that, in the long-term,</p>
 <ul>
 <li><span class="arithmatex">\(\vec{x}(t)\)</span> will grow like <span class="arithmatex">\(\lambda_1^t\)</span>, where <span class="arithmatex">\(\lambda_1\)</span> is the leading eigenvalue</li>
@@ -1306,9 +1324,40 @@ with the equation for the left eigenvectors <span class="arithmatex">\(\vec{u}\m
 A + Bi = R (\cos(\theta) + i \sin(\theta))
 \]</div>
 <p>where <span class="arithmatex">\(R = \sqrt{A^2 + B^2}\)</span> is the absolute value of <span class="arithmatex">\(\lambda\)</span> and <span class="arithmatex">\(\theta = \arctan(B/A)\)</span> is the angle between <span class="arithmatex">\(\lambda\)</span> and the x-axis.</p>
-<p><center></p>
-<p><img alt="" src="../lecture-13-img/complex_plot.png" width="70%" /> </p>
-<p></center></p>
+<pre data-executable="true" data-language="python">
+import matplotlib.pyplot as plt
+import math
+
+A,B = 1,1 #real and imaginary parts
+
+fig, ax = plt.subplots()
+
+ax.arrow(0,0,A,B, head_width=0.05, color='black', length_includes_head=True) #eigenvalue as vector in complex plane
+
+dx = 0.05
+ax.plot([0-dx/2,A-dx/2],[0+dx,B+dx],marker='o',c='b')
+ax.text(A/2,B/2+3*dx,r'$R$',rotation=math.atan(B/A)*180/math.pi,c='b',fontsize=15,ha='center',va='center')
+
+ax.plot([0,A],[B,B],marker='o',c='r')
+ax.text(A/2,B+dx,r'$A=R \cos(\theta)$',c='r',fontsize=15,ha='center',va='center')
+
+ax.plot([A,A],[0,B],marker='o',c='g')
+ax.text(A+dx,B/2,r'$B=R \sin(\theta)$',c='g',fontsize=15,ha='center',va='center',rotation=90)
+
+ax.set_xlabel('real part, $A$')
+ax.set_ylabel('imaginary part, $B$')
+ax.set_xlim(-dx,A+2*dx)
+ax.set_ylim(-dx,B+2*dx)
+
+dx=A/4
+ax.plot([0,dx],[0,0],c='orange')
+ax.add_patch(Arc((0,0), width=2*dx, height=2*dx, theta1=0, theta2=math.atan(B/A)*180/math.pi, edgecolor='orange'))
+ax.text(dx/2,dx/6,r'$\theta$',fontsize=15,c='orange')
+
+plt.show()
+</pre>
+
+<p><img alt="png" src="../lecture-13_files/lecture-13_2_0.png" /></p>
 <p>We then use Euler's equation, <span class="arithmatex">\(\cos(\theta) + i \sin(\theta) = e^{i \theta}\)</span>, to write </p>
 <div class="arithmatex">\[
 A + Bi = R e^{i \theta}
@@ -1357,7 +1406,7 @@ ax.set_ylabel('number of birds')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-13_files/lecture-13_2_0.png" /></p>
+<p><img alt="png" src="../lecture-13_files/lecture-13_4_0.png" /></p>
 <p>We see that the population grows, which we should have expected given that the leading eigenvalue, <span class="arithmatex">\(\lambda_1\approx1.03\)</span>, has an absolute value greater than 1. </p>
 <p>We also see that there are about 0.57 birds on island 2 for every 1 bird on island 1, as predicted by the right eigenvector associated with the leading eigenvector, <span class="arithmatex">\(\vec{v}_1 \approx \begin{pmatrix} 1 \\ 0.57 \end{pmatrix}\)</span>.</p>
 <p>More generally, our long-term prediction is <span class="arithmatex">\(\vec{n}(t) \approx \lambda_1^t \vec{v}_1 \vec{u}_1 \vec{n}(0)\)</span>. Overlaying this approximation as black curves on the above plot shows that this works very well.</p>
@@ -1378,7 +1427,7 @@ ax.set_ylabel('number of birds')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-13_files/lecture-13_4_0.png" /></p>
+<p><img alt="png" src="../lecture-13_files/lecture-13_6_0.png" /></p>
 <p><span id='section2'></span></p>
 <h2 id="2-continuous-time">2. Continuous time</h2>
 <hr>
@@ -1474,7 +1523,7 @@ ax.set_ylabel('value')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-13_files/lecture-13_6_0.png" /></p>
+<p><img alt="png" src="../lecture-13_files/lecture-13_8_0.png" /></p>
 <p>This cycling occurs because initially the mean male trait is positive but there is no mean female preference. This implies that both natural and sexual selection favour smaller male traits, causing the mean to decline. But because of a correlated response, female preference also declines, favouring male traits less than 0. Eventually female preference becomes too costly and begins to increase back toward zero. This causes a correlated increase in the male trait, and so on. </p>
 <p>With these parameter values the eigenvalues are <span class="arithmatex">\(\lambda \approx -0.002 \pm 0.05 i\)</span>.</p>
 <p>We could therefore have predicted this cycling based on these eigenvalues, as they are complex.</p>
@@ -1516,13 +1565,13 @@ plt.show()
       
       
         
-        <a href="../../labs/schedule/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule" rel="next">
+        <a href="../lecture-14/" class="md-footer__link md-footer__link--next" aria-label="Next: Lecture 14" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Schedule
+              Lecture 14
             </div>
           </div>
           <div class="md-footer__button md-icon">
