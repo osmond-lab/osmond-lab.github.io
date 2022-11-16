@@ -982,14 +982,7 @@
 <h2 id="1-demography">1. Demography</h2>
 <hr>
 
-<p>We're now going to use what we've learned about <strong>linear multivariate models</strong> to describe the dynamics of a single population that is composed of different types of individuals.</p>
-<p>This area of research is called <strong>demography</strong>.</p>
-<p>The most general demographic model is called <strong>stage-structure</strong>: we consider some finite number of discrete stages that an individual can be in and we use a matrix of transition rates between stages (a <strong>projection matrix</strong>) to project how the population size and composition changes over time (we'll assume discrete time).</p>
-<p>A common special case is <strong>age-structure</strong>: here we define the stages as the number of time steps an individual has been alive for, which leads to a simpler projection matrix (called a <strong>Leslie matrix</strong>) because individuals always transition to the next stage (or die).</p>
-<p><span id='section2'></span></p>
-<h2 id="2-stage-structure">2. Stage-structure</h2>
-<hr>
-
+<p>We're now going to use what we've learned about <strong>linear multivariate models</strong> to describe the dynamics of a single population that is composed of different types of individuals. This area of research is called <strong>demography</strong>.</p>
 <p>In the last lecture we saw that for any discrete-time linear multivariate model</p>
 <div class="arithmatex">\[
 \vec{n}(t+1) = \mathbf{M}\vec{n}(t)
@@ -1015,18 +1008,37 @@
 <li><span class="arithmatex">\(\vec{u}_1\)</span> describes the <strong>reproductive values</strong> of each stage</li>
 <li><span class="arithmatex">\(\vec{u}_1 \vec{n}(0)\)</span> describes the <strong>total reproductive value</strong> at time 0</li>
 </ul>
-<p>This approximation is valid as long as the leading eigenvalue, <span class="arithmatex">\(\lambda_1\)</span>, is</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The long-term approximation, <span class="arithmatex">\(\vec{n}(t) = \lambda_1^t \vec{v}_1 \vec{u}_1 \vec{n}(0)\)</span>, is valid as long as the leading eigenvalue, <span class="arithmatex">\(\lambda_1\)</span>, is</p>
 <ul>
 <li>real (no cycles in long-term)</li>
 <li>positive (no oscillations to negative numbers!)</li>
 <li>larger than all other eigenvalues (so that we can ignore the other eigenvalues/vectors)</li>
 </ul>
 <p>Fortunately <em>we are guaranteed all these conditions in our demographic models</em> since all entries of <span class="arithmatex">\(\mathbf{M}\)</span> are non-negative and all entries of <span class="arithmatex">\(\mathbf{M}^t\)</span> are positive for some value of <span class="arithmatex">\(t\)</span>. (This follows from something called the <strong>Perron-Frobenius Theorem</strong>.)</p>
+</div>
+<p>The most general demographic model is called <strong>stage-structure</strong>: we consider some finite number of discrete stages that an individual can be in and we use an abitrary matrix of transition rates between stages (a <strong>projection matrix</strong>), <span class="arithmatex">\(\mathbf{M}\)</span>, to project how the population size and composition changes over time.</p>
+<p>A common special case is <strong>age-structure</strong>: here we define the stages as the number of time steps an individual has been alive for, which leads to a simpler projection matrix (called a <strong>Leslie matrix</strong>) because individuals always transition to the next stage (or die).</p>
+<p><span id='section2'></span></p>
+<h2 id="2-stage-structure">2. Stage-structure</h2>
+<hr>
+
 <h3 id="example-north-atlantic-right-whale-recovery">Example: North Atlantic right whale recovery</h3>
 <p>Now let's consider an example (from 10.2 in the text). North Atlantic <a href="https://en.wikipedia.org/wiki/Right_whale">right whales</a> were hunted to near extinction in the 1800s and early 1900s, after which their population size is thought to have <em>slowly</em> recovered (there are less than 400 now, and unfortunately <a href="https://www.fisheries.noaa.gov/species/north-atlantic-right-whale#overview">appear to be in decline again</a>). Because of their long life span, over which survival and reproductive rates vary enormously, a stage-structured model is very appropriate. Below we draw a flow diagram representing all the transitions between calves, sexually immature individuals, sexually mature individuals, and actively reproducing individuals.</p>
-<p><center></p>
-<p><img alt="" src="../lecture-14-img/right_whale_example.png" /></p>
-<p></center></p>
+<pre class="mermaid"><code>graph LR;
+    C((Calves)) --sIC nC--&gt; I((Immature));
+
+    I --sII nI--&gt; I;
+    I --sMI nI--&gt; M((Mature));
+    I --sRI nI--&gt; R((Reproductive));
+
+    M --sMM nM--&gt; M;
+    M --sRM nM--&gt; R;
+
+    R --sRR nR--&gt; R;
+    R --sMR nR--&gt; M;
+    R --sb nR--&gt; C;</code></pre>
 <p>Converting this flow diagram into a system of recursion equations, <span class="arithmatex">\(\vec{n}(t+1) = \mathbf{M}\vec{n}(t)\)</span>, the projection matrix is</p>
 <div class="arithmatex">\[
 \mathbf{M} =
@@ -1045,18 +1057,25 @@ s_{IC} &amp; s_{II} &amp; 0 &amp; 0\\
 &amp;\vec{u}_1 \approx \begin{pmatrix} 0.69 &amp; 0.76 &amp; 1.07 &amp; 1.15 \end{pmatrix}
 \end{aligned}
 \]</div>
-<p>These quantitives tells us, for example, that in the long-run the population will is predicted to (<span class="arithmatex">\(\lambda_1&gt;1\)</span>), the majority of individuals will be mature (the second last entry in <span class="arithmatex">\(\vec{v}_1\)</span> is the largest), and mature and reproductive individuals have much higher reproductive values than calves and immature individuals (the last two entries in <span class="arithmatex">\(\vec{u}_1\)</span> are much larger than the first two). </p>
+<p>These quantitives tells us, for example, that in the long-run the population will is predicted to grow (<span class="arithmatex">\(\lambda_1&gt;1\)</span>), the majority of individuals will be mature (the second last entry in <span class="arithmatex">\(\vec{v}_1\)</span> is the largest), and mature and reproductive individuals have much higher reproductive values than calves and immature individuals (the last two entries in <span class="arithmatex">\(\vec{u}_1\)</span> are much larger than the first two). </p>
 <div class="admonition note">
 <p class="admonition-title">Caveat</p>
 <p>The parameter values above were estimated before the current population decline -- changes in climate and human behaviour, eg boat traffic and fishing, have presumably altered the parameter values, making the predictions less accurate. For example, the increased incidence of entanglement in fishing nets has likely decreased survival rates to the point that the population is now expected to decline. See <a href="https://www.fisheries.noaa.gov/species/north-atlantic-right-whale#overview">here</a> for more info.</p>
 </div>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Update parameter values with current estimates to predict rate of population decline.</p>
+<p>We can now answer an important conservation question: </p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>If we wanted to increase the total population size in the future and we could add one individual to any stage, which stage should it be?</p>
 </div>
-<p>One question we might now consider is how the long-term growth rate, <span class="arithmatex">\(\lambda_1\)</span>, changes with some parameter, <span class="arithmatex">\(z\)</span> (e.g., the birth rate of reproductively active individuals, <span class="arithmatex">\(z=b\)</span>).</p>
-<p>One way to answer this is to numerically calculate <span class="arithmatex">\(\lambda_1\)</span> for a range of <span class="arithmatex">\(z\)</span> values.</p>
-<p>Or, we could try to analytically compute the rate of change in the leading eigenvalue with respect to <span class="arithmatex">\(z\)</span>, <span class="arithmatex">\(\mathrm{d}\lambda_1/\mathrm{d}z\)</span>, while considering <span class="arithmatex">\(\mathbf{M}\)</span>, <span class="arithmatex">\(\lambda\)</span>, <span class="arithmatex">\(\vec{v}\)</span>, and <span class="arithmatex">\(\vec{u}\)</span> to be functions of <span class="arithmatex">\(z\)</span>. We call <span class="arithmatex">\(\mathrm{d}\lambda_1/\mathrm{d}z\)</span> the <strong>sensitivity</strong> of <span class="arithmatex">\(\lambda_1\)</span> to <span class="arithmatex">\(z\)</span>.</p>
+<p>We want to know what entry of <span class="arithmatex">\(\vec{n}(0)\)</span> to add 1 to to maximize <span class="arithmatex">\(\vec{n}(t) \approx \lambda^t \vec{v}_1 \vec{u}_1 \vec{n}(0)\)</span>. This will not affect the long-term growth rate (<span class="arithmatex">\(\lambda_1\)</span>) or the stable-stage distribution (<span class="arithmatex">\(\vec{v}_1\)</span>). We can therefore only increase <span class="arithmatex">\(\vec{u}_1\vec{n}(0) = u_1 n_1(0) + u_2 n_2(0) + ... + u_m n_m(0)\)</span>. And so we add 1 to the stage with the largest reproductive value, <span class="arithmatex">\(u_i\)</span>.</p>
+<p>So for these whales, where the reproductive values are <span class="arithmatex">\(\vec{u}_1 \approx \begin{pmatrix} 0.69 &amp; 0.76 &amp; 1.07 &amp; 1.15 \end{pmatrix}\)</span>, we should add a reproductively active individual. This is perhaps not surprising since those are the only individuals that produce offspring and if we introduced an individual in an earlier stage there is some chance that they would die before becoming reproductively active.</p>
+<p>One other question we might now consider is:</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>If we wanted to increase the long-term population growth rate and we could increase any parameter a little bit, which parameter should it be?</p>
+</div>
+<p>One way to answer this is to numerically calculate the long-term population growth rate, <span class="arithmatex">\(\lambda_1\)</span>, for a range of values of one parameter, <span class="arithmatex">\(z\)</span> (e.g., <span class="arithmatex">\(z=b\)</span>, the fecundity or repodutive individuals).</p>
+<p>Or, we could try to analytically compute the rate of change in the leading eigenvalue with respect to <span class="arithmatex">\(z\)</span>, <span class="arithmatex">\(\mathrm{d}\lambda_1/\mathrm{d}z\)</span>, while considering <span class="arithmatex">\(\mathbf{M}\)</span>, <span class="arithmatex">\(\lambda_1\)</span>, <span class="arithmatex">\(\vec{v}_1\)</span>, and <span class="arithmatex">\(\vec{u}_1\)</span> to be functions of <span class="arithmatex">\(z\)</span>. We call <span class="arithmatex">\(\mathrm{d}\lambda_1/\mathrm{d}z\)</span> the <strong>sensitivity</strong> of <span class="arithmatex">\(\lambda_1\)</span> to <span class="arithmatex">\(z\)</span>.</p>
 <p>Since <span class="arithmatex">\(\mathbf{M}\vec{v}_1 = \lambda_1 \vec{v}_1\)</span> and <span class="arithmatex">\(\vec{u}_1\mathbf{M} = \vec{u}_1\lambda_1\)</span> we have</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1071,20 +1090,14 @@ s_{IC} &amp; s_{II} &amp; 0 &amp; 0\\
 <div class="arithmatex">\[
 \frac{\mathrm{d}\lambda_1}{\mathrm{d}z} \bigg|_{z=z^*} = \frac{\vec{u}_1 \left(\frac{\mathrm{d}\mathbf{M}}{\mathrm{d}z} \big|_{z=z^*} \right) \vec{v}_1}{\vec{u}_1 \vec{v}_1}
 \]</div>
-<p>We can now ask (and answer!) a couple of questions about the North Atlantic right whale:</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>If we wanted to increase the total population size in the future and we could add one individual to any stage, which stage should it be?</p>
-</div>
-<p>We want to know what entry of <span class="arithmatex">\(\vec{n}(0)\)</span> to add 1 to to maximize <span class="arithmatex">\(\vec{n}(t) \approx \lambda^t \vec{v}_1 \vec{u}_1 \vec{n}(0)\)</span>. This will not affect the long-term growth rate (<span class="arithmatex">\(\lambda_1\)</span>) or the stable-stage distribution (<span class="arithmatex">\(\vec{v}_1\)</span>). We can therefore only increase <span class="arithmatex">\(\vec{u}_1\vec{n}(0) = u_1 n_1(0) + u_2 n_2(0) + ... + u_m n_m(0)\)</span>. And so we add 1 to the stage with the largest reproductive value, <span class="arithmatex">\(u_i\)</span>.</p>
-<p>So for these whales, where the reproductive values are <span class="arithmatex">\(\vec{u}_1 \approx \begin{pmatrix} 0.69 &amp; 0.76 &amp; 1.07 &amp; 1.15 \end{pmatrix}\)</span>, we should add a reproductively active individual. This is perhaps not surprising since those are the only individuals that produce offspring and if we introduced an individual in an earlier stage there is some chance that they would die before becoming reproductively active.</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>If we wanted to increase the long-term population growth rate and we could increase any parameter a little bit, which parameter should it be?</p>
-</div>
-<p>Here we want to know which parameter, <span class="arithmatex">\(z\)</span>, gives the largest value of <span class="arithmatex">\(\frac{\mathrm{d}\lambda_1}{\mathrm{d}z} \big|_{z=z^*}\)</span>.</p>
+<p>Returning to our question, we want to know which parameter, <span class="arithmatex">\(z\)</span>, gives the largest value of <span class="arithmatex">\(\frac{\mathrm{d}\lambda_1}{\mathrm{d}z} \big|_{z=z^*}\)</span>.</p>
 <p>For these whales we can calculate <span class="arithmatex">\(\frac{\mathrm{d}\lambda_1}{\mathrm{d}z} \big|_{z=z^*}\)</span> for each parameter <span class="arithmatex">\(z\)</span> evaluated at it's current value <span class="arithmatex">\(z^*\)</span>. Doing that calculation we see that increasing the fraction of mature individuals that survive to become reproductively active, <span class="arithmatex">\(s_{RM}\)</span>, has the largest effect. This makes good sense because increasing <span class="arithmatex">\(s_{RM}\)</span> increases the rate at which the most populous stage (from <span class="arithmatex">\(\vec{v}_1\)</span>) transitions to the stage with the highest reproductive value (from <span class="arithmatex">\(\vec{u}_1\)</span>).</p>
-<p>We can also simply plot the predicted number of whales in each stage over time (below we compare the full general solution in solid with the long-term approximation in dashed). We see that the full solution very quickly converges to the long-term solution in this case. </p>
+<p>And finally, we can ask</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>What are the predicted numbers of individuals in each stage over time?</p>
+</div>
+<p>Here we simply plot the general solution (solid) and compare with the long-term approximation (dashed) out of interest. We see that the full solution very quickly converges to the long-term solution in this case. </p>
 <pre data-executable="true" data-language="python">
 b,sic,sii,smi,smm,smr,sri,srm,srr = 0.3,0.92,0.86,0.08,0.8,0.88,0.02,0.19,0 #parameter values
 
@@ -1132,16 +1145,21 @@ ax.set_ylabel('number of whales')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-14_files/lecture-14_5_0.png" /></p>
+<p><img alt="png" src="../lecture-14_files/lecture-14_4_0.png" /></p>
 <p><span id='section3'></span></p>
 <h2 id="3-age-structure">3. Age-structure</h2>
 <hr>
 
 <p>Now let's look at the special case of <strong>age-structure</strong>.</p>
 <p>Here individuals in stage <span class="arithmatex">\(i\)</span> at time <span class="arithmatex">\(t\)</span> can only contribute to stage <span class="arithmatex">\(i+1\)</span> (survival) and stage <span class="arithmatex">\(1\)</span> (reproduction) at time <span class="arithmatex">\(t+1\)</span>.</p>
-<p><center></p>
-<p><img alt="" src="../lecture-14-img/intro_flow.png" /></p>
-<p></center></p>
+<pre class="mermaid"><code>graph LR;
+    1((1)) --p1 n1--&gt; 2((2));    
+    1 --m1 n1--&gt; 1;
+    2 --p2 n2--&gt; 3((3));
+    2 --m2 n2--&gt; 1;    
+    3 --p3 n4--&gt; 4((4));
+    3 --m3 n3--&gt; 1;
+    4 --m4 n4--&gt; 1;</code></pre>
 <p>Because of this, the projection matrix is simpler in the sense that it contains more zeros</p>
 <div class="arithmatex">\[
 \mathbf{L} = 
@@ -1150,7 +1168,7 @@ m_1 &amp; m_2 &amp; m_3 &amp; \cdots &amp; m_d \\
 p_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
 0 &amp; p_2 &amp; 0 &amp; \cdots &amp; 0 \\
 \vdots &amp;  &amp; \vdots &amp;  &amp; \vdots \\  
-0 &amp; \cdots &amp; 0 &amp; p_d &amp; 0\\
+0 &amp; \cdots &amp; 0 &amp; p_{d-1} &amp; 0\\
 \end{pmatrix}
 \]</div>
 <p>We call it a <strong>Leslie matrix</strong> and often denote it with <span class="arithmatex">\(\mathbf{L}\)</span>. The first row contains the fecundities of each age group, <span class="arithmatex">\(m_i\)</span>, while the entries immediately below the diagonal give the fraction of individuals that survive each age group, <span class="arithmatex">\(p_i\)</span>.</p>
@@ -1186,18 +1204,18 @@ p_1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
 <p>With age-structure we can also write the stable age distribution, reproductive values, and sensitivities as functions of survival, fecundity, and rate of population growth.</p>
 <p>The proportion of individuals that are age <span class="arithmatex">\(x\)</span> (in the long-run) is</p>
 <div class="arithmatex">\[
-\large{v_x = \frac{l_x \lambda_1^{-(x-1)}}{\sum_{i=1}^{d}l_i \lambda_1^{-(i-1)}}}
+v_x = \frac{l_x \lambda_1^{-(x-1)}}{\sum_{i=1}^{d}l_i \lambda_1^{-(i-1)}}
 \]</div>
 <p>The reproductive value of individuals that are age <span class="arithmatex">\(x\)</span>, relative to age <span class="arithmatex">\(1\)</span>, is</p>
 <div class="arithmatex">\[
-\large{\frac{u_x}{u_1} = \frac{\lambda_1^{x-1}}{l_x}\sum_{i=x}^{d}\frac{l_i m_i}{\lambda_1^{i}}}
+\frac{u_x}{u_1} = \frac{\lambda_1^{x-1}}{l_x}\sum_{i=x}^{d}\frac{l_i m_i}{\lambda_1^{i}}
 \]</div>
 <p>The sensitivities of the long-term growth rate to survival and reproduction at age <span class="arithmatex">\(x\)</span> are</p>
 <div class="arithmatex">\[
-\large{\frac{\mathrm{d}\lambda_1}{\mathrm{d}p_x} = \frac{v_x u_{x+1}}{\vec{u}_1 \vec{v}_1}}
+\frac{\mathrm{d}\lambda_1}{\mathrm{d}p_x} = \frac{v_x u_{x+1}}{\vec{u}_1 \vec{v}_1}
 \]</div>
 <div class="arithmatex">\[
-\large{\frac{\mathrm{d}\lambda_1}{\mathrm{d}m_x} = \frac{v_x u_1}{\vec{u}_1 \vec{v}_1}}
+\frac{\mathrm{d}\lambda_1}{\mathrm{d}m_x} = \frac{v_x u_1}{\vec{u}_1 \vec{v}_1}
 \]</div>
 <p>For example, in our stickleback model the proportion of the population that is age <span class="arithmatex">\(x=2\)</span>, in the long-run, is</p>
 <div class="arithmatex">\[
@@ -1296,7 +1314,7 @@ ax.set_yscale('log')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-14_files/lecture-14_7_0.png" /></p>
+<p><img alt="png" src="../lecture-14_files/lecture-14_6_0.png" /></p>
 
 
 
