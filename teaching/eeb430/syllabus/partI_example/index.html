@@ -13,7 +13,7 @@
     
     
       
-        <title>EEB430 final project part I - example - EEB430 Modelling in Ecology and Evolution</title>
+        <title>Final project part I - example - EEB430 Modelling in Ecology and Evolution</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eeb430-final-project-part-i-example" class="md-skip">
+        <a href="#final-project-part-i-example" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EEB430 final project part I - example
+              Final project part I - example
             
           </span>
         </div>
@@ -822,7 +822,7 @@
                   
 
 
-<h1 id="eeb430-final-project-part-i-example">EEB430 final project part I - example</h1>
+<h1 id="final-project-part-i-example">Final project part I - example</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This is a made-up example inspired by the research of Sydney Ackermann, an MSc student in the Osmond lab, who was in turn inspired by the models of <a href="https://doi.org/10.1086/323590">Roze &amp; Michod</a> and <a href="https://doi.org/10.1371/journal.pcbi.1005860">Pichugin et al.</a>.</p>
@@ -830,7 +830,7 @@
 <h2 id="biological-question">Biological question</h2>
 <p>I am interested in the origin of multicellularity and the reason why particular life-cycles predominate. For instance, many bacterial species exist as single cells which reproduce via binary fission while many multicellular organisms grow to large sizes and reproduce via single-celled offspring. However, there are many more options and it is not clear if or why these strategies are evolutionarily optimal or how multicellularity evolved from a binary fission ancestor. Here I ask the question, which multicellular life-cycles can invade a unicellular population producing via binary fission?</p>
 <h2 id="model-description">Model description</h2>
-<p>I will start by modeling a unicellular population where individuals divide, die, and compete in continuous time. The variable in this model is the number of individuals, <span class="arithmatex">\(n\)</span>. The parameters are the birth rate (<span class="arithmatex">\(b_1\)</span>), death rate (<span class="arithmatex">\(d_1\)</span>), and amount of competition. To describe competition I will assume there are a total of <span class="arithmatex">\(k\)</span> places for individuals to exist. When a cell divides, each of the two resulting offspring randomly choose one of these k locations. If an offspring lands on an empty spot it survives. If an offspring lands on an occupied spot it "wins" that spot with probability 1/2, killing the resident, and otherwise dies. The amount of competition is therefore controlled by parameter <span class="arithmatex">\(k\)</span>.</p>
+<p>I will start by modeling a unicellular population where individuals divide, die, and compete in continuous time. The variable in this model is the number of individuals, <span class="arithmatex">\(n\)</span>. The parameters are the birth rate (<span class="arithmatex">\(b_1\)</span>), death rate (<span class="arithmatex">\(d_1\)</span>), and amount of competition. To describe competition I will assume there are a total of <span class="arithmatex">\(k\)</span> places for individuals to exist. When a cell divides, each of the two resulting offspring randomly choose one of these <span class="arithmatex">\(k\)</span> locations. If an offspring lands on an empty spot it survives. If an offspring lands on an occupied spot it "wins" that spot with probability 1/2, killing the resident, and otherwise dies. The amount of competition is therefore controlled by parameter <span class="arithmatex">\(k\)</span>.</p>
 <p>This model can be described by the following flow diagram</p>
 <pre class="mermaid"><code>graph LR;
     A((n)) --"b1 n (1 - n/k)" --&gt; A;
