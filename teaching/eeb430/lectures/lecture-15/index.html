@@ -750,8 +750,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linearizing-a-multivariate-model" class="md-nav__link">
-    "Linearizing" a multivariate model
+  <a href="#example-epidemiology" class="md-nav__link">
+    Example: epidemiology
   </a>
   
 </li>
@@ -772,26 +772,6 @@
   <a href="#3-summary" class="md-nav__link">
     3. Summary
   </a>
-  
-    <nav class="md-nav" aria-label="3. Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#continuous-time" class="md-nav__link">
-    Continuous time
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discrete-time" class="md-nav__link">
-    Discrete time
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -915,8 +895,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linearizing-a-multivariate-model" class="md-nav__link">
-    "Linearizing" a multivariate model
+  <a href="#example-epidemiology" class="md-nav__link">
+    Example: epidemiology
   </a>
   
 </li>
@@ -937,26 +917,6 @@
   <a href="#3-summary" class="md-nav__link">
     3. Summary
   </a>
-  
-    <nav class="md-nav" aria-label="3. Summary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#continuous-time" class="md-nav__link">
-    Continuous time
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#discrete-time" class="md-nav__link">
-    Discrete time
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1007,7 +967,7 @@
 <li><a href="#section3">Summary</a></li>
 </ol>
 <p>Now that we've covered linear multivariate models, we turn our attention to the most common type of model: one with multiple <em>interacting</em> variables.</p>
-<p>For example, a model of susceptible, <span class="arithmatex">\(S\)</span>, and infected, <span class="arithmatex">\(I\)</span>, individuals often includes the interaction between these two variables, <span class="arithmatex">\(SI\)</span>, describing the rate at which these two classes of individuals meet one another (and potentially spread disease). </p>
+<p>For example, a model of the number of susceptible, <span class="arithmatex">\(S\)</span>, and infected, <span class="arithmatex">\(I\)</span>, individuals often includes the interaction between these two variables, <span class="arithmatex">\(SI\)</span>, describing the rate at which these two classes of individuals meet one another (and potentially spread disease). </p>
 <p>Similarly, models of predator, <span class="arithmatex">\(P\)</span>, and prey, <span class="arithmatex">\(N\)</span>, abundance often include terms like <span class="arithmatex">\(NP\)</span> describing the rate at which predators encounter prey (and potentially eat them).</p>
 <p>Let's first see how to deal with these models in general and then apply those techniques to specific circumstances like those mentioned above.</p>
 <p><span id='section1'></span></p>
@@ -1023,25 +983,11 @@
 \frac{\mathrm{d}x_n}{\mathrm{d}t} &amp;=  f_n(x_1, x_2, ..., x_n)  
 \end{aligned}
 \]</div>
-<p>If we then want to find the equilibria, <span class="arithmatex">\(\hat{x}_1,\hat{x}_2, ..., \hat{x}_n\)</span>, we set all these equations to 0 and solve for one variable at a time.</p>
+<p>If we then want to find the equilibria, <span class="arithmatex">\(\hat{x}_1,\hat{x}_2, ..., \hat{x}_n\)</span>, we set all these equations to 0 and solve for one variable at a time (note that solving for the equilibrium is not always possible in nonlinear models!).</p>
 <p>Now note that we can no longer write this system of equations in matrix form with a matrix composed only of parameters.</p>
-<p>For example, in a simple model of disease we might have</p>
-<div class="arithmatex">\[
-\begin{aligned}
-\frac{\mathrm{d}S}{\mathrm{d}t} &amp;=  \sigma I - a c S I\\
-\frac{\mathrm{d}I}{\mathrm{d}t} &amp;=  a c S I - \sigma I
-\end{aligned}
-\]</div>
-<p>describing recovery of infected individuals <span class="arithmatex">\(\sigma I\)</span> and infection of susceptibles <span class="arithmatex">\(a c S I\)</span>.</p>
-<p>If we try to write the right hand side in matrix form we could do something like</p>
-<div class="arithmatex">\[
-\begin{pmatrix} -a c I &amp; \sigma \\ acI &amp; -\sigma \end{pmatrix}\begin{pmatrix} S \\ I\end{pmatrix}
-\]</div>
-<p>But now our matrix contains variables -- this is not very useful for analysis because our matrix (and its eigenvalues and eigenvectors) will change in time with <span class="arithmatex">\(S\)</span> and <span class="arithmatex">\(I\)</span>.</p>
 <p>In order to use what we've learned about eigenvalues and eigenvectors we're first going to have to <strong>linearize</strong> the system so that the corresponding matrices do not contain variables.</p>
-<h3 id="linearizing-a-multivariate-model">"Linearizing" a multivariate model</h3>
-<p>As we saw in nonlinear univariate models, one useful way to linearize a system is to measure the system relative to equilibrium, <span class="arithmatex">\(\delta = n - \hat{n}\)</span>.</p>
-<p>Then assuming that the deviation from equilibrium, <span class="arithmatex">\(\delta\)</span>, is small, we used a Taylor series expansion to approximate the nonlinear system with a linear system.</p>
+<p>As we saw in nonlinear univariate models, one useful way to linearize a system is to measure the system relative to equilibrium, <span class="arithmatex">\(\epsilon = n - \hat{n}\)</span>.</p>
+<p>Then assuming that the deviation from equilibrium, <span class="arithmatex">\(\epsilon\)</span>, is small, we used a Taylor series expansion to approximate the nonlinear system with a linear system.</p>
 <p>To do that with multivariate models we'll need to know how to take a Taylor series expansion of multivariate functions</p>
 <div class="admonition note">
 <p class="admonition-title">Taylor series expansion of a multivariate function</p>
@@ -1119,10 +1065,79 @@ f(x_1, x_2, ..., x_n) &amp;= f(a_1, a_2, ..., a_n)\\
 \end{pmatrix}
 \]</div>
 <p>And now that we have a linear system around an equilibrium, we can assess its <strong>local stability</strong> just as we did with linear multivariate models (see <a href="#section3">Summary</a>).</p>
+<h3 id="example-epidemiology">Example: epidemiology</h3>
+<p>To make this more concrete, let's consider a biological example. We'll take the same example as the text (section 8.2). Consider a population composed of <span class="arithmatex">\(S\)</span> susceptible individuals and <span class="arithmatex">\(I\)</span> infected individuals. We assume new susceptible individuals arrive at rate <span class="arithmatex">\(\theta\)</span> via immigration and existing susceptibles die at per capita rate <span class="arithmatex">\(d\)</span>. We assume infected individuals die at an elevated per capita rate <span class="arithmatex">\(d+v\)</span> and recover at per capita rate <span class="arithmatex">\(\gamma\)</span>. So far this is a linear (affine) model. Finally, we assume susceptibles become infected at rate <span class="arithmatex">\(\beta S I\)</span>. This is the non-linear part.</p>
+<p>We can describe this with the following flow diagram</p>
+<pre class="mermaid"><code>graph LR;
+    A[ ] --theta--&gt; S((S));
+    S --beta S I--&gt; I((I));
+    S --d S--&gt; B[ ];    
+    I --"(d + v) I"--&gt; C[ ];
+    I --gamma I--&gt; S;
+
+    style A height:0px;
+    style B height:0px;
+    style C height:0px;</code></pre>
+<p>The corresponding system of differential equations is</p>
+<div class="arithmatex">\[\begin{aligned}
+\frac{\mathrm{d}S}{\mathrm{d}t} &amp;= \theta - \beta S I - d S + \gamma I \\
+\frac{\mathrm{d}I}{\mathrm{d}t} &amp;= \beta S I - (d + v) I - \gamma I 
+\end{aligned}\]</div>
+<p>At equilibrium both derivatives are equal to zero </p>
+<div class="arithmatex">\[\begin{aligned}
+0 &amp;= \theta - \beta \hat{S} \hat{I} - d \hat{S} + \gamma \hat{I} \\
+0 &amp;= \beta \hat{S} \hat{I} - (d + v) \hat{I} - \gamma \hat{I} 
+\end{aligned}\]</div>
+<p>To be systematic we could start with the first equation and solve for the first variable, <span class="arithmatex">\(\hat{S}\)</span>, in terms of the remaining variables, <span class="arithmatex">\(\hat{I}\)</span>. We could then sub that expression for <span class="arithmatex">\(\hat{S}\)</span> into the second equation, which would then be an equation for <span class="arithmatex">\(\hat{I}\)</span> alone. After solving for <span class="arithmatex">\(\hat{I}\)</span> we could then sub that solution into <span class="arithmatex">\(\hat{S}\)</span> and be done. But through experience we notice that there is an easier approach. </p>
+<p>Because the second equation is proportional to <span class="arithmatex">\(\hat{I}\)</span> we immediately know <span class="arithmatex">\(\hat{I}=0\)</span> is one potential equilibrium point. For this to work we also need the first equation to be zero. Subbing in <span class="arithmatex">\(\hat{I}=0\)</span> to that first equation and solving for <span class="arithmatex">\(\hat{S}\)</span> gives <span class="arithmatex">\(\hat{S}=\theta/d\)</span>. One equilibrium is therefore</p>
+<div class="arithmatex">\[\begin{aligned}
+\hat{S} &amp;= \theta/d \\
+\hat{I} &amp;= 0
+\end{aligned}\]</div>
+<p>Returning to the second equation, after factoring out <span class="arithmatex">\(\hat{I}\)</span> we are left with <span class="arithmatex">\(0 = \beta \hat{S} - (d + v + \gamma)\)</span>, implying <span class="arithmatex">\(\hat{S} = (d + v + \gamma)/\beta\)</span>. Plugging this into the first equation and solving for <span class="arithmatex">\(\hat{I}\)</span> we see that a second equilibrium is</p>
+<div class="arithmatex">\[\begin{aligned}
+\hat{S} &amp;= (d + v + \gamma)/\beta \\
+\hat{I} &amp;= \frac{\theta - d(d + v + \gamma)/\beta}{d+v}
+\end{aligned}\]</div>
+<p>Now that we have the equilibria, the next step is to calculate the Jacobian. Letting <span class="arithmatex">\(x_1=S\)</span> and <span class="arithmatex">\(x_2=I\)</span> we have <span class="arithmatex">\(f_1(x_1,x_2)=\mathrm{d}S/\mathrm{d}t\)</span> and <span class="arithmatex">\(f_2(x_1,x_2)=\mathrm{d}I/\mathrm{d}t\)</span>. The Jacobian is therefore</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{J} 
+&amp;= 
+\begin{pmatrix}
+\frac{\partial}{\partial S}\left(\frac{\mathrm{d}S}{\mathrm{d}t}\right) &amp; \frac{\partial}{\partial I}\left(\frac{\mathrm{d}S}{\mathrm{d}t}\right) \\
+\frac{\partial}{\partial S}\left(\frac{\mathrm{d}I}{\mathrm{d}t}\right) &amp; \frac{\partial}{\partial I}\left(\frac{\mathrm{d}I}{\mathrm{d}t}\right)
+\end{pmatrix}\\
+&amp;=
+\begin{pmatrix}
+-d-\beta I &amp; -\beta S+\gamma \\
+\beta I &amp; \beta S-(d+v+\gamma)
+\end{pmatrix}
+\end{aligned}\]</div>
+<p>We can now determine the local stability of an equilibrium by evaluating the Jacobian at that equilibrium and calculating the eigenvalues. Let's do that for just the simpler equilibrium, where there are no infected individuals, <span class="arithmatex">\(\hat{I}=0\)</span>, and the number of susceptibles is a balance of immigration and death, <span class="arithmatex">\(\hat{S} = \theta/d\)</span>. Plugging these into the Jacobian gives </p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{J} 
+&amp;= 
+\begin{pmatrix}
+-d &amp; -\beta \theta/d+\gamma \\
+0 &amp; \beta \theta/d-(d+v+\gamma)
+\end{pmatrix}
+\end{aligned}\]</div>
+<p>This is an upper triangular matrix, so the eigenvalues are just the diagonal elements, <span class="arithmatex">\(\lambda = -d, \beta\theta/d-(d+v+\gamma)\)</span>. Because all the parameters are rates they are all non-negative, and therefore the only eigenvalue that can have a positive real part (and therefore cause instability) is <span class="arithmatex">\(\lambda=\beta\theta/d-(d+v+\gamma)\)</span>. The equilibrium is unstable when this is positive, <span class="arithmatex">\(\beta\theta/d-(d+v+\gamma)&gt;0\)</span>. Because this equilibrium has no infected individuals, instability in this case means the infected individuals will increase in number from rare -- ie, the disease can spread when rare. </p>
+<p>We can rearrange the instability condition to get a little more intuition. The disease will spread when rare whenever</p>
+<div class="arithmatex">\[\begin{aligned}
+\beta\theta/d - (d+v+\gamma)&amp; &gt; 0 \\
+\beta\theta/d &amp;&gt; d+v+\gamma \\
+\frac{\beta\theta/d}{d+v+\gamma} &amp;&gt; 1
+\end{aligned}\]</div>
+<p>The numerator is <span class="arithmatex">\(\beta\)</span> times the number of susceptibles at equilibrium, <span class="arithmatex">\(\hat{S}\)</span>. This is the rate that a rare disease infects new individuals. The denominator is the rate at which the disease is removed from the population. Therefore a rare disease that infects faster than it is removed can spread. This ratio, in our case <span class="arithmatex">\(\frac{\beta\theta/d}{d+v+\gamma}\)</span>, is termed <span class="arithmatex">\(R_0\)</span> and is a very key epidemiological quantity (you may remember estimates of <span class="arithmatex">\(R_0\)</span> in the news from a certain recent virus...).</p>
 <p><span id='section2'></span></p>
 <h2 id="2-discrete-time">2. Discrete time</h2>
 <hr>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The short version of this section is that we can do the same thing in discrete time -- local stability is determined by the eigenvalues of the Jacobian, where the functions in that Jacobian are now our recursions, <span class="arithmatex">\(x_i(t+1) = f_i(x_1(t), x_2(t), ..., x_n(t))\)</span>.</p>
+</div>
 <p>We can do something very similar for nonlinear multivariate models in discrete time</p>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1197,21 +1212,20 @@ x_n(t+1) &amp;=  f_n(x_1(t), x_2(t), ..., x_n(t))\\
 <li>Calculate the characteristic polynomial <span class="arithmatex">\(|\mathbf{J}_{x_1=\hat{x}_1, x_2=\hat{x}_2, ..., x_n=\hat{x}_n} - \lambda\mathbf{I}|\)</span> </li>
 <li>Set the characteristic polynomial equal to 0 and solve for the <span class="arithmatex">\(n\)</span> eigenvalues, <span class="arithmatex">\(\lambda\)</span></li>
 </ul>
-<h3 id="continuous-time">Continuous time</h3>
+<div class="admonition info">
+<p class="admonition-title">Stability reminder</p>
+<p><strong>Continuous time</strong></p>
 <ul>
 <li>the leading eigenvalue is the one with the <strong>largest real part</strong></li>
 <li>if the leading eigenvalue has a <strong>negative real part</strong> the equilibrium is stable</li>
 <li>if any eigenvalue has a non-zero complex part there will be cycling</li>
 </ul>
-<h3 id="discrete-time">Discrete time</h3>
+<p><strong>Discrete time</strong></p>
 <ul>
 <li>the leading eigenvalue is the one with the <strong>largest absolute value</strong></li>
 <li>if the leading eigenvalue has an <strong>absolute value less than one</strong> the equilibrium is stable</li>
 <li>if any eigenvalue has a non-zero complex part there will be cycling</li>
 </ul>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Add examples</p>
 </div>
 
 
