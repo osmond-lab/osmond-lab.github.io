@@ -1072,12 +1072,12 @@ plt.show()
 \lambda = \frac{\mathrm{Tr}(\mathbf{M}) \pm \sqrt{\mathrm{Tr}(\mathbf{M})^2 - 4\mathrm{Det}(\mathbf{M})}}{2}
 \]</div>
 <p>Note that this shows that even a 2x2 matrix composed of all real numbers can have <strong>complex</strong> eigenvalues if the value within the square root is negative, <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M})^2 - 4\mathrm{Det}(\mathbf{M}) &lt; 0\)</span>.</p>
-<p>For example, <span class="arithmatex">\(\mathbf{M} = \begin{pmatrix} 1 &amp; -1 \\ 1 &amp; 1 \end{pmatrix}\)</span> has <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M}) = 2\)</span> and <span class="arithmatex">\(\mathrm{Det}(\mathbf{M}) = 2\)</span>, so that the eigenvalues are <span class="arithmatex">\(\lambda = 1 \pm \sqrt{-1} = 1 \pm i\)</span>.</p>
-<p>We will see in future lectures that complex eigenvalues indicate some cycling in the dynamics of our system.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A complex number has the form <span class="arithmatex">\(A + B i\)</span>, where <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span> are real numbers and <span class="arithmatex">\(i=\sqrt{-1}\)</span>. We call <span class="arithmatex">\(A\)</span> the "real part" and <span class="arithmatex">\(B\)</span> the "imaginary part". See Box 7.3 in the text for more fun facts.</p>
 </div>
+<p>For example, <span class="arithmatex">\(\mathbf{M} = \begin{pmatrix} 1 &amp; -1 \\ 1 &amp; 1 \end{pmatrix}\)</span> has <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M}) = 2\)</span> and <span class="arithmatex">\(\mathrm{Det}(\mathbf{M}) = 2\)</span>, so that the eigenvalues are <span class="arithmatex">\(\lambda = 1 \pm \sqrt{-1} = 1 \pm i\)</span>.</p>
+<p>We will see in future lectures that complex eigenvalues indicate some cycling in the dynamics of our system.</p>
 <p>The <span class="arithmatex">\(n=2\)</span> example shows another interesting fact. When <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})=0\)</span> one of the eigenvalues is 0 (and this holds for larger <span class="arithmatex">\(n\)</span> too). As we discussed in Lecture 11, if <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})=0\)</span> then multiplying a vector by <span class="arithmatex">\(\mathbf{M}\)</span> causes a loss of information (like multiplying by 0 in normal algebra). This can now be understood based on the geometric argument presented above: if one of the eigenvalues is zero then the state of the system immediately goes to zero in new coordinate system defined by the right eigenvectors.  </p>
 <p>Finding the determinant of <span class="arithmatex">\((\mathbf{M} - \lambda\mathbf{I})\)</span> becomes trickier for larger matrices, but there are some helpful properties of determinants that come in handy (see Lecture 11).</p>
 <p>For instance, the eigenvalues of a diagonal or triangular matrix are simply the diagonal elements</p>

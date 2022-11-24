@@ -1094,11 +1094,13 @@ f(x_1, x_2, ..., x_n) &amp;= f(a_1, a_2, ..., a_n)\\
 \hat{S} &amp;= \theta/d \\
 \hat{I} &amp;= 0
 \end{aligned}\]</div>
+<p>which we call the "disease-free" equilibrium.</p>
 <p>Returning to the second equation, after factoring out <span class="arithmatex">\(\hat{I}\)</span> we are left with <span class="arithmatex">\(0 = \beta \hat{S} - (d + v + \gamma)\)</span>, implying <span class="arithmatex">\(\hat{S} = (d + v + \gamma)/\beta\)</span>. Plugging this into the first equation and solving for <span class="arithmatex">\(\hat{I}\)</span> we see that a second equilibrium is</p>
 <div class="arithmatex">\[\begin{aligned}
 \hat{S} &amp;= (d + v + \gamma)/\beta \\
 \hat{I} &amp;= \frac{\theta - d(d + v + \gamma)/\beta}{d+v}
 \end{aligned}\]</div>
+<p>which we call the "endemic equilibrium" because there is some non-zero amount of disease. Note that this equilibrium is only biologically valid when the numerator of <span class="arithmatex">\(\hat{I}\)</span> is positive which can be rearranged as <span class="arithmatex">\(\beta\theta/d &gt; d + v + \gamma\)</span>.</p>
 <p>Now that we have the equilibria, the next step is to calculate the Jacobian. Letting <span class="arithmatex">\(x_1=S\)</span> and <span class="arithmatex">\(x_2=I\)</span> we have <span class="arithmatex">\(f_1(x_1,x_2)=\mathrm{d}S/\mathrm{d}t\)</span> and <span class="arithmatex">\(f_2(x_1,x_2)=\mathrm{d}I/\mathrm{d}t\)</span>. The Jacobian is therefore</p>
 <div class="arithmatex">\[\begin{aligned}
 \mathbf{J} 
@@ -1113,9 +1115,10 @@ f(x_1, x_2, ..., x_n) &amp;= f(a_1, a_2, ..., a_n)\\
 \beta I &amp; \beta S-(d+v+\gamma)
 \end{pmatrix}
 \end{aligned}\]</div>
-<p>We can now determine the local stability of an equilibrium by evaluating the Jacobian at that equilibrium and calculating the eigenvalues. Let's do that for just the simpler equilibrium, where there are no infected individuals, <span class="arithmatex">\(\hat{I}=0\)</span>, and the number of susceptibles is a balance of immigration and death, <span class="arithmatex">\(\hat{S} = \theta/d\)</span>. Plugging these into the Jacobian gives </p>
+<p>We can now determine the local stability of an equilibrium by evaluating the Jacobian at that equilibrium and calculating the eigenvalues. </p>
+<p>Let's do that first for the simpler disease-free equilibrium, where there are no infected individuals, <span class="arithmatex">\(\hat{I}=0\)</span>, and the number of susceptibles is a balance of immigration and death, <span class="arithmatex">\(\hat{S} = \theta/d\)</span>. Plugging these into the Jacobian gives </p>
 <div class="arithmatex">\[\begin{aligned}
-\mathbf{J} 
+\mathbf{J}_\mathrm{disease-free} 
 &amp;= 
 \begin{pmatrix}
 -d &amp; -\beta \theta/d+\gamma \\
@@ -1129,7 +1132,27 @@ f(x_1, x_2, ..., x_n) &amp;= f(a_1, a_2, ..., a_n)\\
 \beta\theta/d &amp;&gt; d+v+\gamma \\
 \frac{\beta\theta/d}{d+v+\gamma} &amp;&gt; 1
 \end{aligned}\]</div>
-<p>The numerator is <span class="arithmatex">\(\beta\)</span> times the number of susceptibles at equilibrium, <span class="arithmatex">\(\hat{S}\)</span>. This is the rate that a rare disease infects new individuals. The denominator is the rate at which the disease is removed from the population. Therefore a rare disease that infects faster than it is removed can spread. This ratio, in our case <span class="arithmatex">\(\frac{\beta\theta/d}{d+v+\gamma}\)</span>, is termed <span class="arithmatex">\(R_0\)</span> and is a very key epidemiological quantity (you may remember estimates of <span class="arithmatex">\(R_0\)</span> in the news from a certain recent virus...).</p>
+<p>The numerator is <span class="arithmatex">\(\beta\)</span> times the number of susceptibles at the disease-free equilibrium, <span class="arithmatex">\(\hat{S}=\theta/d\)</span>. This is the rate that a rare disease infects new individuals. The denominator is the rate at which the disease is removed from the population. Therefore a rare disease that infects faster than it is removed can spread. This ratio, in our case <span class="arithmatex">\(\frac{\beta\theta/d}{d+v+\gamma}\)</span>, is termed <span class="arithmatex">\(R_0\)</span> and is a very key epidemiological quantity (you may remember estimates of <span class="arithmatex">\(R_0\)</span> in the news from a certain recent virus...).</p>
+<p>Now for the endemic equilibrium. Plugging these values into the Jacobian and simplifying gives</p>
+<div class="arithmatex">\[\begin{aligned}
+\mathbf{J}_\mathrm{endemic} 
+&amp;= 
+\begin{pmatrix}
+-\frac{\beta \theta - d \gamma}{d+v} &amp; -(d+v) \\
+\frac{\beta \theta - d (d+v+\gamma)}{d+v} &amp; 0
+\end{pmatrix}
+\end{aligned}\]</div>
+<p>Here, instead of calculating the eigenvalues explicitly, we will use the <strong>Routh-Hurwitz stability criteria</strong> for a 2x2 matrix.</p>
+<div class="admonition note">
+<p class="admonition-title">Routh-Hurwitz stability criteria for a 2x2 matrix</p>
+<p>When working with 2x2 matrices, there is a simple way to determine if both the eigenvalues have negative real parts (ie, if the equilibrium is stable) without having to calculate the eigenvalues themselves. These are called the Routh-Hurwitz stability criteria (and extend to larger matrices but we won't cover that here).</p>
+<p>Recall that for a 2x2 matrix, <span class="arithmatex">\(\mathbf{M}\)</span>, the eigenvalues can be written </p>
+<div class="arithmatex">\[\lambda = \frac{\mathrm{Tr}(\mathbf{M}) \pm \sqrt{\mathrm{Tr}(\mathbf{M})^2 - 4\mathrm{Det}(\mathbf{M})}}{2}\]</div>
+<p>First notice that the product of the two eigenvalues is <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})\)</span> (you may want to check that for yourself). This means that the two eigenvalues have the same sign if and only if <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})&gt;0\)</span>.</p>
+<p>Second, notice that the sum of the two eigenvalues is <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M})\)</span>. </p>
+<p>We therefore know that the real parts of both eigenvalues will be negative (ie, the equilibrium will be stable) if and only if <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})&gt;0\)</span> and <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M})&lt;0\)</span>.</p>
+</div>
+<p>The determinant is <span class="arithmatex">\(\beta \theta - d (d+v+\gamma)\)</span>, so for this to be positive we need <span class="arithmatex">\(\beta \theta/d &gt; (d+v+\gamma)\)</span>, which was our validity condition (above) and also the instability condition on the disease-free equilibrium (<span class="arithmatex">\(R_0&gt;1\)</span>). The trace is <span class="arithmatex">\(-\frac{\beta \theta - d \gamma}{d+v}\)</span>, so for this to be negative we need <span class="arithmatex">\(\beta \theta/d &gt; \gamma\)</span>, which is guaranteed if the determinant is positive. So in conclusion, the endemic equilibrium is valid and stable whenever the disease can invade, <span class="arithmatex">\(R_0&gt;1\)</span>.</p>
 <p><span id='section2'></span></p>
 <h2 id="2-discrete-time">2. Discrete time</h2>
 <hr>
