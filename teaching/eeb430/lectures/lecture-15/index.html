@@ -746,19 +746,6 @@
     1. Continuous time
   </a>
   
-    <nav class="md-nav" aria-label="1. Continuous time">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-epidemiology" class="md-nav__link">
-    Example: epidemiology
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -779,6 +766,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-16/" class="md-nav__link">
+        Lecture 16
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture-17/" class="md-nav__link">
+        Lecture 17
+      </a>
     </li>
   
 
@@ -890,19 +905,6 @@
   <a href="#1-continuous-time" class="md-nav__link">
     1. Continuous time
   </a>
-  
-    <nav class="md-nav" aria-label="1. Continuous time">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#example-epidemiology" class="md-nav__link">
-    Example: epidemiology
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1065,94 +1067,6 @@ f(x_1, x_2, ..., x_n) &amp;= f(a_1, a_2, ..., a_n)\\
 \end{pmatrix}
 \]</div>
 <p>And now that we have a linear system around an equilibrium, we can assess its <strong>local stability</strong> just as we did with linear multivariate models (see <a href="#section3">Summary</a>).</p>
-<h3 id="example-epidemiology">Example: epidemiology</h3>
-<p>To make this more concrete, let's consider a biological example. We'll take the same example as the text (section 8.2). Consider a population composed of <span class="arithmatex">\(S\)</span> susceptible individuals and <span class="arithmatex">\(I\)</span> infected individuals. We assume new susceptible individuals arrive at rate <span class="arithmatex">\(\theta\)</span> via immigration and existing susceptibles die at per capita rate <span class="arithmatex">\(d\)</span>. We assume infected individuals die at an elevated per capita rate <span class="arithmatex">\(d+v\)</span> and recover at per capita rate <span class="arithmatex">\(\gamma\)</span>. So far this is a linear (affine) model. Finally, we assume susceptibles become infected at rate <span class="arithmatex">\(\beta S I\)</span>. This is the non-linear part.</p>
-<p>We can describe this with the following flow diagram</p>
-<pre class="mermaid"><code>graph LR;
-    A[ ] --theta--&gt; S((S));
-    S --beta S I--&gt; I((I));
-    S --d S--&gt; B[ ];    
-    I --"(d + v) I"--&gt; C[ ];
-    I --gamma I--&gt; S;
-
-    style A height:0px;
-    style B height:0px;
-    style C height:0px;</code></pre>
-<p>The corresponding system of differential equations is</p>
-<div class="arithmatex">\[\begin{aligned}
-\frac{\mathrm{d}S}{\mathrm{d}t} &amp;= \theta - \beta S I - d S + \gamma I \\
-\frac{\mathrm{d}I}{\mathrm{d}t} &amp;= \beta S I - (d + v) I - \gamma I 
-\end{aligned}\]</div>
-<p>At equilibrium both derivatives are equal to zero </p>
-<div class="arithmatex">\[\begin{aligned}
-0 &amp;= \theta - \beta \hat{S} \hat{I} - d \hat{S} + \gamma \hat{I} \\
-0 &amp;= \beta \hat{S} \hat{I} - (d + v) \hat{I} - \gamma \hat{I} 
-\end{aligned}\]</div>
-<p>To be systematic we could start with the first equation and solve for the first variable, <span class="arithmatex">\(\hat{S}\)</span>, in terms of the remaining variables, <span class="arithmatex">\(\hat{I}\)</span>. We could then sub that expression for <span class="arithmatex">\(\hat{S}\)</span> into the second equation, which would then be an equation for <span class="arithmatex">\(\hat{I}\)</span> alone. After solving for <span class="arithmatex">\(\hat{I}\)</span> we could then sub that solution into <span class="arithmatex">\(\hat{S}\)</span> and be done. But through experience we notice that there is an easier approach. </p>
-<p>Because the second equation is proportional to <span class="arithmatex">\(\hat{I}\)</span> we immediately know <span class="arithmatex">\(\hat{I}=0\)</span> is one potential equilibrium point. For this to work we also need the first equation to be zero. Subbing in <span class="arithmatex">\(\hat{I}=0\)</span> to that first equation and solving for <span class="arithmatex">\(\hat{S}\)</span> gives <span class="arithmatex">\(\hat{S}=\theta/d\)</span>. One equilibrium is therefore</p>
-<div class="arithmatex">\[\begin{aligned}
-\hat{S} &amp;= \theta/d \\
-\hat{I} &amp;= 0
-\end{aligned}\]</div>
-<p>which we call the "disease-free" equilibrium.</p>
-<p>Returning to the second equation, after factoring out <span class="arithmatex">\(\hat{I}\)</span> we are left with <span class="arithmatex">\(0 = \beta \hat{S} - (d + v + \gamma)\)</span>, implying <span class="arithmatex">\(\hat{S} = (d + v + \gamma)/\beta\)</span>. Plugging this into the first equation and solving for <span class="arithmatex">\(\hat{I}\)</span> we see that a second equilibrium is</p>
-<div class="arithmatex">\[\begin{aligned}
-\hat{S} &amp;= (d + v + \gamma)/\beta \\
-\hat{I} &amp;= \frac{\theta - d(d + v + \gamma)/\beta}{d+v}
-\end{aligned}\]</div>
-<p>which we call the "endemic equilibrium" because there is some non-zero amount of disease. Note that this equilibrium is only biologically valid when the numerator of <span class="arithmatex">\(\hat{I}\)</span> is positive which can be rearranged as <span class="arithmatex">\(\beta\theta/d &gt; d + v + \gamma\)</span>.</p>
-<p>Now that we have the equilibria, the next step is to calculate the Jacobian. Letting <span class="arithmatex">\(x_1=S\)</span> and <span class="arithmatex">\(x_2=I\)</span> we have <span class="arithmatex">\(f_1(x_1,x_2)=\mathrm{d}S/\mathrm{d}t\)</span> and <span class="arithmatex">\(f_2(x_1,x_2)=\mathrm{d}I/\mathrm{d}t\)</span>. The Jacobian is therefore</p>
-<div class="arithmatex">\[\begin{aligned}
-\mathbf{J} 
-&amp;= 
-\begin{pmatrix}
-\frac{\partial}{\partial S}\left(\frac{\mathrm{d}S}{\mathrm{d}t}\right) &amp; \frac{\partial}{\partial I}\left(\frac{\mathrm{d}S}{\mathrm{d}t}\right) \\
-\frac{\partial}{\partial S}\left(\frac{\mathrm{d}I}{\mathrm{d}t}\right) &amp; \frac{\partial}{\partial I}\left(\frac{\mathrm{d}I}{\mathrm{d}t}\right)
-\end{pmatrix}\\
-&amp;=
-\begin{pmatrix}
--d-\beta I &amp; -\beta S+\gamma \\
-\beta I &amp; \beta S-(d+v+\gamma)
-\end{pmatrix}
-\end{aligned}\]</div>
-<p>We can now determine the local stability of an equilibrium by evaluating the Jacobian at that equilibrium and calculating the eigenvalues. </p>
-<p>Let's do that first for the simpler disease-free equilibrium, where there are no infected individuals, <span class="arithmatex">\(\hat{I}=0\)</span>, and the number of susceptibles is a balance of immigration and death, <span class="arithmatex">\(\hat{S} = \theta/d\)</span>. Plugging these into the Jacobian gives </p>
-<div class="arithmatex">\[\begin{aligned}
-\mathbf{J}_\mathrm{disease-free} 
-&amp;= 
-\begin{pmatrix}
--d &amp; -\beta \theta/d+\gamma \\
-0 &amp; \beta \theta/d-(d+v+\gamma)
-\end{pmatrix}
-\end{aligned}\]</div>
-<p>This is an upper triangular matrix, so the eigenvalues are just the diagonal elements, <span class="arithmatex">\(\lambda = -d, \beta\theta/d-(d+v+\gamma)\)</span>. Because all the parameters are rates they are all non-negative, and therefore the only eigenvalue that can have a positive real part (and therefore cause instability) is <span class="arithmatex">\(\lambda=\beta\theta/d-(d+v+\gamma)\)</span>. The equilibrium is unstable when this is positive, <span class="arithmatex">\(\beta\theta/d-(d+v+\gamma)&gt;0\)</span>. Because this equilibrium has no infected individuals, instability in this case means the infected individuals will increase in number from rare -- ie, the disease can spread when rare. </p>
-<p>We can rearrange the instability condition to get a little more intuition. The disease will spread when rare whenever</p>
-<div class="arithmatex">\[\begin{aligned}
-\beta\theta/d - (d+v+\gamma)&amp; &gt; 0 \\
-\beta\theta/d &amp;&gt; d+v+\gamma \\
-\frac{\beta\theta/d}{d+v+\gamma} &amp;&gt; 1
-\end{aligned}\]</div>
-<p>The numerator is <span class="arithmatex">\(\beta\)</span> times the number of susceptibles at the disease-free equilibrium, <span class="arithmatex">\(\hat{S}=\theta/d\)</span>. This is the rate that a rare disease infects new individuals. The denominator is the rate at which the disease is removed from the population. Therefore a rare disease that infects faster than it is removed can spread. This ratio, in our case <span class="arithmatex">\(\frac{\beta\theta/d}{d+v+\gamma}\)</span>, is termed <span class="arithmatex">\(R_0\)</span> and is a very key epidemiological quantity (you may remember estimates of <span class="arithmatex">\(R_0\)</span> in the news from a certain recent virus...).</p>
-<p>Now for the endemic equilibrium. Plugging these values into the Jacobian and simplifying gives</p>
-<div class="arithmatex">\[\begin{aligned}
-\mathbf{J}_\mathrm{endemic} 
-&amp;= 
-\begin{pmatrix}
--\frac{\beta \theta - d \gamma}{d+v} &amp; -(d+v) \\
-\frac{\beta \theta - d (d+v+\gamma)}{d+v} &amp; 0
-\end{pmatrix}
-\end{aligned}\]</div>
-<p>Here, instead of calculating the eigenvalues explicitly, we will use the <strong>Routh-Hurwitz stability criteria</strong> for a 2x2 matrix.</p>
-<div class="admonition note">
-<p class="admonition-title">Routh-Hurwitz stability criteria for a 2x2 matrix</p>
-<p>When working with 2x2 matrices, there is a simple way to determine if both the eigenvalues have negative real parts (ie, if the equilibrium is stable) without having to calculate the eigenvalues themselves. These are called the Routh-Hurwitz stability criteria (and extend to larger matrices but we won't cover that here).</p>
-<p>Recall that for a 2x2 matrix, <span class="arithmatex">\(\mathbf{M}\)</span>, the eigenvalues can be written </p>
-<div class="arithmatex">\[\lambda = \frac{\mathrm{Tr}(\mathbf{M}) \pm \sqrt{\mathrm{Tr}(\mathbf{M})^2 - 4\mathrm{Det}(\mathbf{M})}}{2}\]</div>
-<p>First notice that the product of the two eigenvalues is <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})\)</span> (you may want to check that for yourself). This means that the two eigenvalues have the same sign if and only if <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})&gt;0\)</span>.</p>
-<p>Second, notice that the sum of the two eigenvalues is <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M})\)</span>. </p>
-<p>We therefore know that the real parts of both eigenvalues will be negative (ie, the equilibrium will be stable) if and only if <span class="arithmatex">\(\mathrm{Det}(\mathbf{M})&gt;0\)</span> and <span class="arithmatex">\(\mathrm{Tr}(\mathbf{M})&lt;0\)</span>.</p>
-</div>
-<p>The determinant is <span class="arithmatex">\(\beta \theta - d (d+v+\gamma)\)</span>, so for this to be positive we need <span class="arithmatex">\(\beta \theta/d &gt; (d+v+\gamma)\)</span>, which was our validity condition (above) and also the instability condition on the disease-free equilibrium (<span class="arithmatex">\(R_0&gt;1\)</span>). The trace is <span class="arithmatex">\(-\frac{\beta \theta - d \gamma}{d+v}\)</span>, so for this to be negative we need <span class="arithmatex">\(\beta \theta/d &gt; \gamma\)</span>, which is guaranteed if the determinant is positive. So in conclusion, the endemic equilibrium is valid and stable whenever the disease can invade, <span class="arithmatex">\(R_0&gt;1\)</span>.</p>
 <p><span id='section2'></span></p>
 <h2 id="2-discrete-time">2. Discrete time</h2>
 <hr>
@@ -1286,13 +1200,13 @@ x_n(t+1) &amp;=  f_n(x_1(t), x_2(t), ..., x_n(t))\\
       
       
         
-        <a href="../../labs/schedule/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedule" rel="next">
+        <a href="../lecture-16/" class="md-footer__link md-footer__link--next" aria-label="Next: Lecture 16" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Schedule
+              Lecture 16
             </div>
           </div>
           <div class="md-footer__button md-icon">
