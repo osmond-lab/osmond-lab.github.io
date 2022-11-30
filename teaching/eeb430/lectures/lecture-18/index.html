@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../images/favicon_non_transparent.svg">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
     
     
       
@@ -17,13 +17,23 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
+  
+  
+    
+    
+    
+  
+  
+  <style>.md-tag-icon{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 7A1.5 1.5 0 0 1 4 5.5 1.5 1.5 0 0 1 5.5 4 1.5 1.5 0 0 1 7 5.5 1.5 1.5 0 0 1 5.5 7m15.91 4.58-9-9C12.05 2.22 11.55 2 11 2H4c-1.11 0-2 .89-2 2v7c0 .55.22 1.05.59 1.41l8.99 9c.37.36.87.59 1.42.59.55 0 1.05-.23 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.56-.23-1.06-.59-1.42Z"/></svg>');}</style>
+
     
     
     
@@ -42,6 +52,7 @@
     
       
 
+    
     
     
   </head>
@@ -130,7 +141,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -1163,10 +1174,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <script type="text/x-thebe-config">
@@ -1203,6 +1215,10 @@
 <li><a href="#section5">Binomial random variable</a></li>
 <li><a href="#section6">Genetic drift</a></li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">credits</p>
+<p>This lecture was created by PhD student Puneeth Deraje as part of a course development TA position -- thanks Puneeth! If you are following along with the text, this lecture does not follow along as closely.</p>
+</div>
 <p>Until now we have been dealing with deterministic models, i.e., given the value of the variables at time <span class="arithmatex">\(t\)</span>, we know exactly what the values will be at the next time. However, life is a little bit more random than that. Stochasticity (i.e., chance) is inherent in nature and can significantly alter the outcomes. In order to capture the effect of this stochasticity, we need some tools from <strong>probability theory</strong>.</p>
 <p><span id='section1'></span></p>
 <h2 id="1-discrete-random-variables">1. Discrete random variables</h2>
@@ -1324,7 +1340,7 @@ plt.ylabel('Var($X$)')
 plt.show()
 </pre>
 
-<p><img alt="png" src="../lecture-18_files/lecture-18_15_0.png" /></p>
+<p><img alt="png" src="../lecture-18_files/lecture-18_16_0.png" /></p>
 <p>Note that for <span class="arithmatex">\(p=0\)</span> or <span class="arithmatex">\(p=1\)</span> we have Var(<span class="arithmatex">\(X\)</span>) = 0, i.e., there is no uncertainity. Further note that Var(<span class="arithmatex">\(X\)</span>) = <span class="arithmatex">\(p(1-p)\)</span> peaks at <span class="arithmatex">\(p=0.5\)</span>, i.e., the highest uncertainity is associated with the toss of a fair coin.</p>
 <h3 id="properties-of-variance">Properties of variance</h3>
 <ol>
@@ -1375,8 +1391,8 @@ plt.show()
 <p class="admonition-title">Binomial random variable</p>
 <p>In general we could have <span class="arithmatex">\(N\)</span> coins. Let <span class="arithmatex">\(X_i\)</span> denote the outcome of the <span class="arithmatex">\(i^{\mathrm{th}}\)</span> toss, which is Ber(<span class="arithmatex">\(p\)</span>) and independent of all other tosses. Then the sum over all <span class="arithmatex">\(N\)</span> Bernoulli random variables, <span class="arithmatex">\(X = X_1 + X_2 + ... + X_N\)</span>, is called a <strong>binomial random variable</strong> with parameters <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\(p\)</span>, and is denoted by Bin(<span class="arithmatex">\(N,p\)</span>).</p>
 <p>The expectation of a binomial random variable is</p>
-<p><span class="arithmatex">\(<span class="arithmatex">\(\mathbb{E}(X) = Np\)</span>\)</span> 
-and its variance is</p>
+<div class="arithmatex">\[\mathbb{E}(X) = Np\]</div>
+<p>and its variance is</p>
 <div class="arithmatex">\[\mathrm{Var}(X) = Np(1-p)\]</div>
 <p>Moreover, we can compute the probability of a binomial random variable <span class="arithmatex">\(X\sim\)</span>Bin(<span class="arithmatex">\(N,p\)</span>) taking value <span class="arithmatex">\(k\)</span>, as </p>
 <div class="arithmatex">\[P(X = k) = {N \choose k} p^k (1-p)^{N-k}\]</div>
@@ -1399,12 +1415,10 @@ p_{t+1} = \frac{p_t W_A }{p_t W_A + (1-p_t)W_a}
 \]</div>
 <p>where <span class="arithmatex">\(W_A\)</span> is the fitness of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(W_a\)</span> is the fitness of <span class="arithmatex">\(a\)</span>.</p>
 <p>One unspoken assumption here is that the population size is infinitely large (or at least sufficiently big). In reality, populations are not infinitely large and may even be quite small. This finiteness introduces stochasticity, which in evolution we call <strong>genetic drift</strong>. One well-known model that incorporates genetic drift is the <strong>Wright-Fisher model</strong>. This model assumes that there are <span class="arithmatex">\(N\)</span> diploid individuals in generation <span class="arithmatex">\(t\)</span>, each of which produce an infinite number of haploid gametes, of which <span class="arithmatex">\(2N\)</span> are randomly sampled to form the diploid individuals of generation <span class="arithmatex">\(t+1\)</span>. Here, with haploid selection, we assume the frequency of gametes changes due to selection before sampling for the next generation.</p>
-<p>```mermaid
-graph TD
+<pre class="mermaid"><code>graph TD
     A[N diploids at t] --&gt; B[Infinite haploids before selection];
     B --&gt; C[Infinite haploids after selection];
-    C --&gt; D[N diploids at t+1];
-</pre></p>
+    C --&gt; D[N diploids at t+1];</code></pre>
 <p>So, let <span class="arithmatex">\(p_t\)</span> be the frequency of allele <span class="arithmatex">\(A\)</span> in generation <span class="arithmatex">\(t\)</span>. Each diploid individual contributes an infinite number of gametes, so the frequency of <span class="arithmatex">\(A\)</span> in the gamete pool is also <span class="arithmatex">\(p_t\)</span>. Now selection acts on the gamete pool, altering the frequencies as in our original model, so that the frequency of <span class="arithmatex">\(A\)</span> in the gamete pool is now <span class="arithmatex">\(p_t' = \frac{p_tW_A }{p_t W_A + (1-p_t)W_a}\)</span>. We then sample <span class="arithmatex">\(2N\)</span> gametes to form the next diploid generation. For each gamete we pick there is a probability <span class="arithmatex">\(p'_t\)</span> that it has allele <span class="arithmatex">\(A\)</span> and a probability <span class="arithmatex">\(1-p'_t\)</span> that it has allele <span class="arithmatex">\(a\)</span>. Let <span class="arithmatex">\(X\)</span> be the number of <span class="arithmatex">\(A\)</span> alleles in a randomly chosen gamete. Then <span class="arithmatex">\(X\sim\)</span>Ber<span class="arithmatex">\((p'_t)\)</span> and the total number of <span class="arithmatex">\(A\)</span> alleles after <span class="arithmatex">\(2N\)</span> samples, <span class="arithmatex">\(n_A(t+1)\)</span>, is the sum of <span class="arithmatex">\(2N\)</span> Bernoulli random variables, implying <span class="arithmatex">\(n_A(t+1)\sim\)</span>Bin<span class="arithmatex">\((2N,p'_t)\)</span>. The frequency of allele <span class="arithmatex">\(A\)</span> in the next generation is then</p>
 <div class="arithmatex">\[\begin{aligned} 
 p_{t+1} 
@@ -1426,16 +1440,19 @@ p_{t+1}
 &amp;= \frac{2Np_t'(1-p_t')}{4N^2}\\
 &amp;= \frac{p_t'(1-p_t')}{2N}
 \end{aligned}\]</div>
-<p>Note that the expectation is as before and that the variance goes to 0 as <span class="arithmatex">\(N\)</span> goes to infinity. Therefore, in an infinitely large population, the frequency of <span class="arithmatex">\(A\)</span> in the next generation is <span class="arithmatex">\(p_{t+1} = p_t'\)</span> with no uncertainity. This recovers the one-locus haploid selection model from earlier in the course. </p>
+<p>The expectation is as before -- the population size is irrelevant. The variance, however, is largest when the population size is small and the expected frequency is near 0.5 (just as we saw for a general binomial random variable above).  </p>
+<p>Note that variance goes to 0 as <span class="arithmatex">\(N\)</span> goes to infinity. Therefore, in an infinitely large population, the frequency of <span class="arithmatex">\(A\)</span> in the next generation is <span class="arithmatex">\(p_{t+1} = p_t'\)</span> with no uncertainity. This recovers the one-locus haploid selection model from earlier in the course. </p>
 <p>In the next lab we'll learn how to simulate this stochastic model of evolution.</p>
 
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -1499,10 +1516,10 @@ p_{t+1}
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
         <script src="../../javascripts/mathjax.js"></script>
       
