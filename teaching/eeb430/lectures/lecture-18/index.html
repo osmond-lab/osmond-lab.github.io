@@ -1403,20 +1403,20 @@ plt.show()
 <p>Finally, if <span class="arithmatex">\(p=0.5\)</span> then <span class="arithmatex">\(\mathbb{E}(X) = 1\)</span> and <span class="arithmatex">\(\mathrm{Var}(X)=1\)</span>. With a fair coin we expect to have 1 chocolate but there is some uncertainity since we could end up with 0, 1, or 2.</p>
 <div class="admonition note">
 <p class="admonition-title">Binomial random variable</p>
-<p>In general we could have <span class="arithmatex">\(N\)</span> coins. Let <span class="arithmatex">\(X_i\)</span> denote the outcome of the <span class="arithmatex">\(i^{\mathrm{th}}\)</span> toss, which is Ber(<span class="arithmatex">\(p\)</span>) and independent of all other tosses. Then the sum over all <span class="arithmatex">\(N\)</span> Bernoulli random variables, <span class="arithmatex">\(X = X_1 + X_2 + ... + X_N\)</span>, is called a <strong>binomial random variable</strong> with parameters <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\(p\)</span>, and is denoted by Bin(<span class="arithmatex">\(N,p\)</span>).</p>
+<p>In general we could have <span class="arithmatex">\(n\)</span> coins. Let <span class="arithmatex">\(X_i\)</span> denote the outcome of the <span class="arithmatex">\(i^{\mathrm{th}}\)</span> toss, which is Ber(<span class="arithmatex">\(p\)</span>) and independent of all other tosses. Then the sum over all <span class="arithmatex">\(n\)</span> Bernoulli random variables, <span class="arithmatex">\(X = X_1 + X_2 + ... + X_n\)</span>, is called a <strong>binomial random variable</strong> with parameters <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(p\)</span>, and is denoted by Bin(<span class="arithmatex">\(n,p\)</span>).</p>
 <p>The expectation of a binomial random variable is</p>
-<div class="arithmatex">\[\mathbb{E}(X) = Np\]</div>
+<div class="arithmatex">\[\mathbb{E}(X) = np\]</div>
 <p>and its variance is</p>
-<div class="arithmatex">\[\mathrm{Var}(X) = Np(1-p)\]</div>
-<p>Moreover, we can compute the probability of a binomial random variable <span class="arithmatex">\(X\sim\)</span>Bin(<span class="arithmatex">\(N,p\)</span>) taking value <span class="arithmatex">\(k\)</span>, as </p>
-<div class="arithmatex">\[P(X = k) = {N \choose k} p^k (1-p)^{N-k}\]</div>
-<p>where <span class="arithmatex">\({N \choose k}\)</span> is read "N choose k" and is the number of ways of choosing <span class="arithmatex">\(k\)</span> items from <span class="arithmatex">\(N\)</span> options. Mathematically, </p>
+<div class="arithmatex">\[\mathrm{Var}(X) = np(1-p)\]</div>
+<p>Moreover, we can compute the probability of a binomial random variable <span class="arithmatex">\(X\sim\)</span>Bin(<span class="arithmatex">\(n,p\)</span>) taking value <span class="arithmatex">\(k\)</span>, as </p>
+<div class="arithmatex">\[P(X = k) = {n \choose k} p^k (1-p)^{n-k}\]</div>
+<p>where <span class="arithmatex">\({n \choose k}\)</span> is read "<span class="arithmatex">\(n\)</span> choose <span class="arithmatex">\(k\)</span>" and is the number of ways of choosing <span class="arithmatex">\(k\)</span> items from <span class="arithmatex">\(n\)</span> options. Mathematically, </p>
 <div class="arithmatex">\[\begin{aligned}
-{N \choose k} 
-&amp;= \frac{N}{k} {N-1 \choose k-1}\\
-&amp;= \frac{N}{k} \frac{N-1}{k-1} {N-2 \choose k-2}\\
+{n \choose k} 
+&amp;= \frac{n}{k} {n-1 \choose k-1}\\
+&amp;= \frac{n}{k} \frac{n-1}{k-1} {n-2 \choose k-2}\\
 &amp;= \vdots\\
-&amp;= \frac{N (N-1) (N-2)\cdots (N-k+1)}{k(k-1)(k-2)\cdots 1} 
+&amp;= \frac{n (n-1) (n-2)\cdots (n-k+1)}{k(k-1)(k-2)\cdots 1} 
 \end{aligned}\]</div>
 </div>
 <p><span id='section6'></span></p>

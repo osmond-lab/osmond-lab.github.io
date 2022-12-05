@@ -1018,47 +1018,46 @@
 <p>In <a href="../lecture-18/">Lecture 18</a> we learned how to model stochasticity in population genetics (genetic drift). In this lecture we'll learn how to model stochasticity in population dynamics (<strong>demographic stochasticity</strong>). </p>
 <p>To do so we'll work with the simplest model of population dynamics possible, exponential growth (see <a href="../lecture-03/">Lecture 3</a>). In discrete time this is</p>
 <div class="arithmatex">\[n_{t+1} = R n_t\]</div>
-<p>where <span class="arithmatex">\(n_t\)</span> is the number of individuals at time <span class="arithmatex">\(t\)</span> and <span class="arithmatex">\(R\)</span> is the reproductive factor. In this deterministic model every individual had a reproductive factor of exactly <span class="arithmatex">\(R\)</span> at every time step. In reality there will be stochasticity in <span class="arithmatex">\(R\)</span> across individuals and time. Here we will treat <span class="arithmatex">\(R\)</span> as a random variable. </p>
+<p>where <span class="arithmatex">\(n_t\)</span> is the number of individuals at time <span class="arithmatex">\(t\)</span> and <span class="arithmatex">\(R\)</span> is the reproductive factor. In this deterministic model every individual had a reproductive factor of exactly <span class="arithmatex">\(R\)</span> at every time step. In reality there will be stochasticity in <span class="arithmatex">\(R\)</span> across individuals and time. We can account for that by replacing <span class="arithmatex">\(R\)</span> with a random variable. </p>
 <p><span id='section1'></span></p>
 <h2 id="1-poisson-random-variable">1. Poisson random variable</h2>
 <hr>
 
-<p>Recall the binomial random variable from the previous lecture, <span class="arithmatex">\(X \sim \mathrm{Bin}(N,p)\)</span>. The probability this random variable takes on value <span class="arithmatex">\(k\)</span> is then </p>
-<div class="arithmatex">\[\Pr(X = k) = {N \choose k} p^k (1-p)^{N-k}\]</div>
-<p>We could model the reproductive factor as a binomial random variable. For example, perhaps each individual at time <span class="arithmatex">\(t\)</span> produces <span class="arithmatex">\(N\)</span> offspring before dying, and each offspring survives to become an adult with probability <span class="arithmatex">\(p\)</span>. Using this model requires estimates of two parameters, <span class="arithmatex">\(N\)</span> and <span class="arithmatex">\(p\)</span>. But there is a simpler way.</p>
-<p>Let the mean number of offspring produced be <span class="arithmatex">\(\lambda=Np\)</span>. Rearranging this in terms of <span class="arithmatex">\(p\)</span>, we can write the binomial as <span class="arithmatex">\(X\sim \mathrm{Bin}(N,\lambda/N)\)</span>. Note that the mean is always <span class="arithmatex">\(\lambda\)</span>, regardless of <span class="arithmatex">\(N\)</span>. Now imagine that individuals in the population we are modelling tend to have a very large number of offspring, very few of which survive. We can approximate this in the extreme by taking <span class="arithmatex">\(N\rightarrow \infty\)</span>. Let <span class="arithmatex">\(Y\)</span> be this random variable, <span class="arithmatex">\(Y = \lim_{N \rightarrow \infty} \mathrm{Bin}(N, \lambda/N))\)</span>. The distribution of <span class="arithmatex">\(Y\)</span> is then </p>
+<p>Recall the binomial random variable from the previous lecture, <span class="arithmatex">\(X \sim \mathrm{Bin}(n,p)\)</span>. The probability this random variable takes on value <span class="arithmatex">\(k\)</span> is then </p>
+<div class="arithmatex">\[\Pr(X = k) = {n \choose k} p^k (1-p)^{n-k}\]</div>
+<p>We could model the reproductive factor as a binomial random variable. For example, perhaps each individual at time <span class="arithmatex">\(t\)</span> produces <span class="arithmatex">\(n\)</span> offspring before dying, and each offspring survives to become an adult with probability <span class="arithmatex">\(p\)</span>. Using this model requires estimates of two parameters, <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(p\)</span>. But there is a simpler way.</p>
+<p>Let the mean number of offspring produced be <span class="arithmatex">\(\lambda=np\)</span>. Rearranging this in terms of <span class="arithmatex">\(p\)</span>, we can write the binomial as <span class="arithmatex">\(X\sim \mathrm{Bin}(n,\lambda/n)\)</span>. Note that the mean is always <span class="arithmatex">\(\lambda\)</span>, regardless of <span class="arithmatex">\(n\)</span>. Now imagine that individuals in the population we are modelling tend to have a very large number of offspring, very few of which survive. We can approximate this in the extreme by taking <span class="arithmatex">\(n\rightarrow \infty\)</span>. Let <span class="arithmatex">\(Y\)</span> be this random variable, <span class="arithmatex">\(Y = \lim_{n \rightarrow \infty} \mathrm{Bin}(n, \lambda/n))\)</span>. The distribution of <span class="arithmatex">\(Y\)</span> is then </p>
 <div class="arithmatex">\[
 \begin{aligned}
-\Pr(Y=k) &amp;= \lim_{N \rightarrow \infty} {N \choose k} \left(\frac{\lambda}{N}\right)^k \left(1-\frac{\lambda}{N}\right)^{N-k} \\
-&amp;= \lim_{N \rightarrow \infty} \frac{N(N-1)(N-2)...(N-k+1)}{k(k-1)...1} \left(\frac{\lambda}{N}\right)^k \left(1-\frac{\lambda}{N}\right)^{N-k} \\
-&amp;= \lim_{N \rightarrow \infty} \frac{N(N-1)(N-2)...(N-k+1)}{k!} \frac{\lambda^k}{N^k} \left(1-\frac{\lambda}{N}\right)^{N-k}\\
-&amp;= \frac{\lambda^k}{k!}\lim_{N \rightarrow \infty} \frac{N(N-1)(N-2)...(N-k+1)}{N^k} \left(1-\frac{\lambda}{N}\right)^{N-k}\\
-&amp;= \frac{\lambda^k}{k!}\lim_{N \rightarrow \infty} 1\left(1-\frac{1}{N}\right)\left(1-\frac{2}{N}\right)...\left(1-\frac{k-1}{N}\right) \left(1-\frac{\lambda}{N}\right)^{N-k}\\
-&amp;= \frac{\lambda^k}{k!}\lim_{N \rightarrow \infty} \left(1-\frac{\lambda}{N}\right)^{N-k}\\
+\Pr(Y=k) &amp;= \lim_{n \rightarrow \infty} {n \choose k} \left(\frac{\lambda}{n}\right)^k \left(1-\frac{\lambda}{n}\right)^{n-k} \\
+&amp;= \lim_{n \rightarrow \infty} \frac{n(n-1)(n-2)...(n-k+1)}{k!} \frac{\lambda^k}{n^k} \left(1-\frac{\lambda}{n}\right)^{n-k}\\
+&amp;= \frac{\lambda^k}{k!}\lim_{n \rightarrow \infty} \frac{n(n-1)(n-2)...(n-k+1)}{n^k} \left(1-\frac{\lambda}{n}\right)^{n-k}\\
+&amp;= \frac{\lambda^k}{k!}\lim_{n \rightarrow \infty} 1\left(1-\frac{1}{n}\right)\left(1-\frac{2}{n}\right)...\left(1-\frac{k-1}{n}\right) \left(1-\frac{\lambda}{n}\right)^{n-k}\\
+&amp;= \frac{\lambda^k}{k!}\lim_{n \rightarrow \infty} \left(1-\frac{\lambda}{n}\right)^{n-k}\\
 &amp;= \frac{\lambda^k e^{-\lambda}}{k!}
 \end{aligned}
 \]</div>
 <p>We call <span class="arithmatex">\(Y\)</span> a <strong>Poisson random variable</strong> with mean <span class="arithmatex">\(\lambda\)</span> and denoted it by <span class="arithmatex">\(Y\sim\mathrm{Poi}(\lambda)\)</span>. We can now model the reproductive factor as a random variable with only one parameter, <span class="arithmatex">\(\lambda\)</span>. </p>
-<p>Note that the simpler Poisson distribution is a good approximation of the binomial distribution even for relatively small values of <span class="arithmatex">\(N\)</span>, as seen in the plot below.</p>
+<p>Note that the simpler Poisson distribution is a good approximation of the binomial distribution even for fairly moderate values of <span class="arithmatex">\(n\)</span>, as seen in the plot below.</p>
 <pre data-executable="true" data-language="python">
 import sympy
 import numpy as np
 import matplotlib.pyplot as plt
 
-def binomial(N,p,k):
-    return sympy.binomial(N,k) * p**k * (1-p)**(N-k)
+def binomial(n,p,k):
+    return sympy.binomial(n,k) * p**k * (1-p)**(n-k)
 
 def poisson(lam,k):
     return lam**k * np.exp(-lam)/sympy.factorial(k)
 
-N = 100
+n = 100
 p = 0.1
-lam = N*p
-ks = range(N+1)
+lam = n*p
+ks = range(n+1)
 
 fig, ax = plt.subplots()
 
-ax.plot(ks, [binomial(N,p,k) for k in ks], label='binomial')
+ax.plot(ks, [binomial(n,p,k) for k in ks], label='binomial')
 ax.plot(ks, [poisson(lam,k) for k in ks], label='Poisson')
 
 ax.set_xlabel('number of successes')
@@ -1072,9 +1071,9 @@ plt.show()
 <p>1) the variance is equal to the mean</p>
 <div class="arithmatex">\[ 
 \begin{aligned} 
-\mathrm{Var}(Y) &amp;= \lim_{N \rightarrow \infty} \mathrm{Var}\left(\mathrm{Bin}\left(N,\frac{\lambda}{N}\right)\right) \\
-&amp;= \lim_{N \rightarrow \infty} N \frac{\lambda}{N} \left(1-\frac{\lambda}{N}\right) \\
-&amp;= \lambda  \lim_{N \rightarrow \infty} \left(1-\frac{\lambda}{N}\right) \\
+\mathrm{Var}(Y) &amp;= \lim_{n \rightarrow \infty} \mathrm{Var}\left(\mathrm{Bin}\left(n,\frac{\lambda}{n}\right)\right) \\
+&amp;= \lim_{n \rightarrow \infty} n \frac{\lambda}{n} \left(1-\frac{\lambda}{n}\right) \\
+&amp;= \lambda  \lim_{n \rightarrow \infty} \left(1-\frac{\lambda}{n}\right) \\
 &amp;= \lambda
 \end{aligned}
 \]</div>
@@ -1085,21 +1084,20 @@ plt.show()
 <hr>
 
 <p>We can now model demographic stochasticity with the Poisson distribution. </p>
-<p>Assume each individual in the population produces a Poisson number of offsprings with mean <span class="arithmatex">\(R\)</span>, independent of all other individuals in the populations, and then dies. Let the number of offspring for individual <span class="arithmatex">\(i\)</span> be <span class="arithmatex">\(X_i\sim\mathrm{Poi}(R)\)</span>. Then the population size in the next generation is distributed like the sum of <span class="arithmatex">\(n_t\)</span> independent and identical Poisson's</p>
+<p>Assume each individual in the population produces a Poisson number of surviving offspring with mean <span class="arithmatex">\(\lambda\)</span>, independent of all other individuals in the populations, and then dies. Write the number of offspring for individual <span class="arithmatex">\(i\)</span> as <span class="arithmatex">\(X_i\sim\mathrm{Poi}(\lambda)\)</span>. Let the current number of individuals be <span class="arithmatex">\(n_t\)</span>. Then the population size in the next generation, <span class="arithmatex">\(n_{t+1}\)</span>, is distributed like the sum of <span class="arithmatex">\(n_t\)</span> independent and identical Poisson's</p>
 <div class="arithmatex">\[\begin{aligned}
-n_{t+1} &amp;\sim \sum_{i=1}^{n_t}\mathrm{Poi}(R)\\
-&amp;= \mathrm{Poi}\left(\sum_{i=1}^{n_t} R\right) \\
-&amp;= \mathrm{Poi}(R n_t) \\
+n_{t+1} &amp;\sim \sum_{i=1}^{n_t}\mathrm{Poi}(\lambda)\\
+&amp;= \mathrm{Poi}\left(\sum_{i=1}^{n_t} \lambda\right) \\
+&amp;= \mathrm{Poi}(\lambda n_t) \\
 \end{aligned}\]</div>
-<p>This implies that the mean population size in the next generation is <span class="arithmatex">\(Rn_t\)</span>, as is the variance. In Lab 11 we'll simulate this to get a better sense of the resulting dynamics.</p>
+<p>This implies that the expected population size in the next generation is <span class="arithmatex">\(\lambda n_t\)</span>, as is the variance. In Lab 11 we'll simulate this to get a better sense of the resulting dynamics.</p>
 <p><span id='section3'></span></p>
 <h2 id="3-extinction">3. Extinction</h2>
 <hr>
 
 <p>Let us now look at one property of this model -- the probability of extinction.</p>
 <p>Consider a given individual at time <span class="arithmatex">\(t\)</span>. Let <span class="arithmatex">\(\eta\)</span> be the probability this individual does not have descendants in the long-term, i.e., that its lineage goes extinct.</p>
-<p>To find <span class="arithmatex">\(\eta\)</span> we note that the probability that this lineage goes extinct, <span class="arithmatex">\(\eta\)</span>, is also the probability that individual produces <span class="arithmatex">\(k\)</span> offspring and each of those offspring lineages goes extinct. Summing over <span class="arithmatex">\(k\)</span> this is <span class="arithmatex">\(\sum_{k=0}^{\infty} (e^{-\lambda}\lambda^k/k!) \eta^k\)</span>. </p>
-<p>This implies that</p>
+<p>To find <span class="arithmatex">\(\eta\)</span> we note that the probability that this lineage goes extinct, <span class="arithmatex">\(\eta\)</span>, is the probability that this individual has <span class="arithmatex">\(k\)</span> surviving offspring (for all values of <span class="arithmatex">\(k\)</span>) and all of those offspring lineages go extinct (with probability <span class="arithmatex">\(\eta^k\)</span>). Given the probability of having <span class="arithmatex">\(k\)</span> surviving offspring is <span class="arithmatex">\(\lambda^k e^{-\lambda}/k!\)</span>, this implies</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \eta 
@@ -1109,7 +1107,7 @@ n_{t+1} &amp;\sim \sum_{i=1}^{n_t}\mathrm{Poi}(R)\\
 &amp;= e^{-\lambda (1-\eta)}
 \end{aligned}
 \]</div>
-<p>One solution is <span class="arithmatex">\(\eta=1\)</span>, certain extinction. But there can be a second biologically valid solution (between 0 and 1), meaning that extinction is not certain. This occurs when the mean number of offspring is greater than one, <span class="arithmatex">\(\lambda&gt;1\)</span>, as shown in plot below (the solutions are where the curve intersects the 1:1 line).</p>
+<p>One solution is <span class="arithmatex">\(\eta=1\)</span>, certain extinction. But there can be a second biologically valid solution (between 0 and 1), meaning that extinction is not certain. This occurs when the mean number of surviving offspring is greater than one, <span class="arithmatex">\(\lambda&gt;1\)</span>, as shown in plot below (the solutions are where the curve intersects the 1:1 line).</p>
 <pre data-executable="true" data-language="python">
 xs = np.linspace(0,1,100)
 fig,ax=plt.subplots()
@@ -1128,14 +1126,14 @@ plt.show()
 <p><img alt="png" src="../lecture-19_files/lecture-19_11_0.png" /></p>
 <p>Above we calculated the probability a single lineage goes extinct, <span class="arithmatex">\(\eta\)</span>. From this, the probability that the entire population goes extinct is the probability that all <span class="arithmatex">\(n_t\)</span> lineages go extinct, <span class="arithmatex">\(\eta^{n_t}\)</span>. </p>
 <p>The two major conclusions from this are</p>
-<p>1) when the mean number of offspring per parent is <span class="arithmatex">\(R=1\)</span> the deterministic model predicts a constant population size but the stochastic model says that extinction is certain.</p>
-<p>2) when the mean number of offspring per parent is <span class="arithmatex">\(R&gt;1\)</span> the deterministic model predicts exponential growth but the stochastic model says there is still some non-zero probability of extinction.</p>
+<p>1) when the mean number of surviving offspring per parent is <span class="arithmatex">\(\lambda=1\)</span> the deterministic model predicts a constant population size but the stochastic model says that extinction is certain.</p>
+<p>2) when the mean number of surviving offspring per parent is <span class="arithmatex">\(\lambda&gt;1\)</span> the deterministic model predicts exponential growth but the stochastic model says there is still some non-zero probability of extinction.</p>
 <p><span id='section4'></span></p>
 <h2 id="4-establishment">4. Establishment</h2>
 <hr>
 
 <p>Before moving on, the above result about extinction is mathematically identical to a classic result in population genetics concerning the establishment of a beneficial allele.</p>
-<p>Consider a population at equilibrium such that the mean number of offspring per parent is 1. And now consider a beneficial allele that tends to have more offspring, <span class="arithmatex">\(\lambda&gt;1\)</span>. Then we know from above that there is some non-zero probability this lineage does not go extinct, <span class="arithmatex">\(\eta&lt;1\)</span>. Writing the above equation in terms of the <strong>establishment probability</strong> <span class="arithmatex">\(p=1-\eta\)</span> we have</p>
+<p>Consider a population at equilibrium such that the mean number of offspring per parent is 1. And now consider a beneficial allele that tends to have more offspring, <span class="arithmatex">\(\lambda&gt;1\)</span>. Then we know from above that there is some non-zero probability this lineage does not go extinct, <span class="arithmatex">\(\eta&lt;1\)</span>. Writing the above equation about extinction in terms of the <strong>establishment probability</strong>, <span class="arithmatex">\(p=1-\eta\)</span>, we have</p>
 <div class="arithmatex">\[\begin{aligned}
 \eta &amp;= e^{-\lambda (1-\eta)}\\
 1 - p &amp;= e^{-\lambda p}\\
