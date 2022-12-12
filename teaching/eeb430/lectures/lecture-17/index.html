@@ -770,8 +770,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-locus-population-genetics" class="md-nav__link">
-    Multi-locus population genetics
+  <a href="#1-multi-locus-population-genetics" class="md-nav__link">
+    1. Multi-locus population genetics
   </a>
   
 </li>
@@ -930,8 +930,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multi-locus-population-genetics" class="md-nav__link">
-    Multi-locus population genetics
+  <a href="#1-multi-locus-population-genetics" class="md-nav__link">
+    1. Multi-locus population genetics
   </a>
   
 </li>
@@ -957,7 +957,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -980,7 +980,10 @@
 <ol>
 <li><a href="#section1">Multi-locus population genetics</a></li>
 </ol>
-<h2 id="multi-locus-population-genetics">Multi-locus population genetics</h2>
+<p><span id='section1'></span></p>
+<h2 id="1-multi-locus-population-genetics">1. Multi-locus population genetics</h2>
+<hr>
+
 <p>In <a href="../lecture-15/">Lecture 15</a> we learned how to find equilibria and determine their stability in nonlinear multivariate models. In <a href="../lecture-16/">Lecture 16</a> we looked at a continuous-time example from epidemiology. Here, we'll extend the discrete-time dipliod selection model of <a href="../lecture-04/">Lecture 4</a> to multiple loci (see Section 8.3 in the text). </p>
 <p>Genomes contain many loci -- what new dynamics arise when we model more than one locus? Here we look at the simplest multi-locus model, with two loci each with two alleles. Let's denote the loci with letters, <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>, and the alleles at each with numbers, <span class="arithmatex">\(1\)</span> and <span class="arithmatex">\(2\)</span>. This gives a total of <span class="arithmatex">\(2^2=4\)</span> haploid genotypes, which we'll give frequencies <span class="arithmatex">\(x_1\)</span> to <span class="arithmatex">\(x_4\)</span> like so</p>
 <table>
@@ -1011,11 +1014,13 @@
 </table>
 <p>with the constraint that the total frequency sums to one, <span class="arithmatex">\(x_1+x_2+x_3+x_4 = 1\)</span>.</p>
 <p>To determine how these frequencies change from one generation to the next, let's first determine the order of events in a life-cycle diagram</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A((census)) --&gt; B((gamete union));
     B --&gt; C((selection));
     C --&gt; D((meiosis));    
     D --&gt; A;</code></pre>
+</center></p>
 <p>In words, we'll census the population in the gamete (haploid) phase while selection happens in the diploid phase.</p>
 <p>Next, to consider how the frequencies change through this life cyle, let's construct a life-cycle (mating) table. To do this, we need to consider what happens during meiosis when there are multiple loci. </p>
 <p>In the 1-locus models we analyzed earlier, meiosis meant Mendelian segregation: each allele is present in 1/2 of the gametes. Here, with 2 loci, things are slightly more complicated and we need to consider <strong>recombination</strong>. Every meiosis there is a chance, <span class="arithmatex">\(r\)</span>, of an odd number of crossover events between the two loci (<span class="arithmatex">\(r\)</span> will increase with the distance between the loci). When this happens the pairing of the alleles at loci A and B get swapped. This only has an effect in diploid individuals that are heterozygous at both loci ("double heterozygotes"), here <span class="arithmatex">\(A_1B_1\)</span> x <span class="arithmatex">\(A_2B_2\)</span> and <span class="arithmatex">\(A_1B_2\)</span> x <span class="arithmatex">\(A_2B_1\)</span>. Every time these individuals go through meiosis the original pairings are kept with probability <span class="arithmatex">\(1-r\)</span> and the alternative pairings are created with probability <span class="arithmatex">\(r\)</span>. </p>

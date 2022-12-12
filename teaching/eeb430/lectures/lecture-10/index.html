@@ -1039,7 +1039,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1072,6 +1072,7 @@
 <p>Until now, we have been dealing with problems in a single variable changing over time.</p>
 <p>Often, dynamical systems involve more than one variable (ie, they are <strong>multivariate</strong>). For instance, we may be interested in how the numbers of two species change as they interact (e.g., compete) with one another.</p>
 <p>As a simple example with more than one variable, consider a model tracking the number of birds on two islands. Let the number of birds on island 1 be <span class="arithmatex">\(n_1\)</span> and let the number of birds on island 2 be <span class="arithmatex">\(n_2\)</span>. We assume the birds migrate between the islands at per capita rates <span class="arithmatex">\(m_{12}\)</span> and <span class="arithmatex">\(m_{21}\)</span>, the birds on each island give birth at per capita rates <span class="arithmatex">\(b_1\)</span> and <span class="arithmatex">\(b_2\)</span>, the birds on each island die at per capita rates <span class="arithmatex">\(d_1\)</span> and <span class="arithmatex">\(d_2\)</span>, and new birds arrive on each island at rates <span class="arithmatex">\(m_1\)</span> and <span class="arithmatex">\(m_2\)</span>. This is captured in the following flow diagram</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A1((n1)) --b1 n1--&gt; A1;
     B1[ ] --m1--&gt; A1;
@@ -1088,6 +1089,7 @@
     style C1 height:0px;
     style B2 height:0px;
     style C2 height:0px;</code></pre>
+</center></p>
 <p>The rate of change in <span class="arithmatex">\(n_1\)</span> and <span class="arithmatex">\(n_2\)</span> are then described by the following system of differential equations</p>
 <div class="arithmatex">\[
 \begin{aligned}

@@ -1215,7 +1215,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1443,10 +1443,12 @@ p_{t+1} = \frac{p_t W_A }{p_t W_A + (1-p_t)W_a}
 \]</div>
 <p>where <span class="arithmatex">\(W_A\)</span> is the fitness of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(W_a\)</span> is the fitness of <span class="arithmatex">\(a\)</span>.</p>
 <p>One unspoken assumption here is that the population size is infinitely large (or at least sufficiently big). In reality, populations are not infinitely large and may even be quite small. This finiteness introduces stochasticity, which in evolution we call <strong>genetic drift</strong>. One well-known model that incorporates genetic drift is the <strong>Wright-Fisher model</strong>. This model assumes that there are <span class="arithmatex">\(N\)</span> diploid individuals in generation <span class="arithmatex">\(t\)</span>, each of which produce an infinite number of haploid gametes, of which <span class="arithmatex">\(2N\)</span> are randomly sampled to form the diploid individuals of generation <span class="arithmatex">\(t+1\)</span>. Here, with haploid selection, we assume the frequency of gametes changes due to selection before sampling for the next generation.</p>
+<p><center>
 <pre class="mermaid"><code>graph TD
     A[N diploids at t] --&gt; B[Infinite haploids before selection];
     B --&gt; C[Infinite haploids after selection];
     C --&gt; D[N diploids at t+1];</code></pre>
+</center></p>
 <p>So, let <span class="arithmatex">\(p_t\)</span> be the frequency of allele <span class="arithmatex">\(A\)</span> in generation <span class="arithmatex">\(t\)</span>. Each diploid individual contributes an infinite number of gametes, so the frequency of <span class="arithmatex">\(A\)</span> in the gamete pool is also <span class="arithmatex">\(p_t\)</span>. Now selection acts on the gamete pool, altering the frequencies as in our original model, so that the frequency of <span class="arithmatex">\(A\)</span> in the gamete pool is now <span class="arithmatex">\(p_t' = \frac{p_tW_A }{p_t W_A + (1-p_t)W_a}\)</span>. We then sample <span class="arithmatex">\(2N\)</span> gametes to form the next diploid generation. For each gamete we pick there is a probability <span class="arithmatex">\(p'_t\)</span> that it has allele <span class="arithmatex">\(A\)</span> and a probability <span class="arithmatex">\(1-p'_t\)</span> that it has allele <span class="arithmatex">\(a\)</span>. Let <span class="arithmatex">\(X\)</span> be the number of <span class="arithmatex">\(A\)</span> alleles in a randomly chosen gamete. Then <span class="arithmatex">\(X\sim\)</span>Ber<span class="arithmatex">\((p'_t)\)</span> and the total number of <span class="arithmatex">\(A\)</span> alleles after <span class="arithmatex">\(2N\)</span> samples, <span class="arithmatex">\(n_A(t+1)\)</span>, is the sum of <span class="arithmatex">\(2N\)</span> Bernoulli random variables, implying <span class="arithmatex">\(n_A(t+1)\sim\)</span>Bin<span class="arithmatex">\((2N,p'_t)\)</span>. The frequency of allele <span class="arithmatex">\(A\)</span> in the next generation is then</p>
 <div class="arithmatex">\[\begin{aligned} 
 p_{t+1} 

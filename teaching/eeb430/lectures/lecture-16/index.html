@@ -756,8 +756,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#epidemiology" class="md-nav__link">
-    Epidemiology
+  <a href="#1-epidemiology" class="md-nav__link">
+    1. Epidemiology
   </a>
   
 </li>
@@ -930,8 +930,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#epidemiology" class="md-nav__link">
-    Epidemiology
+  <a href="#1-epidemiology" class="md-nav__link">
+    1. Epidemiology
   </a>
   
 </li>
@@ -957,7 +957,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -980,10 +980,14 @@
 <ol>
 <li><a href="#section1">Epidemiology</a></li>
 </ol>
-<h2 id="epidemiology">Epidemiology</h2>
+<p><span id='section1'></span></p>
+<h2 id="1-epidemiology">1. Epidemiology</h2>
+<hr>
+
 <p>In <a href="../lecture-15/">Lecture 15</a> we learned how to find equilibria and determine their stability in nonlinear multivariate models. To make this more concrete, let's consider a biological example (see Section 8.2 in the text). </p>
 <p>Consider a population composed of <span class="arithmatex">\(S\)</span> susceptible individuals and <span class="arithmatex">\(I\)</span> infected individuals. We assume new susceptible individuals arrive at rate <span class="arithmatex">\(\theta\)</span> via immigration and existing susceptibles die at per capita rate <span class="arithmatex">\(d\)</span>. We assume infected individuals die at an elevated per capita rate <span class="arithmatex">\(d+v\)</span> and recover at per capita rate <span class="arithmatex">\(\gamma\)</span>. So far this is a linear (affine) model. Finally, we assume susceptibles become infected at rate <span class="arithmatex">\(\beta S I\)</span>. This is the non-linear part.</p>
 <p>We can describe this with the following flow diagram</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A[ ] --theta--&gt; S((S));
     S --beta S I--&gt; I((I));
@@ -994,6 +998,7 @@
     style A height:0px;
     style B height:0px;
     style C height:0px;</code></pre>
+</center></p>
 <p>The corresponding system of differential equations is</p>
 <div class="arithmatex">\[\begin{aligned}
 \frac{\mathrm{d}S}{\mathrm{d}t} &amp;= \theta - \beta S I - d S + \gamma I \\

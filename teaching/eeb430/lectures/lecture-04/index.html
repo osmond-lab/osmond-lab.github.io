@@ -1149,7 +1149,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1198,13 +1198,12 @@
 <p>We begin by examining a model where selection acts during the haploid phase of the life-cycle. This is a little simpler than diploid selection because there are only two haploid genotypes, <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(a\)</span>. It is also a very relevant model for species with long haploid phases (eg, some algae and fungi) or with strong competition during the haploid phase (eg, pollen competiting for ovules).</p>
 <h3 id="life-cycle-diagram">Life-cycle diagram</h3>
 <p>We first illustrate the structure of the model with a life-cycle diagram.</p>
-<p><center></p>
+<p><center>
 <pre class="mermaid"><code>    graph LR;
     A((random&lt;br&gt; union)) --diploid--&gt; B((meiosis));
     B --haploid--&gt; C((selection));
     C --haploid--&gt; A;</code></pre>
-<p></center></p>
-<p><center><sup>Figure. Life-cycle diagram of haploid selection</sup></center></p>
+</center></p>
 <p>We will census the population at the beginning of the haploid phase (immediately after meiosis).</p>
 <h3 id="deriving-the-equations">Deriving the equations</h3>
 <p>Let the number of haploid individuals with each allele be</p>
@@ -1274,13 +1273,12 @@ plt.show()
 <p>Since we are all currently in the diploid phase of our life-cycle, it is natural to ask: <em>Does selection in the diploid phase work the same way?</em></p>
 <h3 id="life-cycle-diagram_1">Life-cycle diagram</h3>
 <p>We now have the following life-cycle diagram.</p>
-<p><center></p>
+<p><center>
 <pre class="mermaid"><code>    graph LR;
     A((random&lt;br&gt; union)) --diploid--&gt; B((selection));
     B --diploid--&gt; C((meiosis));
     C --haploid--&gt; A;</code></pre>
-<p></center></p>
-<p><center><sup>Figure. Life-cycle diagram of diploid selection</sup></center></p>
+</center></p>
 <p>We will census at the beginning of the diploid phase (immediately after gamete union).</p>
 <h3 id="deriving-the-equations_1">Deriving the equations</h3>
 <p>Let the number of diploid individuals with each genotype be</p>
@@ -1404,7 +1402,7 @@ for t in ts: #for each time
 
 # plot
 plt.scatter(ts, ps_hap, label='haploid')
-plt.scatter(ts, ps_dip, label='diploid')
+plt.scatter(ts, ps_dip, s=10, label='diploid')
 plt.xlabel("generation, $t$")
 plt.ylabel("frequency of $A$ allele, $p_t$")
 plt.legend() #add legend to know which points belong to which model

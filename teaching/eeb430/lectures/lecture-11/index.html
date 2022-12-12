@@ -1025,7 +1025,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1132,7 +1132,7 @@ m_{11}
 <p>As a result, when we multiply a vector by a matrix with a determinant of zero we lose some information, and therefore cannot reverse the operation (as we will see when we discuss <strong>inverses</strong>). This is analagous to mutliplying by 0 in normal algebra -- if we multiply a bunch of different numbers by zero we have no way of knowing what the original numbers were.</p>
 <p>Geometrically, mutliplying multiple vectors by a matrix whose deteriminant is zero causes them to fall along a line. Below we multiply the two black vectors by a matrix whose determinant is zero to get the two red vectors, which line on the same line.</p>
 <pre data-executable="true" data-language="python">
-import matplotlib.pyplot as plt #import plotting library
+matplotlib.pyplot as plt #import plotting library
 from sympy import *
 
 v1 = Matrix([[2],[1]]) #column vector 1
@@ -1209,6 +1209,7 @@ plt.show()
 
 <p>With all this linear algebra knowledge in hand, let's use it!</p>
 <p>Let's return to our model for the number of birds on two islands</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A1((n1)) --b1 n1--&gt; A1;
     B1[ ] --m1--&gt; A1;
@@ -1225,6 +1226,7 @@ plt.show()
     style C1 height:0px;
     style B2 height:0px;
     style C2 height:0px;</code></pre>
+</center></p>
 <div class="arithmatex">\[
 \begin{aligned}
 \begin{pmatrix} \frac{\mathrm{d}n_1}{\mathrm{d}t} \\ \frac{\mathrm{d}n_2}{\mathrm{d}t} \end{pmatrix} 

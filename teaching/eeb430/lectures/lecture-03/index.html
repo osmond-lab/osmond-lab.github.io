@@ -1079,7 +1079,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1176,6 +1176,7 @@ ax.set_ylabel('Population size, $n_t$')
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-03_files/lecture-03_5_0.png" /></p>
 <h3 id="exponential-growth-in-continuous-time">Exponential growth in continuous time</h3>
 <p>Now assume that each individual continuously gives birth at rate <span class="arithmatex">\(b\)</span> and dies at rate <span class="arithmatex">\(d\)</span>.</p>
 <p>If there are <span class="arithmatex">\(n_t\)</span> individuals in the population at time <span class="arithmatex">\(t\)</span>, then the rate of change in the number of individuals is</p>
@@ -1217,6 +1218,7 @@ ax.set_ylabel('Population size, $n_t$')
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-03_files/lecture-03_7_0.png" /></p>
 <p>We can now combine our two plots to compare these two predictions, exponential growth in discrete vs. continuous time.</p>
 <pre data-executable="true" data-language="python">
 # Plot growth
@@ -1229,6 +1231,7 @@ plt.legend()
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-03_files/lecture-03_9_0.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Why the difference?</p>
 <p>The predictions are very similar at first but then noticeably diverge.  </p>
@@ -1271,6 +1274,7 @@ plt.ylim(0,None)
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-03_files/lecture-03_16_0.png" /></p>
 <p>The population size in the next generation is the expected number of offspring per parent times the the total number of parents</p>
 <div class="arithmatex">\[n_{t+1} = \left(1 + r\left(1-\frac{n_t}{K}\right)\right)n_t\]</div>
 <p>This is the recursion equation for logistic growth.</p>
@@ -1299,6 +1303,7 @@ ax.set_ylabel('Population size, $n_t$')
 plt.show()
 </pre>
 
+<p><img alt="png" src="../lecture-03_files/lecture-03_19_0.png" /></p>
 <h3 id="logistic-growth-in-continuous-time">Logistic growth in continuous time</h3>
 <p>The model of logistic growth in continuous time, as with discrete time, follows from the assumption that each individual has a <strong>growth rate</strong> that decreases as a linear function of the population size <span class="arithmatex">\(r(1 - n_t/K)\)</span>.</p>
 <p>If there are <span class="arithmatex">\(n_t\)</span> individuals in the population at time <span class="arithmatex">\(t\)</span>, then the rate of change of the population size will be</p>
@@ -1329,9 +1334,6 @@ plt.show()
 <div class="admonition todo">
 <p class="admonition-title">To do: make the above plots in Python</p>
 </div>
-<pre data-executable="true" data-language="python">
-
-</pre>
 
 
 

@@ -1037,7 +1037,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1109,6 +1109,7 @@
 
 <h3 id="example-north-atlantic-right-whale">Example: North Atlantic right whale</h3>
 <p>Let's consider an example (from 10.2 in the text). North Atlantic <a href="https://en.wikipedia.org/wiki/Right_whale">right whales</a> were hunted to near extinction in the 1800s and early 1900s, after which their population size is thought to have <em>slowly</em> recovered (there are less than 400 now, and unfortunately <a href="https://www.fisheries.noaa.gov/species/north-atlantic-right-whale#overview">appear to be in decline again</a>). Because of their long life span, over which survival and reproductive rates vary enormously, a stage-structured model is very appropriate. Below we draw a flow diagram representing all the transitions between calves, sexually immature individuals, sexually mature individuals, and actively reproducing individuals.</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     C((Calves)) --sIC nC--&gt; I((Immature));
 
@@ -1122,6 +1123,7 @@
     R --sRR nR--&gt; R;
     R --sMR nR--&gt; M;
     R --b nR--&gt; C;</code></pre>
+</center></p>
 <p>Converting this flow diagram into a system of recursion equations, <span class="arithmatex">\(\vec{n}(t+1) = \mathbf{M}\vec{n}(t)\)</span>, the projection matrix is</p>
 <div class="arithmatex">\[
 \mathbf{M} =
@@ -1236,6 +1238,7 @@ plt.show()
 
 <p>Now let's look at the special case of <strong>age-structure</strong>.</p>
 <p>Here individuals in stage <span class="arithmatex">\(i\)</span> at time <span class="arithmatex">\(t\)</span> can only contribute to stage <span class="arithmatex">\(i+1\)</span> (survival) and stage <span class="arithmatex">\(1\)</span> (reproduction) at time <span class="arithmatex">\(t+1\)</span>.</p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     1((1)) --p1 n1--&gt; 2((2));    
     1 --m1 n1--&gt; 1;
@@ -1244,6 +1247,7 @@ plt.show()
     3 --p3 n4--&gt; 4((4));
     3 --m3 n3--&gt; 1;
     4 --m4 n4--&gt; 1;</code></pre>
+</center></p>
 <p>Because of this, the projection matrix is simpler in the sense that it contains more zeros and has non-zero entries in very specific places</p>
 <div class="arithmatex">\[
 \mathbf{L} = 

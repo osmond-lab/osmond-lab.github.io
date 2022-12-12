@@ -1163,7 +1163,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1193,6 +1193,7 @@
 
 <h3 id="motivating-example">Motivating example</h3>
 <p>Let's return to our model of the number of birds on two islands from Lecture 10, which was the motivation for learning linear algebra in the first place. Let's adjust the model slightly, removing foreign immigration and switching to discrete time (assuming migration, then birth, then death). </p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A1((n1)) --b1 n1--&gt; A1;
     A1 --d1 n1--&gt; C1[ ];
@@ -1205,6 +1206,7 @@
 
     style C1 height:0px;
     style C2 height:0px;</code></pre>
+</center></p>
 <p>The number of birds on the two islands in the next time step are then</p>
 <div class="arithmatex">\[
 \begin{aligned}

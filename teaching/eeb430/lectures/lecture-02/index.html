@@ -1231,7 +1231,7 @@
       mountActivateWidget: true,
       mountStatusWidget: true,
       binderOptions: {
-      repo: "tomouellette/executable-cells",
+      repo: "mmosmond/executable-cells",
       ref: "main",
       binderUrl: "https://gke.mybinder.org",
       },
@@ -1279,23 +1279,21 @@
 </ul>
 <h3 id="iii-qualitatively-describe-the-biological-system">iii. Qualitatively describe the biological system</h3>
 <p>For continuous-time models, draw a flow diagram to describe changes to the variables over time. For example, if we had a population experiencing migration, death, and birth we could draw the following.</p>
-<p><center></p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A((n)) --birth--&gt; A;
     B[ ] --migration--&gt; A;
     A --death--&gt; C[ ];
     style B height:0px;
     style C height:0px;</code></pre>
-<p></center></p>
-<p><center><sup>Figure. Continuous time flow diagram.</sup></center></p>
+</center></p>
 <p>For discrete-time models, draw a life-cycle diagram with all the events that occur each time unit. For example, if we were modeling a population that experienced migration, then birth, then death each time step, we could draw the following.</p>
-<p><center></p>
+<p><center>
 <pre class="mermaid"><code>graph LR;
     A((n)) --migration--&gt; B((n'));
     B --birth--&gt; C((n''));
     C --death--&gt; A;</code></pre>
-<p></center></p>
-<p><center><sup>Figure. Discrete-time life-cycle diagram. </sup></center></p>
+</center></p>
 <p>For discrete time models with multiple variables and events, construct a table listing the outcome of every event. We'll see an example of this below.</p>
 <h3 id="iv-quantitatively-describe-the-biological-system">iv. Quantitatively describe the biological system</h3>
 <p>Using the diagrams and tables as a guide, write down the equations. Perform checks. Are the constraints on the variables still met as time passes? Make sure that the units of the right-hand side equal those on the left-hand side.</p>
@@ -1401,11 +1399,11 @@ n_{t+1} &amp;= n'' − dn'' \\
 </ul>
 <h4 id="iii-qualitatively-describe-the-biological-system_1">iii. Qualitatively describe the biological system</h4>
 <p>Gametes unite at random in the gamete pool to produce diploid offspring. These offspring grow into adults that undergo meiosis, creating gametes, and die. Below we draw the life-cycle diagram.</p>
-<p><center></p>
+<p><center>
 <pre class="mermaid"><code>    graph LR;
     A((random&lt;br&gt; union)) --diploid--&gt; B((meiosis));
     B --haploid--&gt; A;</code></pre>
-<p></center></p>
+</center></p>
 <h4 id="iv-quantiatively-describe-the-biological-system">iv. Quantiatively describe the biological system</h4>
 <p>To calculate the frequency of each genoytpe in the next generation we use a table of events. The "Union" column indicates the pair of gametes that are meeting each other, the "Frequency" column indicates the proportion of gamete pairs in the population with this particular union, and the remaining columns indicate which diploid genotype is created by the union.</p>
 <table>
@@ -1480,6 +1478,7 @@ p[2].label='aa'
 p.show()
 </pre>
 
+<p><img alt="png" src="../lecture-02_files/lecture-02_3_0.png" /></p>
 <p>From this plot we see, for example, that the frequency of heterozygotes, Aa, is maximized at intermediate allele frequencies.</p>
 <p>Subbing in <span class="arithmatex">\(p=x+y/2\)</span> and <span class="arithmatex">\(q=y/2+z\)</span> we get the recursion equations describing the frequency of diploid genotypes in the next generation as a function of the diploid genotypes in the current generation,</p>
 <div class="arithmatex">\[x' = (x + y/2)^2\]</div>
