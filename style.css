@@ -1,0 +1,29 @@
+/* General Website Style rules */
+body {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+p {
+    width: 100%;
+    max-width: 600px; 
+    text-align: justify; 
+}
+
+ul {
+    width: 100%;
+    max-width: 500px; 
+    text-align: justify; 
+}
+
+img, cap {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    border: 4px solid black;
+}
