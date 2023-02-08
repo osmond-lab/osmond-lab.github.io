@@ -1,7 +1,6 @@
 /* General Website Style rules */
 body {
-  font-family: monospace;
-  font-size: 14px;
+  font-family: "Courier New";
 }
 
 p {
@@ -10,10 +9,20 @@ p {
     text-align: justify; 
 }
 
-ul {
-    width: 100%;
-    max-width: 500px; 
-    text-align: justify; 
+ul
+{
+    width:100%;
+    max-width:500px; 
+    word-wrap:break-word;
+    text-align:left;
+}
+
+ol
+{
+    width:100%;
+    max-width:500px; 
+    word-wrap:break-word;
+    text-align:left;
 }
 
 img, cap {
