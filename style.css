@@ -33,6 +33,10 @@ img, cap {
     margin-right: auto;
 }
 
+.cover {
+  width: 100%
+}
+
 hr {
     border: 4px solid black;
 }
