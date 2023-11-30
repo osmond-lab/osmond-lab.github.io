@@ -27,16 +27,27 @@ ol
 
 img, cap {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.cover {
-  width: 100%
-}
-
 hr {
     border: 4px solid black;
+    width: 100%;
+    max-width: 600px;
+}
+
+.container {
+    position: relative; 
+    text-align: left; 
+    width: 100%;
+    max-width: 600px;
+}
+
+.top-left {
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }

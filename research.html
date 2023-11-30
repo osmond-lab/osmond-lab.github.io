@@ -2,42 +2,32 @@
 
 <head>
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-</script>
-<script>
-$(function(){
-  $("#header").load("header.html");
-});
-</script>
 <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, width=device-width" />
 </head>
 
 <body>
-
-<div id="header"></div>
 
 <center>
 
 <img src="IMAGES/popbio.png" alt="popbio!">
 <p>
 We use mathematics to investigate ecological and evolutionary processes, typically at the population level.
-The main focus so far has been <b>evolutionary rescue</b>, where a declining population is "rescued" from extinction by sufficiently rapid evolution. 
+The main focus so far has been <b>evolutionary rescue</b>, where a declining population is rescued from extinction by sufficiently rapid evolution. 
 An emerging focus is <b>spatial population genetics</b>, specifically using tree sequences to infer how alleles, individuals, and populations have moved across the landscape to get to where they are today.
 One of the great things about theory is that we get to work on many interesting topics, which have included <b>speciation</b>, <b>sex chromosomes</b>, <b>metabolic scaling theory</b>, <b>epistasis</b>, and <b>sexual selection</b>. 
 For a list of papers, please see <a href="./publications.html">publications</a>.
 </p>
 
+<hr>
 <h1>Evolutionary rescue</h1> 
+<hr>
 
 <p>
-When populations are declining due to environmental change, it is sometimes possible for sufficiently fast evolution to revert this decline and "rescue" populations from extinction. This process is especially important in the context of human disturbance and <b>climate change</b> (where we want rescue to happen) and the evolution of <b>drug resistance</b> (where we don't want rescue to happen). Our work has so far focused on three areas:
+When populations are declining due to environmental change, it is sometimes possible for sufficiently fast evolution to revert this decline and rescue populations from extinction. This process is especially important in the context of human disturbance and <b>climate change</b> (where we want rescue to happen) and the evolution of <b>drug resistance</b> (where we don't want rescue to happen). Our work has so far focused on three areas:
 </p>
 
-<h2>1. Interactions</h2>
+<hr>
+<h2>1. Interactions between individuals</h2>
 
 <img src="IMAGES/henriquesPhasePlane.png" width="100%" alt="Phase plane by Gil Henriques, showing that cooperation can help rescue!">
 
@@ -45,6 +35,7 @@ When populations are declining due to environmental change, it is sometimes poss
 Interactions between individuals affect both demography and evolution, and therefore can have important impacts on whether rescue occurs or not. Using mathematical models we have explored how <b>competition</b> (<a href="http://dx.doi.org/10.1098/rstb.2012.0085">Osmond & de Mazancourt 2013</a>), <b>predation</b> (<a href="https://dx.doi.org/10.1086/691778">Osmond, Otto, Klausmeier 2018</a>), and <b>cooperation</b> (<a href="https://doi.org/10.1111/evo.14028">Henriques & Osmond 2020</a>) affect rescue. In all three cases there are scenarios where the species interaction can either help or hinder rescue from occurring. Exciting next steps include models of mutualisms and more complex food webs.
 </p>
 
+<hr>
 <h2>2. Fitness functions</h2>
 
 <img src="IMAGES/tipping-point.png" width="100%" alt="an evolutionary tipping point!">
@@ -53,6 +44,7 @@ Interactions between individuals affect both demography and evolution, and there
 An important assumption in many mathematical models of evolution is how the trait value of an individual translates to fitness (we call this translation a "fitness function"). Nearly all models of rescue (and beyond) assume fitness functions are Gaussian (i.e., like a normal distribution). In <a href="https://doi.org/10.1111/evo.13374">Osmond & Klausmeier 2018</a> (and reviewed in <a href="https://doi.org/10.1098/rstb.2019.0453">Klausmeier et al 2020</a>) we have shown that even small changes to this ubiquitous assumption can lead to very different predictions for rescue: in gradually changing environments sometimes populations can become so maladapted that the strength of selection actually begins to decline, causing adaptation to slow down, which leads to a <b>tipping point</b> where seemingly OK populations suddenly go extinct. It might next be fun to <a href="https://mmosmond.shinyapps.io/criticalsplines/">predict if real fitness functions lead to tipping points...</a>
 </p>
 
+<hr>
 <h2>3. Genetics</h2> 
 
 <img src="IMAGES/rescue-diversity.png" width="100%" alt="pairwise diversity after sweep or rescue!">
@@ -61,11 +53,13 @@ An important assumption in many mathematical models of evolution is how the trai
 Most models of rescue focus on predicting whether rescue will occur or not. We have extended this theoretical work by asking, <i>given rescue occurs</i>, i) how many <b>mutations</b> of what size are expected to have occured (<a href="https://doi.org/10.1534/genetics.119.302890">Osmond, Otto, Martin 2020</a>)? and ii) can we <b>infer</b> that rescue has occured from contemporary genomic data (<a href="https://doi.org/10.1534/genetics.120.303173">Osmond & Coop 2020</a>)? We have just scratched the surface of research in this area: exciting next steps include models of multi-step rescue with recombination and the signatures of highly polygenic rescue.  
 </p>
 
+<hr>
 <h1>Spatial population genetics</h1>
+<hr>
 
 <p>
 <img src="IMAGES/windroses.png" width="100%" alt="windrose plots for some admixed A thaliana">
-Present-day genetic patterns have been shaped by the geographic movements of ancestors. This implies that one can describe aspects of the past movement of individuals from information contained in contemporary genomes. Previous attempts at this <b>inference problem</b> have focused on non-recombining sequences or summary statistics that capture either deep or recent timescales. Cutting-edge computational methods are now available to infer <b>genome-wide gene genealogies</b> along recombining genomes, which contain an incredible amount of information and naturally incorporate both long and short timescales. Our recent work (<a href="https://doi.org/10.1101/2021.07.13.452277">Osmond & Coop 2021</a>) shows how such "tree sequences" can be used to infer the effective rate of dispersal and the locations of a sample's genetic ancestors at any time in the past, under the assumption of random dispersal in continuous space. There are many exciting extensions here, such as incorporating ancient genomes, tracking specific groups of loci (eg, from GWAS), allowing for variation in dispersal rates across lineages, and accounting for selection.
+Present-day genetic patterns have been shaped by the geographic movements of ancestors. This implies that one can describe aspects of the past movement of individuals from information contained in contemporary genomes. Previous attempts at this <b>inference problem</b> have focused on non-recombining sequences or summary statistics that capture either deep or recent timescales. Cutting-edge computational methods are now available to infer <b>genome-wide gene genealogies</b> along recombining genomes, which contain an incredible amount of information and naturally incorporate both long and short timescales. Our recent work (<a href="https://doi.org/10.1101/2021.07.13.452277">Osmond & Coop 2021</a>) shows how such "tree sequences" can be used to infer the effective rate of dispersal and the locations of a sample's genetic ancestors at any time in the past, under the assumption of random dispersal in continuous space. There are many exciting extensions here, such as incorporating ancient genomes, tracking specific groups of loci (eg, from GWAS), allowing for variation in dispersal rates across lineages, and accounting for selection. We are currently extending our methods to work with full ancestral recombination graphs.
 </p>
 
 </body>
