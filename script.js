@@ -1,3 +1,0 @@
-document.title = 'Osmond lab';
-
-
