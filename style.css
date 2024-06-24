@@ -25,8 +25,8 @@ ol
     text-align:left;
 }
 
-img, cap {
-    width: 100%;
+img {
+    width:100%;
     max-width: 600px;
     display: block;
     margin-left: auto;
