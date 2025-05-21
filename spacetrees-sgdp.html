@@ -44,7 +44,7 @@ The Relate-inferred ARG for the Simons Genome Diversity Project was kindly share
 <h3>Comparing with Wohns et al 2022</h3>
 
 <p>
-We first compare to Figure 4b in Wohns et al 2022 (fig 1). They show the mean ancestor location of each Human Genome Diversity Project population over time, converging in northeast Africa. We compare this to the mean ancestor location of each sample in our ARG over time. One key difference is that we work in latitude and longitude rather than Cartesian coordinates, creating trajectories that are less arced. However, despite a different coordinate system, sample, chromosome, and ARG-inference method, the two spatial-inference methods give similar qualitative results -- the non-African sample lineages converging in the middle east and then all lineages meeting in (north)eastern Africa. (todo: one of the most unrealistic things about this is the trans-atlantic movement of indigenous north american sample lineages, add alternative version where lineages cross over the pacific. alternatively, would be fun to show things on dymaxion projection.)
+We first compare to Figure 4b in Wohns et al 2022 (fig 1). They show the mean ancestor location of each Human Genome Diversity Project population over time, converging in northeast Africa. We compare this to the mean ancestor location of each sample in our ARG over time. One key difference is that we work in latitude and longitude rather than Cartesian coordinates, creating trajectories that are less arced. However, despite a different coordinate system, sample, chromosome, and ARG-inference method, the two spatial-inference methods give similar qualitative results -- the non-African sample lineages converging in the middle east and then all lineages meeting in (north)eastern Africa. Our method also shows more variance in mean ancestor location ~1 million years ago, perhaps because we use do not always find the true maximum likelihood ancestor location when the likelihood surface gets very flat, introducing some noise, or because Wohns et al 2022 also average over population. One of the most unrealistic patterns in these plots is the eastward movement of the North American sample lineages back to Eurasia over the Atlantic -- see appendix for ways to avoid this. 
 <img src="IMAGES/wohns_4b_real.png" alt="fig 4b in Wohns et al 2022">
 <img src="IMAGES/wohns_4b.png" alt="comparison to fig 4b in Wohns et al 2022">
 <b>Fig 1:</b> (top) Fig 4b from Wohns et al 2022. (bottom) Our version. (todo: run our method on cartesian coordinates for closer comparison, requires extending method to 3d, or at least plot lines as great circles)
@@ -65,13 +65,13 @@ Finally, we compare to the supplementary video of Wohns et al 2022 (fig 3), whic
 </div>
 <p>
 <img src="IMAGES/group.gif" alt="gif of ancestor locations">
-<b>Fig 3.</b> (top) Supplemental video from Wohns et al 2022. (bottom) Our version. (todo: cartesian coordinates)
+<b>Fig 3.</b> (top) Supplemental video from Wohns et al 2022. (bottom) Our version. (todo: cartesian coordinates, interpolate along great circles for more frames)
 </p>
 
 <h3>Comparing with Grundler et al 2025</h3>
 
 <p>
-Moving on to Grundler et al 2025, we first compare to their Figure 2 (fig 4), which shows the locations of ancestors of particular samples back in time, as well as the mean ancestor trajectory. To facilitate comparison we focus on two samples that are shared between the datasets, one from Thailand and one from Finland (thanks to Mike Grundler for these ids). The shapes of the trajectories are largely the same, the main difference being that our prediction has the ancestors crossing into Africa further south, at the southern end of the Red Sea, whereas by preventing lineages from crossing large water bodies Grundler et al 2025 have the lineages entering Africa further north. This may also be why the oldest ancestors also remain further north in their method. While the mean ancestors move at roughly the same rate in the two methods, we have many fewer lineages remaining outide of Africa ~500 thousand years ago. 
+Moving on to Grundler et al 2025, we first compare to their Figure 2 (fig 4), which shows the locations of ancestors of particular samples back in time, as well as the mean ancestor trajectory. To facilitate comparison we focus on two samples that are shared between the datasets, one from Thailand and one from Finland (thanks to Mike Grundler for these ids). The shapes of the mean trajectories are largely the same, the main difference being that our prediction has the ancestors crossing into Africa further south, at the southern end of the Red Sea, whereas by preventing lineages from crossing large water bodies Grundler et al 2025 have the lineages entering Africa further north. This may also be why the oldest mean ancestors also remain further north in their method. Further, while the mean ancestors move at roughly the same rate in the two methods, we have many fewer lineages remaining outide of Africa ~500 thousand years ago. The reason for this remains unclear to us.
 <img src="IMAGES/grundler_2_real.png" alt="grundler fig 2"><img src="IMAGES/grundler_2_legend.png" alt="grundler fig 2 legend" style="width:20%">
 <img src="IMAGES/grundler_2.png" alt="our version of grundler fig 2">
 <b>Fig 4.</b> (top) Two panels from Figure 2 in Grundler et al 2025. (bottom) Our version. (todo: great circles, finer time resolution)
@@ -92,6 +92,14 @@ Ancestral recombination graphs allow for new methods of spatial inference. Here 
 
 <p>
 One next step would be a more quantitative comparison of spatial inference method, e.g., applying all three methods to the same ARG and measuring distances between inferred ancestor locations (and perhaps also against true ancestor locations from simulations). Alternatively, one could do a more quantitative comparison of ARG-inference method on spatial inference, e.g., applying the same spatial-inference method to ARGs from tsinfer+tsdate, Relate, SINGER, ARGweaver, etc.
+</p>
+
+<h2>Appendix</h2>
+
+<p>
+The reason our plots above show the North American sample lineages crossing back to Eurasia over the Atlantic (fig 1-3) is only because of where zero longitude is. If we shift all longitudes so that zero longitude is now in the Pacific and then run our method, we see the North American sample lineages crossing back to Eurasia over the Pacific (fig A1). Working in other projections may create even more realistic visualizations.
+<img src="IMAGES/wohns_4b_shifted.png" alt="our shifted version of wohns fig 4b">
+<b>Fig A1.</b> Our version of Figure 4b in Wohns et al 2022, with zero longitude shifted into the Pacific.
 </p>
 
 <h2>Acknowledgements</h2>
